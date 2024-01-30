@@ -17,8 +17,7 @@ return new class extends Migration
                 ->references('id') // mahasiswa id
                 ->on('mahasiswa')
                 ->onDelete('cascade');
-            $table->string('kode');
-            $table->string('skema');
+            $table->string('kode')->refrences('kode')->on('master_matakuliah');
             $table->string('nilaimatakuliah');
             $table->string('indeks')->refrences('indeks')->on('nilai');
             $table->timestamps();
