@@ -7,6 +7,10 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'public/assets/js/soft-ui-dashboard.js',
+                'public/assets/scss/soft-ui-dashboard.scss',
+                'public/assets/css',
+
             ],
             refresh: true,
         }),
