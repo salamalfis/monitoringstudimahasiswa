@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-    //
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', [SessionController::class, 'index'])->name('login');
+    Route::post('/', [SessionController::class, 'login'])->name('login');
+    Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
 });
 
-Route::get('/login', function () {
-    return view('login');
-    //
-});
+

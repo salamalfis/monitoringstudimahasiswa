@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 
 
@@ -9,7 +12,7 @@
 
 
 
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <title>
         Monitoring Perkembangan Studi Mahasiswa
     </title>
@@ -26,6 +29,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100  ">
+    @include('sweetalert::alert')
     @auth
         @yield('auth')
     @endauth
@@ -57,6 +61,8 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
+
+
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
