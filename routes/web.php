@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionController;
 
 /*
@@ -19,6 +20,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [SessionController::class, 'index'])->name('login');
     Route::get('/login', [SessionController::class, 'index'])->name('login');
     Route::post('/login', [SessionController::class, 'login'])->name('login');
+    Route::get('/forgot-password', [ResetController::class, 'index'])->name('forgot-password');
 
 
 });

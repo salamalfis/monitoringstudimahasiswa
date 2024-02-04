@@ -15,16 +15,20 @@
 
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="/login">
                                         @csrf
                                         <label>Email</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="email" id="email"
-                                                placeholder="Email" aria-label="Email" aria-describedby="email-addon" value="{{ old('email') }}">
+                                                placeholder="Email" aria-label="Email" aria-describedby="email-addon"
+                                                value="{{ old('email') }}"
+                                                {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}
+                                                >
                                             @error('email')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
+
                                         <label>Password</label>
                                         <div class="mb-3">
                                             <input type="password" class="form-control" name="password" id="password"
@@ -46,7 +50,7 @@
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <small class="text-muted">Lupa password? Klik
-                                        <a href="/login/forgot-password"
+                                        <a href="forgot-password"
                                             class="text-info text-gradient font-weight-bold">Disini!</a>
                                     </small>
 
