@@ -14,10 +14,16 @@ use App\Http\Controllers\SessionController;
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'guest'], function () {
+
     Route::get('/', [SessionController::class, 'index'])->name('login');
     Route::post('/', [SessionController::class, 'login'])->name('login');
-    Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
+
 });
 
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
+});

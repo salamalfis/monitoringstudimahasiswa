@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
-
 use function Ramsey\Uuid\v1;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SessionController extends Controller
 {
@@ -27,7 +28,8 @@ class SessionController extends Controller
         ]);
 
 
-        if (auth()->attempt($data)) {
+        if (Auth::attempt($data)) {
+            session()->regenerate();
             Alert::success('Selamat Datang', 'Anda berhasil login');
             return view('dashboard');
         } else {
@@ -37,7 +39,7 @@ class SessionController extends Controller
     }
     function logout()
     {
-        auth()->logout();
-        return redirect('/');
+        Auth::logout();
+        return redirect('/')->with('success', 'Anda berhasil logout');
     }
 }
