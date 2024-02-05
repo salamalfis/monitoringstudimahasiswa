@@ -18,8 +18,7 @@ use App\Http\Controllers\SessionController;
 Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/', [SessionController::class, 'index'])->name('login');
-    Route::get('/login', [SessionController::class, 'index'])->name('login');
-    Route::post('/login', [SessionController::class, 'login'])->name('login');
+    Route::post('/', [SessionController::class, 'login'])->name('login');
     Route::get('/forgot-password', [ResetController::class, 'index'])->name('forgot-password');
 
 
@@ -27,6 +26,9 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/home', function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/profile', function () {

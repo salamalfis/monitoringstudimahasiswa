@@ -15,7 +15,7 @@
 
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="/login">
+                                    <form role="form" method="POST" action="">
                                         @csrf
                                         <label>Email</label>
                                         <div class="mb-3">
