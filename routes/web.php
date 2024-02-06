@@ -20,17 +20,18 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [SessionController::class, 'index'])->name('login');
     Route::post('/', [SessionController::class, 'login'])->name('login');
     Route::get('/forgot-password', [ResetController::class, 'index'])->name('forgot-password');
-
+    Route::post('/forgot-password', [ResetController::class, 'sendEmail'])->name('forgot-password');
+    Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 
 });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('Dashboard');
     Route::get('/home', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('Dashboard');
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
