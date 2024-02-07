@@ -14,7 +14,11 @@
 
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <title>
+        @if (request()->is('/'))
         Monitoring Perkembangan Studi Mahasiswa
+        @else
+        {{ str_replace('-', ' ', ucfirst(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
+        @endif
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -26,6 +30,7 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body class="g-sidenav-show  bg-gray-100  ">
@@ -68,6 +73,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    @livewireScripts
 </body>
 
 </html>

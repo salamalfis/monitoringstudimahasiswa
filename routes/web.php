@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,18 +23,33 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/forgot-password', [ResetController::class, 'index'])->name('forgot-password');
     Route::post('/forgot-password', [ResetController::class, 'sendEmail'])->name('forgot-password');
     Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
+    Route::get('/home', function () {
+        redirect('/dashboard');
+    })->name('Dashboard');
 
 });
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('Dashboard');
     Route::get('/home', function () {
-        return view('dashboard');
+        redirect('/dashboard');
     })->name('Dashboard');
     Route::get('/profile', function () {
         return view('profile');
     })->name('profile');
     Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
+    Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
+    Route::get('/user', function () {
+        return view('user');
+    })->name('user');
+    Route::get('/useredit', function () {
+        return view('user.edit');
+    })->name('useredit');
 });
+
+Route::get('/home', function () {
+    redirect('/dashboard');
+})->name('Dashboard');

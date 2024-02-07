@@ -31,7 +31,7 @@ class SessionController extends Controller
         if (Auth::attempt($data)) {
             session()->regenerate();
             Alert::success('Selamat Datang', 'Anda berhasil login');
-            return view('dashboard');
+            return redirect('/dashboard');
         } else {
             Alert::error('Password atau email salah','Silahkan coba lagi');
             return back();
