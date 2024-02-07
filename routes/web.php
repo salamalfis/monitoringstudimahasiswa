@@ -45,9 +45,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user', function () {
         return view('user');
     })->name('user');
-    Route::get('/useredit', function () {
-        return view('user.edit');
+    Route::get('/user', function () {
+        return view('user.index');
     })->name('useredit');
+    Route::get('/mata-kuliah', function () {
+        return view('matakuliah.index');
+    })->name('matakuliah');
+    Route::get('/mata-kuliah-pilihan', function () {
+        return view('matakuliah.pilihan');
+    })->name('matakuliahs');
 });
 
 Route::get('/home', function () {

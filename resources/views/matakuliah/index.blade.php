@@ -15,7 +15,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+ User</a>
+                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Mata Kuliah</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -28,7 +28,7 @@
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kategor
+                                            Kategori
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -37,6 +37,10 @@
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama Mata Kuliah
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Nama Mata Kuliah (English)
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -71,18 +75,24 @@
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td>
                                         <td class="text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        </td>
+                                        <td class="text-center">
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail user">
                                                 <i class="fas fa-info text-secondary"></i>
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Edit user">
-                                                <i class="fas fa-user-edit text-secondary"></i>
-                                            </a>
-                                            <span>
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Hapus User">
-                                                <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                            </span>
+                                                    data-bs-original-title="Edit user">
+                                                    <i class="fas fa-user-edit text-secondary"></i>
+                                                </a>
+                                                <span>
+                                                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Hapus User">
+                                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                                </span>
                                         </td>
                                     </tr>
                                 </tbody>
