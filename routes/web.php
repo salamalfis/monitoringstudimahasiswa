@@ -24,7 +24,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/forgot-password', [ResetController::class, 'sendEmail'])->name('forgot-password');
     Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
     Route::get('/home', function () {
-        redirect('/dashboard');
+        return redirect('/dashboard');
     })->name('Dashboard');
 
 });
@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('dashboard');
     })->name('Dashboard');
     Route::get('/home', function () {
-        redirect('/dashboard');
+        return redirect('/dashboard');
     })->name('Dashboard');
     Route::get('/profile', function () {
         return view('profile');
@@ -57,5 +57,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/home', function () {
-    redirect('/dashboard');
+    return redirect('/dashboard');
 })->name('Dashboard');
