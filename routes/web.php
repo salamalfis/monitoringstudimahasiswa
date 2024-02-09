@@ -42,6 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('profile');
     Route::get('/logout', [SessionController::class, 'logout'])->name('logout');
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
+    Route::get('/mahasiswa-create', [MahasiswaController::class, 'create'])->name('mahasiswa');
+    Route::post('/mahasiswa-create', [MahasiswaController::class, 'registermahasiswa'])->name('mahasiswa');
     Route::get('/user', function () {
         return view('user');
     })->name('user');
