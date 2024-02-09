@@ -10,16 +10,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Mahasiswa extends Model
 {
-    use HasFactory, HasFactory, Notifiable, HasRoles,GenUid;
+    use HasFactory, HasFactory, Notifiable, HasRoles;
 
+
+    public $table = 'mahasiswa';
 
     protected $fillable = [
+        'id',
         'nim',
-        'jurusan',
-        'alamat',
-        'no_hp',
+        'email',
+        'angkatan',
+        'kelas',
+        'dosenwali',
     ];
 
- 
+
+
+
+
 
 }

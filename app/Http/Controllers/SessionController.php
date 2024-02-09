@@ -19,7 +19,8 @@ class SessionController extends Controller
     {
         $data = request()->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'remember' => 'boolean'
         ], [
             'email.required' => 'Email tidak boleh kosong',
             'email.email' => 'Email tidak valid',

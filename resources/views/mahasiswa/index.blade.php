@@ -17,7 +17,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="mahasiswa/create" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah User</a>
+                            <a href="mahasiswa-create" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah User</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">

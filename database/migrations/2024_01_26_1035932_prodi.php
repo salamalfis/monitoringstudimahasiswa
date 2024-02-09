@@ -13,10 +13,6 @@ return new class extends Migration
     {
         Schema::create('prodi', function (Blueprint $table) {
             $table->uuid('id');
-            $table->foreign('id')
-                ->references('id') // users id
-                ->on('users')
-                ->onDelete('cascade');
             $table->string('nip')->unique();
             $table->string('kodejabatan');
     });

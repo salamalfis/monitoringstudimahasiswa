@@ -38,10 +38,10 @@
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <div class="form-check form-switch hidden">
-                                            <input class="form-check-input" type="checkbox" id="rememberMe">
-                                            <label class="form-check-label" for="rememberMe">Ingat Saya</label>
-                                        </div>
+                                        {{-- <div class="form-check form-switch hidden">
+                                            <input class="form-check-input" type="checkbox" id="remember">
+                                            <label class="form-check-label" for="remember">Ingat Saya</label>
+                                        </div> --}}
                                         <div class="text-center">
                                             <button type="submit"
                                                 class="btn bg-gradient-info w-100 mt-4 mb-0">Login</button>

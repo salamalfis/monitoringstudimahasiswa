@@ -13,10 +13,6 @@ return new class extends Migration
     {
         Schema::create('detaildata_mahasiswa', function (Blueprint $table) {
             $table->uuid('id');
-            $table->foreign('id')
-                ->references('id') 
-                ->on('mahasiswa')
-                ->onDelete('cascade');
             $table->string('status');
             $table->string('jumlahsksselesai');
             $table->string('jumlahsksmengulang');

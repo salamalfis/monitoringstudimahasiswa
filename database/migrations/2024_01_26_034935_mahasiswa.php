@@ -14,14 +14,9 @@ return new class extends Migration
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->uuid('id');
 
-            $table->foreign('id')
-                ->references('id') // users id
-                ->on('users')
-                ->onDelete('cascade');
             $table->integer('nim')->unique();
-            $table->string('email')->unique();
-            $table->string('jurusan');
-            $table->tinyInteger('angkatan');
+
+            $table->integer('angkatan');
             $table->string('kelas');
             $table->string('dosenwali');
             $table->timestamps();
