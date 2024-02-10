@@ -38,12 +38,9 @@
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Email
+                                            Kelas
                                         </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tanggal Dibuat
-                                        </th>
+
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -65,20 +62,25 @@
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">Admin</p>
                                         </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
+
+                                        <td class="text-center ">
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                data-bs-original-title="Detail Mahasiswa">
+                                                <i class="fas fa-eye text-secondary"></i>
+
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                data-bs-original-title="Edit Mahasiswa">
+                                                <i class="fas fa-pencil-alt text-secondary"></i>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">
                                                 <i class="fas fa-key text-secondary"></i>
                                             </a>
-                                            <span>
+
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Hapus User">
-                                                <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                            </span>
+                                                data-bs-original-title="Deactive Mahasiswa">
+                                                <i class=" fas fa-user-slash text-secondary"></i>
+
                                         </td>
                                     </tr>
                                 </tbody>

@@ -9,10 +9,15 @@
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        {{-- if (Auth::user()->role == 'admin')
+        { --}}
+        <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Administrator</h6>
+        {{-- } --}}
         <ul class="navbar-nav">
             {{-- @foreach ( as )
 
             @endforeach --}}
+
             <li class="nav-item">
                 <a class="nav-link  {{ Request::is('dashboard') ? 'active' : '' }} " href="dashboard">
                     <div

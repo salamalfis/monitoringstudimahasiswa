@@ -63,8 +63,6 @@ class MahasiswaController extends Controller
             'password' => Hash::make(request('password')),
         ]);
 
-
-
         if ($user) {
             $mahasiswa=Mahasiswa::create([
                 'id' => $uid,
@@ -75,7 +73,7 @@ class MahasiswaController extends Controller
 
         ]);
         Alert::success('Berhasil', 'Mahasiswa berhasil ditambahkan');
-        return redirect()->route('/mahasiswa');
+        return redirect('/mahasiswa');
         }
         else{
 
@@ -85,11 +83,20 @@ class MahasiswaController extends Controller
 
         }
 
-
-
-
-
     }
+    public function show($id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        return view('mahasiswa.show', compact('mahasiswa'));
+    }
+
+    public function edit($id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        return view('mahasiswa.edit', compact('mahasiswa'));
+    }
+
+    
 
 
 }
