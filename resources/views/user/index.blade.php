@@ -69,6 +69,15 @@
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td>
                                         <td class="text-center">
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                data-bs-original-title="Detail User">
+                                                <i class="fas fa-eye text-secondary"></i>
+                                            </a>
+
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                data-bs-original-title="Edit User">
+                                                <i class="fas fa-user-edit text-secondary"></i>
+                                            </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">

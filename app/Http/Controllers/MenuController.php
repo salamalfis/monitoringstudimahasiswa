@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Submenu;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MenuController extends Controller
 {
@@ -20,37 +23,55 @@ class MenuController extends Controller
     {
         request()->validate([
             'nama' => 'required',
-            'harga' => 'required|numeric',
-            'kategori' => 'required',
-            'deskripsi' => 'required',
+            'route' => 'required',
+            'icon' => 'required',
+
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
-            'harga.required' => 'Harga tidak boleh kosong',
-            'harga.numeric' => 'Harga harus berupa angka',
-            'kategori.required' => 'Kategori tidak boleh kosong',
-            'deskripsi.required' => 'Deskripsi tidak boleh kosong',
+            'route.required' => 'Route tidak boleh kosong',
+            'icon.required' => 'Icon tidak boleh kosong',
+
         ]);
 
-        if(request('menu')){
+
             $menu = Menu::create([
-  
+
                 'nama' => request('nama'),
-                'harga' => request('harga'),
-                'kategori' => request('kategori'),
-                'deskripsi' => request('deskripsi'),
+                'route' => request('route'),
+                'icon' => request('icon'),
             ]);
-        } else {
-            $submenu = Submenu::create([
-                'nama' => request('nama'),
-                'harga' => request('harga'),
-                'kategori' => request('kategori'),
-                'deskripsi' => request('deskripsi'),
-            ]);
-        }
 
 
 
         Alert::success('Berhasil', 'Menu berhasil ditambahkan');
         return redirect('/menu');
+    }
+
+    public function registersubmenu()
+    {
+        request()->validate([
+            'nama' => 'required',
+            'route' => 'required',
+            'icon' => 'required',
+            'namamenu' => 'required',
+
+        ], [
+            'nama.required' => 'Nama tidak boleh kosong',
+            'route.required' => 'Route tidak boleh kosong',
+            'icon.required' => 'Icon tidak boleh kosong',
+            'namamenu.required' => 'Menu tidak boleh kosong',
+
+        ]);
+
+        $submenu = Submenu::create([
+
+            'nama' => request('nama'),
+            'route' => request('route'),
+            'icon' => request('icon'),
+            'menu_id' => Menu::where('namamenu', request('namamenu'))->first()->id,
+        ]);
+
+        Alert::success('Berhasil', 'Submenu berhasil ditambahkan');
+        return redirect('/submenu');
     }
 }

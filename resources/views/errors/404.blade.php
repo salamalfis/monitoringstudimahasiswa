@@ -3,6 +3,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<title>Monitoring Perkembangan Studi Mahasiswa</title>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
