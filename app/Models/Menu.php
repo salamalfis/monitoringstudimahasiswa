@@ -17,4 +17,9 @@ class Menu extends Model
         'route',
         'icon',
     ];
+
+    public function submenu()
+    {
+        return $this->hasMany(Submenu::class);
+    }
 }

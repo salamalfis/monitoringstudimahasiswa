@@ -4,7 +4,7 @@
     @include('dosenwali.dashboard')
 @elseif (Auth::user()->role == 'mahasiswa')
     @include('mahasiswa.dashboard')
-@elseif (Auth::user()->role == 'kaprodi')
+@elseif (Auth::user()->role == 'prodi')
     @include('kaprodi.dashboard')
 @else
     @include('dashboardcontoh')

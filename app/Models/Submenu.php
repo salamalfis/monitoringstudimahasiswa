@@ -18,4 +18,9 @@ class Submenu extends Model
         'icon',
         'menu_id',
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }

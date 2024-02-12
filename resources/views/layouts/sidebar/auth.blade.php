@@ -22,7 +22,7 @@
                 <a class="nav-link  {{ Request::is('dashboard') ? 'active' : '' }} " href="dashboard">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center  ">
-                        <i class="fa-solid fa-house fa-lg" style="color: #000000;"></i>
+                        <i class="fas fa-house fa-lg" style="color: #000000;"></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>

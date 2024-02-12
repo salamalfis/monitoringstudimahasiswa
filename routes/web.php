@@ -49,6 +49,9 @@ Route::group(['middleware' => 'auth'], function () {
         return view('user');
     })->name('user');
     Route::get('/menu',[MenuController::class, 'index'])->name('menu');
+    Route::get('/sub-menu',[MenuController::class, 'submenu'])->name('submenu');
+    Route::post('/menu',[MenuController::class, 'registermenu'])->name('menu');
+    Route::post('/sub-menu',[MenuController::class, 'registersubmenu'])->name('submenu');
     Route::get('/user', function () {
         return view('user.index');
     })->name('useredit');

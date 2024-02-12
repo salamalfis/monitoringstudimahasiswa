@@ -65,6 +65,7 @@
                                         </td>
 
                                         <td class="text-center ">
+
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail Mahasiswa">
                                                 <i class="fas fa-eye text-secondary"></i>
@@ -84,6 +85,7 @@
                                                 data-bs-original-title="Deactive Mahasiswa">
                                                 <i class=" fas fa-user-slash text-secondary"></i>
                                             </a>
+
                                         </td>
                                     </tr>
                                 </tbody>

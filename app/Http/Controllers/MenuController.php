@@ -11,13 +11,18 @@ class MenuController extends Controller
 {
     public function index()
     {
-        return view('menu.index');
+        $menu = Menu::with('Submenu')->get();
+        return view('menu.index', compact('menu'));
     }
 
-    public function create()
+
+    public function submenu()
     {
-        return view('menu.create');
+        $Submenu = Submenu::all();
+        return view('menu.submenu', compact('Submenu'));
     }
+
+
 
     public function registermenu()
     {
@@ -34,12 +39,12 @@ class MenuController extends Controller
         ]);
 
 
-            $menu = Menu::create([
+        $menu = Menu::create([
 
                 'nama' => request('nama'),
                 'route' => request('route'),
                 'icon' => request('icon'),
-            ]);
+        ]);
 
 
 
