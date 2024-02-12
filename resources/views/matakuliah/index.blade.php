@@ -15,7 +15,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Mata Kuliah</a>
+                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Mata
+                                Kuliah</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -23,7 +24,8 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             No
                                         </th>
                                         <th
@@ -58,7 +60,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="ps-4">
+                                        <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">1</p>
                                         </td>
 
@@ -81,18 +83,16 @@
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td>
                                         <td class="text-center">
+
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Detail user">
-                                                <i class="fas fa-info text-secondary"></i>
+                                                data-bs-original-title="Edit Mata Kuliah">
+                                                <i class="fas fa-user-edit text-secondary"></i>
+                                            </a>
+                                            <span>
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit user">
-                                                    <i class="fas fa-user-edit text-secondary"></i>
-                                                </a>
-                                                <span>
-                                                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="Hapus User">
-                                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                                </span>
+                                                    data-bs-original-title="Hapus User">
+                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            </span>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -15,7 +15,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Mata Kuliah Pilihan</a>
+                            <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Mata Kuliah
+                                Pilihan</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -81,18 +82,16 @@
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td>
                                         <td class="text-center">
+
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Detail user">
-                                                <i class="fas fa-info text-secondary"></i>
+                                                data-bs-original-title="Edit Mata Kuliah Pilihan">
+                                                <i class="fas fa-user-edit text-secondary"></i>
+                                            </a>
+                                            <span>
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit user">
-                                                    <i class="fas fa-user-edit text-secondary"></i>
-                                                </a>
-                                                <span>
-                                                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="Hapus User">
-                                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                                </span>
+                                                    data-bs-original-title="Hapus Mata Kuliah Pilihan">
+                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            </span>
                                         </td>
                                     </tr>
                                 </tbody>

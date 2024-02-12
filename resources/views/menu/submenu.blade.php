@@ -23,7 +23,7 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             No
                                         </th>
                                         <th
@@ -80,12 +80,16 @@
 
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Menu">
-                                                    <i class="fas fa-pencil-alt text-secondary"></i>
+                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
+                                                        data-bs-target="#editModal">
+
+                                                    </i>
                                                 </a>
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Deactive Menu">
-                                                    <i class="fas fa-key text-secondary"></i>
+                                                <a href="#"
+                                                        class="mx-3" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Deactive Menu">
+                                                        <i class="fas fa-key text-secondary"></i>
                                                 </a>
 
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
@@ -132,7 +136,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Sub Menu</label>
-                            <input type="text" name="nama" class="form-control" id="nama" >
+                            <input type="text" name="nama" class="form-control" id="nama">
                         </div>
                         <div class="mb-3">
                             <label for="route" class="form-label">Route</label>
@@ -142,7 +146,7 @@
                             <label for="menu_id" class="form-label">Menu</label>
                             <select class="form-control" id="menu_id" name="menu_id">
                                 @foreach ($menu as $position)
-                                    <option  value="{{ $position->id }}">{{ $position->nama }}</option>
+                                    <option value="{{ $position->id }}">{{ $position->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -152,7 +156,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="infoicon" class="form-label">Referensi Icon? klik
-                                <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank"
+                                <a href="https://fontawesome.com/v6/search" target="_blank"
                                     class="text-info text-gradient font-weight-bold">Disini!</a>
                             </label>
                         </div>
@@ -160,6 +164,56 @@
                         <div class="modal-footer">
 
                             <button type="submit" class="btn btn-info">Tambah Sub Menu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Edit form goes here -->
+                    <form action="" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="editNama" class="form-label">Nama Menu</label>
+                            <input type="text" name="nama" class="form-control" id="editNama">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRoute" class="form-label">Route</label>
+                            <input type="text" name="route" class="form-control" id="editRoute">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editMenu" class="form-label">Menu</label>
+                            <select class="form-control" id="editMenu" name="menu_id">
+                                @foreach ($menu as $position)
+                                    <option value="{{ $position->id }}">{{ $position->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="editIcon" class="form-label">Icon</label>
+                            <input type="text" name="icon" class="form-control" id="editIcon">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editInfoIcon" class="formlabel">Referensi Icon? klik
+                                <a href="https://fontawesome.com/v6/search" target="_blank"
+                                    class="text-info text-gradient font-weight-bold">Disini!</a>
+                            </label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>

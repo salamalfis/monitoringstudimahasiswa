@@ -22,7 +22,7 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             No
                                         </th>
                                         <th
@@ -105,7 +105,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Sub Menu</h5>
+                    <h5 class="modal-title" id="registrationModalLabel">Tambah Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -127,7 +127,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="infoicon" class="formlabel">Referensi Icon? klik
-                                <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank"
+                                <a href="https://fontawesome.com/v6/search" target="_blank"
                                     class="text-info text-gradient font-weight-bold">Disini!</a>
                             </label>
                         </div>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="editInfoIcon" class="formlabel">Referensi Icon? klik
-                            <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank"
+                            <a href="https://fontawesome.com/v6/search" target="_blank"
                                 class="text-info text-gradient font-weight-bold">Disini!</a>
                         </label>
                     </div>
