@@ -83,7 +83,7 @@
                                         @empty
                                         <tr>
                                             <td class="text-center" colspan="8">
-                                                <p class="text-xs font-weight-bold mb-0">Data {{ str_replace('-', ' ', ucfirst(Request::path())) }} Kosong</p>
+                                                <p class="text-xs font-weight-bold mb-0">Data {{ str_replace('-', ' ', ucfirst(Request::path())) }} tidak ditemukan</p>
                                             </td>
                                         </tr>
 

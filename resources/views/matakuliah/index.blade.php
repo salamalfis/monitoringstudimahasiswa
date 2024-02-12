@@ -15,7 +15,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Mata
+                            <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Mata
                                 Kuliah</a>
                         </div>
                     </div>
@@ -59,42 +59,54 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">1</p>
-                                        </td>
+                                    <?php $i = 0; ?>
+                                    @forelse ($matakuliah as $matkul)
+                                        <?php $i++; ?>
+                                        <tr>
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                            </td>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Edit Mata Kuliah">
-                                                <i class="fas fa-user-edit text-secondary"></i>
-                                            </a>
-                                            <span>
+                                          
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $matkul->kategori }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $matkul->kode }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->namamatakuliah }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->namamatakuliahenglish }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->sks }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->semester }}</span>
+                                            </td>
+                                            <td class="text-center">
+
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus User">
-                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                                    data-bs-original-title="Edit Mata Kuliah">
+                                                    <i class="fas fa-user-edit text-secondary"></i>
+                                                </a>
+                                                <span>
+                                                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Hapus Mata Kuliah">
+                                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="text-center" colspan="8">
+                                                <p class="text-xs font-weight-bold mb-0">Data {{ str_replace('-', ' ', ucfirst(Request::path())) }} tidak ditemukan</p>
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -103,4 +115,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection

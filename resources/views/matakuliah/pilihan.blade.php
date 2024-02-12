@@ -58,42 +58,52 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="ps-4">
-                                            <p class="text-xs font-weight-bold mb-0">1</p>
-                                        </td>
+                                    <?php $i = 0; ?>
+                                    @forelse ($matakuliah as $matkul)
+                                        <?php $i++; ?>
+                                        <tr>
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                        </td>
-                                        <td class="text-center">
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                            </td>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Edit Mata Kuliah Pilihan">
-                                                <i class="fas fa-user-edit text-secondary"></i>
-                                            </a>
-                                            <span>
+                                          
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $matkul->kategori }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $matkul->kode }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->namamatakuliah }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->namamatakuliahenglish }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->sks }}</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $matkul->semester }}</span>
+                                            </td>
+                                            <td class="text-center">
+
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Mata Kuliah Pilihan">
-                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                                    data-bs-original-title="Edit Mata Kuliah">
+                                                    <i class="fas fa-user-edit text-secondary"></i>
+                                                </a>
+                                                <span>
+                                                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Hapus User">
+                                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="8" class="text-center">Data tidak ditemukan</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

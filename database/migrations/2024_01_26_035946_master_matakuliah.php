@@ -39,6 +39,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('master_matakuliah', 'matkul_pilihan');
+        Schema::dropIfExists('master_matakuliah');
+        Schema::dropIfExists('matkul_pilihan');
     }
 };
