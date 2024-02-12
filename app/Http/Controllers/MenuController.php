@@ -18,8 +18,9 @@ class MenuController extends Controller
 
     public function submenu()
     {
+        $menu = Menu::all();
         $Submenu = Submenu::all();
-        return view('menu.submenu', compact('Submenu'));
+        return view('menu.submenu', compact('Submenu', 'menu'));
     }
 
 
@@ -58,13 +59,13 @@ class MenuController extends Controller
             'nama' => 'required',
             'route' => 'required',
             'icon' => 'required',
-            'namamenu' => 'required',
+            'menu_id' => 'required',
 
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
             'route.required' => 'Route tidak boleh kosong',
             'icon.required' => 'Icon tidak boleh kosong',
-            'namamenu.required' => 'Menu tidak boleh kosong',
+            'menu_id.required' => 'Menu tidak boleh kosong',
 
         ]);
 
@@ -73,7 +74,7 @@ class MenuController extends Controller
             'nama' => request('nama'),
             'route' => request('route'),
             'icon' => request('icon'),
-            'menu_id' => Menu::where('namamenu', request('namamenu'))->first()->id,
+            'menu_id' => request('menu_id'),
         ]);
 
         Alert::success('Berhasil', 'Submenu berhasil ditambahkan');

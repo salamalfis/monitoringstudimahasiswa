@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                             <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah Sub Menu</a>
+                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Sub Menu</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -66,8 +66,9 @@
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $Submenuitem('route') }}</p>
                                             </td>
+
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $Submenuitem('menu') }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $menu('nama') }}</p>
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
@@ -131,26 +132,26 @@
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Sub Menu</label>
-                            <input type="text" class="form-control" id="nama" >
+                            <input type="text" name="nama" class="form-control" id="nama" >
                         </div>
                         <div class="mb-3">
                             <label for="route" class="form-label">Route</label>
-                            <input type="text" class="form-control" id="route">
+                            <input type="text" name="route" class="form-control" id="route">
                         </div>
                         <div class="mb-3">
-                            <label for="menu" class="form-label">Menu</label>
-                            <select class="form-control" id="position-option" name="position_id">
-                                @foreach ($Submenu as $position)
-                                    <option value="{{ $position->id }}">{{ $position->position_name }}</option>
+                            <label for="menu_id" class="form-label">Menu</label>
+                            <select class="form-control" id="menu_id" name="menu_id">
+                                @foreach ($menu as $position)
+                                    <option  value="{{ $position->id }}">{{ $position->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">Icon</label>
-                            <input type="text" class="form-control" id="icon">
+                            <input type="text" name="icon" class="form-control" id="icon">
                         </div>
                         <div class="mb-3">
-                            <label for="infoicon" class="formlabel">Referensi Icon? klik
+                            <label for="infoicon" class="form-label">Referensi Icon? klik
                                 <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank"
                                     class="text-info text-gradient font-weight-bold">Disini!</a>
                             </label>
@@ -158,7 +159,7 @@
 
                         <div class="modal-footer">
 
-                            <button type="submit" class="btn btn-primary">Tambah Sub Menu</button>
+                            <button type="submit" class="btn btn-info">Tambah Sub Menu</button>
                         </div>
                     </form>
                 </div>
