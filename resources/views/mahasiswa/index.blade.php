@@ -17,7 +17,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="mahasiswa-create" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah User</a>
+                            <a href="mahasiswa-create" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah
+                                User</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -67,20 +68,22 @@
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail Mahasiswa">
                                                 <i class="fas fa-eye text-secondary"></i>
+                                            </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Edit Mahasiswa">
                                                 <i class="fas fa-pencil-alt text-secondary"></i>
+                                            </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">
                                                 <i class="fas fa-key text-secondary"></i>
                                             </a>
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Deactive Mahasiswa">
                                                 <i class=" fas fa-user-slash text-secondary"></i>
-
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user', function () {
         return view('user');
     })->name('user');
+    Route::get('/menu',[MenuController::class, 'index'])->name('menu');
     Route::get('/user', function () {
         return view('user.index');
     })->name('useredit');
