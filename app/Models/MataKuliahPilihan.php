@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MataKuliah extends Model
+class MataKuliahPilihan extends Model
 {
     use HasFactory,GenUid;
 
-    public $table = 'master_matakuliah';
+    public $table = 'matkul_pilihan';
 
     protected $fillable = [
         'kategori',

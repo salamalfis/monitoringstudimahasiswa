@@ -23,7 +23,8 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             No
                                         </th>
                                         <th
@@ -78,7 +79,7 @@
                                             <td class="text-center ">
 
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Menu">
                                                     <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
                                                         data-bs-target="#editModal">
@@ -86,10 +87,9 @@
                                                     </i>
                                                 </a>
 
-                                                <a href="#"
-                                                        class="mx-3" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="Deactive Menu">
-                                                        <i class="fas fa-key text-secondary"></i>
+                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Deactive Menu">
+                                                    <i class="fas fa-key text-secondary"></i>
                                                 </a>
 
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
@@ -145,6 +145,7 @@
                         <div class="mb-3">
                             <label for="menu_id" class="form-label">Menu</label>
                             <select class="form-control" id="menu_id" name="menu_id">
+                                <option disabled selected>Pilih Menu</option>
                                 @foreach ($menu as $position)
                                     <option value="{{ $position->id }}">{{ $position->nama }}</option>
                                 @endforeach
@@ -184,8 +185,9 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="editNama" class="form-label">Nama Menu</label>
-                            <input type="text" name="nama" class="form-control" id="editNama">
+                            <label for="nama" class="form-label">Nama Menu</label>
+                            <input type="text" name="nama" class="form-control" id="nama"
+                                {{-- value="{{ $Submenu->nama }}" --}}>
                         </div>
                         <div class="mb-3">
                             <label for="editRoute" class="form-label">Route</label>
@@ -194,6 +196,7 @@
                         <div class="mb-3">
                             <label for="editMenu" class="form-label">Menu</label>
                             <select class="form-control" id="editMenu" name="menu_id">
+                                <option disabled selected>Pilih Menu</option>
                                 @foreach ($menu as $position)
                                     <option value="{{ $position->id }}">{{ $position->nama }}</option>
                                 @endforeach

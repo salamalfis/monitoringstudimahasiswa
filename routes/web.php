@@ -64,8 +64,10 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('matakuliahs');
 
     Route::post('/mata-kuliah', [MataKuliahController::class, 'inputmatkul'])->name('matakuliah');
+    Route::post('/mata-kuliah-pilihan', [MataKuliahController::class, 'inputmatkulpilihan'])->name('matakuliahs');
     Route::get('/mata-kuliah-pilihan', [MataKuliahController::class, 'matkul_pilihan'])->name('matakuliahs');
     Route::get('/mata-kuliah', [MataKuliahController::class, 'index'])->name('matakuliah');
+
 
 });
 

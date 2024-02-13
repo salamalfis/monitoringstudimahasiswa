@@ -20,7 +20,7 @@ class MenuController extends Controller
     {
         $menu = Menu::all();
         $Submenu = Submenu::all();
-        return view('menu.submenu', compact('Submenu', 'menu'));
+        return view('menu.submenu', compact('Submenu','menu'));
     }
 
 
@@ -80,4 +80,88 @@ class MenuController extends Controller
         Alert::success('Berhasil', 'Submenu berhasil ditambahkan');
         return redirect('/submenu');
     }
+
+    public function editmenu($id)
+    {
+        $menuid = Menu::find($id);
+        return view('menu.edit', compact('menu'));
+    }
+    public function updatemenu($id)
+    {
+        request()->validate([
+            'nama' => 'required',
+            'route' => 'required',
+            'icon' => 'required',
+
+        ], [
+            'nama.required' => 'Nama tidak boleh kosong',
+            'route.required' => 'Route tidak boleh kosong',
+            'icon.required' => 'Icon tidak boleh kosong',
+
+        ]);
+
+        $menu = Menu::find($id);
+        $menu->update([
+            'nama' => request('nama'),
+            'route' => request('route'),
+            'icon' => request('icon'),
+        ]);
+
+        Alert::success('Berhasil', 'Menu berhasil diubah');
+        return redirect('/menu');
+    }
+
+    public function editsubmenu($id)
+    {
+        $submenuid = Submenu::find($id);
+        return view('menu.editsubmenu', compact('submenu'));
+    }
+    public function updatesubmenu($id)
+    {
+        request()->validate([
+            'nama' => 'required',
+            'route' => 'required',
+            'icon' => 'required',
+            'menu_id' => 'required',
+
+        ], [
+            'nama.required' => 'Nama tidak boleh kosong',
+            'route.required' => 'Route tidak boleh kosong',
+            'icon.required' => 'Icon tidak boleh kosong',
+            'menu_id.required' => 'Menu tidak boleh kosong',
+        ]);
+
+        $submenu = Submenu::find($id);
+        $submenu->update([
+            'nama' => request('nama'),
+            'route' => request('route'),
+            'icon' => request('icon'),
+            'menu_id' => request('menu_id'),
+        ]);
+
+        Alert::success('Berhasil', 'Submenu berhasil diubah');
+        return redirect('/submenu');
+    }
+
+    public function deletemenu($id)
+    {
+        $menu = Menu::find($id);
+        $menu->delete();
+        Alert::success('Berhasil', 'Menu berhasil dihapus');
+        return redirect('/menu');
+    }
+    public function deletesubmenu($id)
+    {
+        $submenu = Submenu::find($id);
+        $submenu->delete();
+        Alert::success('Berhasil', 'Submenu berhasil dihapus');
+        return redirect('/submenu');
+    }
+
+    public function sidebar()
+    {
+        $menu = Menu::with('Submenu')->get();
+        return  compact('menu');
+    }
+
 }
