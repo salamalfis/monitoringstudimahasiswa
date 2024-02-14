@@ -147,14 +147,18 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $menu->delete();
-        Alert::success('Berhasil', 'Menu berhasil dihapus');
+        $title = 'Delete Menu!';
+        $text = "Apakah anda yakin ingin menghapus menu ini?";
+        confirmDelete($title, $text);
         return redirect('/menu');
     }
     public function deletesubmenu($id)
     {
         $submenu = Submenu::find($id);
         $submenu->delete();
-        Alert::success('Berhasil', 'Submenu berhasil dihapus');
+        $title = 'Delete Submenu!';
+        $text = "Apakah anda yakin ingin menghapus submenu ini?";
+        confirmDelete($title, $text);
         return redirect('/submenu');
     }
 

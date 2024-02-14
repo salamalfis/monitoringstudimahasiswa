@@ -77,8 +77,11 @@
 
 
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Menu">
+                                                <a
+                                            {{-- href="{{ route('users.destroy', $user->id) }}" --}}
+                                            data-bs-toggle="tooltip" type="button" class="mx-3"
+                                                    data-bs-original-title="Hapus Menu" data-confirm-delete="true">
+
                                                     <i class=" fas fa-trash text-secondary"></i>
                                                 </a>
                                             </td>
