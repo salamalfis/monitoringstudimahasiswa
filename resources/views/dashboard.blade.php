@@ -1,4 +1,4 @@
-@if (Auth::user()->role == 'admin')
+@if (Auth::user()->role == 'administrator')
     @include('admin.dashboard')
 @elseif (Auth::user()->role == 'dosenwali')
     @include('dosenwali.dashboard')

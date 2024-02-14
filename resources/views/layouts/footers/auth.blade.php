@@ -4,7 +4,7 @@
             ©
         <script>
             document.write(new Date().getFullYear())
-        </script>, S1 Sistem Informasi Telkom University
+        </script> Program Studi S1 Sistem Informasi Telkom University
         </div>
     </div>
 </footer>
