@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SideBarController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\ProgramStudiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +34,8 @@ Route::group(['middleware' => 'guest'], function () {
 
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'],function () {
+
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -62,12 +66,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mata-kuliah-pilihan', function () {
         return view('matakuliah.pilihan');
     })->name('matakuliahs');
+    Route::get('/dosen-wali', function () {
+        return view('dosenwali.index');
+    })->name('dosenwali');
 
     Route::post('/mata-kuliah', [MataKuliahController::class, 'inputmatkul'])->name('matakuliah');
     Route::post('/mata-kuliah-pilihan', [MataKuliahController::class, 'inputmatkulpilihan'])->name('matakuliahs');
     Route::get('/mata-kuliah-pilihan', [MataKuliahController::class, 'matkul_pilihan'])->name('matakuliahs');
     Route::get('/mata-kuliah', [MataKuliahController::class, 'index'])->name('matakuliah');
-
+    Route::get('/role', [RoleController::class, 'index'])->name('role');
+    Route::post('/role', [RoleController::class, 'registerrole'])->name('role');
+    Route::get('/role-akses', [RoleController::class, 'assignrole'])->name('role');
+    Route::post('/role-akses', [RoleController::class, 'assignrole'])->name('role');
+    Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('programstudi');
 
 });
 

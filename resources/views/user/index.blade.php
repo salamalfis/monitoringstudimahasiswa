@@ -71,22 +71,22 @@
                                         <td class="text-center">
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail User">
-                                                <i class="fas fa-eye text-secondary"></i>
+                                                <i class="fas fa-eye"></i>
                                             </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Edit User">
-                                                <i class="fas fa-user-edit text-secondary"></i>
+                                                <i class="fas fa-user-edit"></i>
                                             </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">
-                                                <i class="fas fa-key text-secondary"></i>
+                                                <i class="fas fa-key "></i>
                                             </a>
                                             <span>
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Hapus User">
-                                                <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                                <i class="cursor-pointer fas fa-trash "></i>
                                             </span>
                                         </td>
                                     </tr>

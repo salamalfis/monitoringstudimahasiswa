@@ -6,21 +6,15 @@ use App\Traits\GenUid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Submenu extends Model
+class Role extends Model
 {
     use HasFactory, GenUid;
 
-    public $table = 'submenu';
+    public $table = 'role';
 
     protected $fillable = [
         'nama',
-        'route',
-
-        'menu_id',
+        'role',
     ];
 
-    public function menu()
-    {
-        return $this->belongsTo(Menu::class);
-    }
 }

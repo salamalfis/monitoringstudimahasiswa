@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('route');
             $table->string('icon');
@@ -20,10 +20,9 @@ return new class extends Migration
         });
 
         Schema::create('submenu', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('route');
-            $table->string('icon');
             $table->uuid('menu_id');
             $table->timestamps();
         });

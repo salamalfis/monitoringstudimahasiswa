@@ -50,7 +50,7 @@ class MenuController extends Controller
 
 
         Alert::success('Berhasil', 'Menu berhasil ditambahkan');
-        return redirect('/menu');
+        return redirect('menu');
     }
 
     public function registersubmenu()
@@ -58,13 +58,13 @@ class MenuController extends Controller
         request()->validate([
             'nama' => 'required',
             'route' => 'required',
-            'icon' => 'required',
+
             'menu_id' => 'required',
 
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
             'route.required' => 'Route tidak boleh kosong',
-            'icon.required' => 'Icon tidak boleh kosong',
+
             'menu_id.required' => 'Menu tidak boleh kosong',
 
         ]);
@@ -73,12 +73,12 @@ class MenuController extends Controller
 
             'nama' => request('nama'),
             'route' => request('route'),
-            'icon' => request('icon'),
+
             'menu_id' => request('menu_id'),
         ]);
 
         Alert::success('Berhasil', 'Submenu berhasil ditambahkan');
-        return redirect('/submenu');
+        return redirect('sub-menu');
     }
 
     public function editmenu($id)
@@ -108,7 +108,7 @@ class MenuController extends Controller
         ]);
 
         Alert::success('Berhasil', 'Menu berhasil diubah');
-        return redirect('/menu');
+        return redirect('menu');
     }
 
     public function editsubmenu($id)
@@ -121,13 +121,12 @@ class MenuController extends Controller
         request()->validate([
             'nama' => 'required',
             'route' => 'required',
-            'icon' => 'required',
             'menu_id' => 'required',
 
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
             'route.required' => 'Route tidak boleh kosong',
-            'icon.required' => 'Icon tidak boleh kosong',
+
             'menu_id.required' => 'Menu tidak boleh kosong',
         ]);
 
@@ -135,12 +134,12 @@ class MenuController extends Controller
         $submenu->update([
             'nama' => request('nama'),
             'route' => request('route'),
-            'icon' => request('icon'),
+
             'menu_id' => request('menu_id'),
         ]);
 
         Alert::success('Berhasil', 'Submenu berhasil diubah');
-        return redirect('/submenu');
+        return redirect('sub-menu');
     }
 
     public function deletemenu($id)
@@ -150,7 +149,7 @@ class MenuController extends Controller
         $title = 'Delete Menu!';
         $text = "Apakah anda yakin ingin menghapus menu ini?";
         confirmDelete($title, $text);
-        return redirect('/menu');
+        return redirect('menu');
     }
     public function deletesubmenu($id)
     {
@@ -159,12 +158,13 @@ class MenuController extends Controller
         $title = 'Delete Submenu!';
         $text = "Apakah anda yakin ingin menghapus submenu ini?";
         confirmDelete($title, $text);
-        return redirect('/submenu');
+        return redirect('sub-menu');
     }
 
     public function sidebar()
     {
         $menu = Menu::with('Submenu')->get();
+
         return  compact('menu');
     }
 

@@ -1,3 +1,6 @@
+<?php $menu = DB::select('select * from menu order by nama asc') ?>
+
+
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-white"
     data-color="info" id="sidenav-main">
     <div class="sidenav-header">
@@ -14,19 +17,38 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Administrator</h6>
         {{-- } --}}
         <ul class="navbar-nav">
-            {{-- @foreach ( as )
 
-            @endforeach --}}
 
-            <li class="nav-item">
-                <a class="nav-link  {{ Request::is('dashboard') ? 'active' : '' }} " href="dashboard">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center  ">
-                        <i class="fas fa-house fa-lg" style="color: #000000;"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-            </li>
+
+            @forelse ($menu as $menus)
+                <li class="nav-item">
+                    <a class="nav-link  {{ Request::is($menus->route) ? 'active' : '' }} " href="{{ $menus->route }}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center  ">
+                            <i class="fas {{ $menus->icon }}" style="color: #000000;"></i>
+
+                        </div>
+                        <span class="nav-link-text ms-1">{{ $menus->nama }}</span>
+                    </a>
+                </li>
+
+            @empty
+                <li class="nav-item">
+                    <a class="nav-link  " href="#">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center  ">
+                            <i class="fas fa-exclamation-triangle" style="color: #000000;"></i>
+
+                        </div>
+                        <span class="nav-link-text ms-1">Menu Tidak Tersedia</span>
+                    </a>
+                </li>
+            @endforelse
+
+
+
+
+
 
         </ul>
     </div>

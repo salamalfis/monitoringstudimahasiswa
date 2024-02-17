@@ -2,8 +2,6 @@
 
 @section('content')
     <div>
-
-
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4 mx-4">
@@ -66,24 +64,24 @@
 
                                         <td class="text-center ">
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                            <a type="button" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail Mahasiswa">
-                                                <i class="fas fa-eye text-secondary"></i>
+                                                <i class="fas fa-eye"></i>
                                             </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Edit Mahasiswa">
-                                                <i class="fas fa-pencil-alt text-secondary"></i>
+                                                <i class="fas fa-pencil-alt "></i>
                                             </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">
-                                                <i class="fas fa-key text-secondary"></i>
+                                                <i class="fas fa-key"></i>
                                             </a>
 
                                             <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Deactive Mahasiswa">
-                                                <i class=" fas fa-user-slash text-secondary"></i>
+                                                <i class=" fas fa-user-slash"></i>
                                             </a>
 
                                         </td>

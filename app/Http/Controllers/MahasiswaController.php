@@ -96,7 +96,7 @@ class MahasiswaController extends Controller
         return view('mahasiswa.edit', compact('mahasiswa'));
     }
 
-    
+
 
 
 }
