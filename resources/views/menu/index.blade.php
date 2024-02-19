@@ -117,7 +117,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Registration form goes here -->
-                    <form action="" method="POST">
+                    <form action="/menu-tambah" method="POST" >
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Menu</label>
@@ -141,7 +141,7 @@
 
                         <div class="modal-footer">
 
-                            <button type="submit" class="btn btn-info">Tambah Menu</button>
+                            <button type="submit" class="btn bg-gradient-info">Tambah Menu</button>
                         </div>
                     </form>
                 </div>
@@ -160,7 +160,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Edit form goes here -->
-                    <form action="" method="POST">
+                    <form action="/menu-edit" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="editNama" class="form-label">Nama Menu</label>
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
+                            <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>

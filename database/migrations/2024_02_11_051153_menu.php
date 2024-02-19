@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('route');
             $table->string('icon');
             $table->timestamps();
+            
         });
 
         Schema::create('submenu', function (Blueprint $table) {

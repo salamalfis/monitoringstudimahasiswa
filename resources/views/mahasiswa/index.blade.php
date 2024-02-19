@@ -15,7 +15,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="mahasiswa-create" class="btn bg-gradient-primary btn-sm mb-0" type="button">Tambah
+                            <a href="mahasiswa-create" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
                                 User</a>
                         </div>
                     </div>
@@ -47,51 +47,73 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="ps-4">
-                                            <p class="text-xs font-weight-bold mb-0">1</p>
-                                        </td>
+                                    <?php $i = 0; ?>
+                                    @forelse ($mahasiswa as $mhs)
+                                    <?php $i++ ?>
+                                        <tr>
+                                            <td class="ps-4">
+                                                <p class="text-xs font-weight-bold mb-0">{{ ++$i }}</p>
+                                            </td>
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
-                                        </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $mhs->nama }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $mhs->nim }}</p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $mhs->kelas }}</p>
+                                            </td>
 
-                                        <td class="text-center ">
+                                            <td class="text-center ">
 
-                                            <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Detail Mahasiswa">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
+                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Detail Mahasiswa">
+                                                    <i
+                                                        class="fas fa-eye
+                                                    text-secondary"></i>
+                                                </a>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Edit Mahasiswa">
-                                                <i class="fas fa-pencil-alt "></i>
-                                            </a>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Reset Password">
-                                                <i class="fas fa-key"></i>
-                                            </a>
+                                            <td class="text-center ">
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Deactive Mahasiswa">
-                                                <i class=" fas fa-user-slash"></i>
-                                            </a>
+                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Detail Mahasiswa">
+                                                    <i class="fas fa-eye text-secondary"></i>
+                                                </a>
 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Mahasiswa">
+                                                    <i class="fas fa-pencil-alt text-secondary"></i>
+                                                </a>
+
+                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Reset Password">
+                                                    <i class="fas fa-key text-secondary"></i>
+                                                </a>
+
+                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Deactive Mahasiswa">
+                                                    <i class=" fas fa-user-slash text-secondary"></i>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                        @empty
+                                            <tr>
+
+                                                <td class="text-center" colspan="8">
+                                                    <p class="text-xs font-weight-bold mb-0">Data
+                                                        {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan</p>
+                                                </td>
+                                            </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

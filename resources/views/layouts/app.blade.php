@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 
 
@@ -15,9 +12,9 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <title>
         @if (request()->is('/'))
-        Monitoring Perkembangan Studi Mahasiswa
-        @else
-        {{ str_replace('-', ' ', ucfirst(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
+            Monitoring Perkembangan Studi Mahasiswa
+        @else 
+            {{ str_replace('-', ' ', Str::title(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
         @endif
     </title>
     <!--     Fonts and icons     -->
@@ -55,6 +52,18 @@
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/fullcalendar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Select2 Multiple
+            $('.select2-multiple').select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+
+        });
+    </script>
 
     @stack('dashboard')
     <script>

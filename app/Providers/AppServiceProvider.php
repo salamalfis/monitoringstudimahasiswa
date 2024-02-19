@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
+        view()->composer('layouts.sidebar.auth', function ($view) {
+            $menu = \App\Models\Menu::with('Submenu')->orderBy('nama', 'asc')->get();
+            $view->with('menu', $menu);
+        });
     }
 }

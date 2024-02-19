@@ -16,6 +16,11 @@ class SessionController extends Controller
         return view('login');
     }
 
+    function dashboard()
+    {
+        return view('dashboard');
+    }
+
     function login()
     {
         $data = request()->validate([

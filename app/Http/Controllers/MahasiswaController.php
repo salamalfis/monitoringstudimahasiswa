@@ -15,7 +15,8 @@ class MahasiswaController extends Controller
 
     public function index()
     {
-        return view('mahasiswa.index');
+        $mahasiswa = Mahasiswa::all();
+        return view('mahasiswa.index', compact('mahasiswa'));
     }
 
     public function create()
@@ -76,6 +77,8 @@ class MahasiswaController extends Controller
         return redirect('/mahasiswa');
         }
         else{
+
+            $user->delete();
 
             Alert::error('Gagal', 'Gagal menambahkan mahasiswa');
             return redirect()->back();

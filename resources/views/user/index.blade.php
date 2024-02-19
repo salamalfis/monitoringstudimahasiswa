@@ -57,36 +57,36 @@
                                         </td>
 
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                            <p class="text-secondary text-xs font-weight-bold mb-0">Admin</p>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
+                                            <p class="text-secondary text-xs font-weight-bold mb-0">admin@softui.com</p>
                                         </td>
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                            <p class="text-secondary text-xs font-weight-bold mb-0">Admin</p>
                                         </td>
                                         <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td>
                                         <td class="text-center">
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                            <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Detail User">
-                                                <i class="fas fa-eye"></i>
+                                                <i class="fas fa-eye text-secondary"></i>
                                             </a>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                            <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Edit User">
-                                                <i class="fas fa-user-edit"></i>
+                                                <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
 
-                                            <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                            <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
                                                 data-bs-original-title="Reset Password">
-                                                <i class="fas fa-key "></i>
+                                                <i class="fas fa-key text-secondary"></i>
                                             </a>
                                             <span>
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Hapus User">
-                                                <i class="cursor-pointer fas fa-trash "></i>
+                                                <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Hapus User">
+                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                             </span>
                                         </td>
                                     </tr>

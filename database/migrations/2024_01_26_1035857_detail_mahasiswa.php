@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('detail_mahasiswa', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('kode')->refrences('kode')->on('master_matakuliah');
             $table->string('nilaimatakuliah');
             $table->string('indeks')->refrences('indeks')->on('nilai');

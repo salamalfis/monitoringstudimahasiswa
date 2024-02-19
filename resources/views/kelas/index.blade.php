@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                             <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Program Studi</a>
+                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Kelas</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -29,16 +29,17 @@
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama
+                                            Kode Kelas
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            NIP
+                                            Nama Kelas
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Jabatan
+                                            Angkatan
                                         </th>
+
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -48,56 +49,64 @@
                                 <tbody>
                                     <?php $i = 0; ?>
 
+                                    @forelse ($kelas as $kelasitem)
+                                        <?php $i++; ?>
+                                        <tr>
 
-                                    <?php $i++; ?>
-                                    <tr>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                            </td>
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
-                                        </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $kelasitem->kode_kelas }}
+                                                </p>
+                                            </td>
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">
-
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0"></p>
-                                        </td>
-
-
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0"></p>
-                                        </td>
-
-                                        <td class="text-center ">
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $kelasitem->nama_kelas }}
+                                                </p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $kelasitem->angkatan }}
+                                                </p>
+                                            </td>
 
 
-                                            <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Program Studi">
+
+
+                                            <td class="text-center ">
+
+
+                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Kelas">
                                                     <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
                                                         data-bs-target="#editModal">
 
                                                     </i>
                                                 </a>
 
+                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Hapus Kelas">
+                                                    <i class=" fas fa-trash text-secondary"></i>
+                                                </a>
 
-                                            <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Hapus Program Studi">
-                                                <i class=" fas fa-trash text-secondary"></i>
-                                            </a>
 
-                                        </td>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
+                                    @empty
+                                        <tr>
 
-                                    <tr>
-
-                                        <td class="text-center" colspan="8">
-                                            <p class="text-xs font-weight-bold mb-0">Data
-                                                {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan</p>
-                                        </td>
-                                    </tr>
+                                            <td class="text-center" colspan="8">
+                                                <p class="text-xs font-weight-bold mb-0">Data
+                                                    {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -115,7 +124,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Role</h5>
+                    <h5 class="modal-title" id="registrationModalLabel">Tambah Kelas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -123,19 +132,29 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
+                            <label for="kode_kelas" class="form-label">Kode Kelas</label>
+                            <input type="text" name="kode_kelas" class="form-control" id="kode_kelas">
                         </div>
                         <div class="mb-3">
-                            <label for="route" class="form-label">Role</label>
-                            <input type="text" name="route" class="form-control" id="route">
+                            <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                            <input type="text" name="nama_kelas" class="form-control" id="nama_kelas">
                         </div>
+                        <div class="mb-3">
+                            <label for="angkatan" class="form-label">Angkatan</label>
+                            <select class="form-select" name="angkatan" id="angkatan">
+                                <option selected>Pilih Angkatan</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
 
 
+                        </div>
 
                         <div class="modal-footer">
 
-                            <button type="submit" class="btn btn-info">TRole</button>
+                            <button type="submit" class="btn bg-gradient-info">Tambah Kelas</button>
                         </div>
                     </form>
                 </div>
@@ -148,7 +167,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Role</h5>
+                    <h5 class="modal-title" id="editModalLabel">Edit Kelas</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -156,12 +175,12 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Role</label>
+                            <label for="nama" class="form-label">Kode Kelas</label>
                             <input type="text" name="nama" class="form-control" id="nama"
                                 {{-- value="{{ $Submenu->nama }}" --}}>
                         </div>
                         <div class="mb-3">
-                            <label for="role" class="form-label">Role</label>
+                            <label for="role" class="form-label">Nama Kelas</label>
                             <input type="text" name="role" class="form-control" id="role">
                         </div>
 
@@ -170,7 +189,7 @@
 
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
+                            <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
