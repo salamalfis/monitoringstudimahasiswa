@@ -51,7 +51,7 @@
                                     @forelse ($mahasiswa as $mhs)
                                     <?php $i++ ?>
                                         <tr>
-                                            <td class="ps-4">
+                                            <td class="text-center ps-4">
                                                 <p class="text-xs font-weight-bold mb-0">{{ ++$i }}</p>
                                             </td>
 

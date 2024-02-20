@@ -47,33 +47,37 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 0; ?>
+                                    @forelse ($prodi as $prodiitem)
+                                        <?php $i++; ?>
+                                        <tr>
+
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                            </td>
 
 
-                                    <?php $i++; ?>
-                                    <tr>
-
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
-                                        </td>
-
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">
-
-                                            </p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0"></p>
-                                        </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $prodiitem->nama }}
+                                                </p>
+                                            </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $prodiitem->nip }}
+                                                </p>
+                                            </td>
 
 
-                                        <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0"></p>
-                                        </td>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $prodiitem->jabatan }}
+                                                </p>
+                                            </td>
 
-                                        <td class="text-center ">
+                                            <td class="text-center ">
 
 
-                                            <a type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Program Studi">
                                                     <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
                                                         data-bs-target="#editModal">
@@ -82,22 +86,24 @@
                                                 </a>
 
 
-                                            <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                data-bs-original-title="Hapus Program Studi">
-                                                <i class=" fas fa-trash text-secondary"></i>
-                                            </a>
+                                                <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Hapus Program Studi">
+                                                    <i class=" fas fa-trash text-secondary"></i>
+                                                </a>
 
-                                        </td>
+                                            </td>
 
-                                    </tr>
+                                        </tr>
+                                    @empty
+                                        <tr>
 
-                                    <tr>
-
-                                        <td class="text-center" colspan="8">
-                                            <p class="text-xs font-weight-bold mb-0">Data
-                                                {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan</p>
-                                        </td>
-                                    </tr>
+                                            <td class="text-center" colspan="8">
+                                                <p class="text-xs font-weight-bold mb-0">Data
+                                                    {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
