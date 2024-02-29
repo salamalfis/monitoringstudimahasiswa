@@ -19,9 +19,8 @@ class Mahasiswa extends Model
         'id',
         'nim',
         'email',
-        'angkatan',
+
         'kelas',
-        'dosenwali',
     ];
 
 

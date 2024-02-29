@@ -140,7 +140,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Registration form goes here -->
-                    <form action="" method="POST">
+                    <form action="/tambah-dosenwali" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
@@ -169,11 +169,11 @@
                         <div class="form-group mb-3">
                             <label for="kelas_wali" class="form-label
                                 ">Kelas Wali</label>
-                            <select class="select2-multiple form-control" name="kelaswali" multiple="multiple"
-                                id="select2Multiple" id="kelaswali">
+                            <select class=" form-control" name="kelaswali" multiple="true"
+                                 id="kelaswali">
                                 <option disabled selected>Pilih Kelas Wali</option>
                                 @foreach ($kelas as $kelasitem)
-                                    <option value="{{ $kelasitem->kode_kelas }}">{{ $kelasitem->nama_kelas }}</option>
+                                    <option value="{{ $kelasitem->kode_kelas }}" >{{ $kelasitem->nama_kelas }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Edit form goes here -->
-                    <form action="" method="POST">
+                    <form action="/edit-dosenwali" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Role</label>
@@ -221,4 +221,7 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection

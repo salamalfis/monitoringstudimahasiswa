@@ -6,7 +6,7 @@
             <div class="row mb-6">
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                     <div class="card card-plain mt-8">
-                    
+
                         @if (session('success'))
                             <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success"
                                 role="alert">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="/forgot-password" method="POST" role="form text-left">
+                            <form action="forgot-password" method="POST" role="form text-left">
                                 @csrf
                                 <div>
                                     <label for="email">Email</label>

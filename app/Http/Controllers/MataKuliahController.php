@@ -29,27 +29,25 @@ class MataKuliahController extends Controller
 
     request()->validate([
           'kategori' => 'required',
-          'kode' => 'required|max:6|min:6',
+          'kode' => 'required|max:6|min:6|unique:master_matakuliah,kode',
           'namamatakuliah' => 'required',
           'namamatakuliahenglish' => 'required',
-          'sks' => 'required|numeric|min:1|max:2',
-          'semester' => 'required|numeric|min:1|max:2',
+          'sks' => 'required|numeric|min:1',
+          'semester' => 'required|numeric|min:1',
 
     ],[
         'kategori.required' => 'Kategori tidak boleh kosong',
         'kode.required' => 'Kode tidak boleh kosong',
         'kode.min' => 'Kode harus 6 karakter',
         'kode.max' => 'Kode harus 6 karakter',
+        'kode.unique' => 'Kode Mata Kuliah sudah terdaftar',
         'namamatakuliah.required' => 'Nama Matakuliah tidak boleh kosong',
         'namamatakuliahenglish.required' => 'Nama Matakuliah English tidak boleh kosong',
         'sks.required' => 'SKS tidak boleh kosong',
         'sks.numeric' => 'SKS harus angka',
-        'sks.min' => 'SKS minimal 1',
-        'sks.max' => 'SKS maksimal 2',
         'semester.required' => 'Semester tidak boleh kosong',
         'semester.numeric' => 'Semester harus angka',
-        'semester.min' => 'Semester minimal 1',
-        'semester.max' => 'Semester maksimal 2',
+
     ]);
 
     $inputmatkul = MataKuliah::create([

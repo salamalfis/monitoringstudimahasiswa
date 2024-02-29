@@ -15,15 +15,13 @@
                                     <p class="mb-0 text-center">Aplikasi Monitoring Perkembangan Studi Mahasiswa</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="{{ asset('') }}">
                                         @csrf
                                         <label>Email</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="email" id="email"
                                                 placeholder="Email" aria-label="Email" aria-describedby="email-addon"
-                                                value="{{ old('email') }}"
-                                                {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}
-                                                >
+                                                value="{{ old('email') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
                                             @error('email')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
@@ -50,7 +48,7 @@
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <small class="text-muted">Lupa password? Klik
-                                        <a href="forgot-password"
+                                        <a href="{{ asset('forgot-password') }}"
                                             class="text-info text-gradient font-weight-bold">Disini!</a>
                                     </small>
 
@@ -61,7 +59,7 @@
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                                 <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                                    style="background-image:url('../assets/img/.jpeg')"></div>
+                                    style="background-image:url('{{ asset('') }}assets/img/.jpeg')"></div>
                             </div>
                         </div>
                     </div>

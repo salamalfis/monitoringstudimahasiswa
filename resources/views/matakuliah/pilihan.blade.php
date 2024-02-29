@@ -131,12 +131,12 @@
                 </div>
                 <div class="modal-body">
                     <!-- Registration form goes here -->
-                    <form action="" method="POST">
+                    <form action="Route('')" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="kategori" class="form-label">Menu</label>
+                            <label for="kategori" class="form-label">Kategori</label>
                             <select class="form-control" id="kategori" name="kategori">
-                                <option disabled selected>Pilih Menu</option>
+                                <option disabled selected>Pilih Kategori</option>
                                 <option value="MKPP">Mata Kuliah Pilihan Prodi</option>
                             </select>
                         </div>
@@ -186,12 +186,12 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="kategori" class="form-label">Menu</label>
+                            <label for="kategori" class="form-label">Kategori</label>
                             <select class="form-control" id="kategori" name="kategori">
                                 @if ($matkul->kategori == 'MKPP')
                                     <option value="MKPP" selected>Mata Kuliah Pilihan Prodi</option>
                                 @else
-                                    <option disabled selected>Pilih Menu</option>
+                                    <option disabled selected>Pilih Kategori</option>
                                 @endif
                             </select>
                         </div>

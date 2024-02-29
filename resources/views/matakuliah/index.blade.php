@@ -15,7 +15,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Mata
+                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
+                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Mata
                                 Kuliah</a>
                         </div>
                     </div>
@@ -93,13 +94,17 @@
                                             </td>
                                             <td class="text-center">
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
+                                                <a type="button"  class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Mata Kuliah">
-                                                    <i class="fas fa-user-edit text-secondary"></i>
+                                                    <i class="fas fa-pencil text-secondary"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#modal-edit-matakuliah">
+                                                    </i>
                                                 </a>
+
                                                 <span>
                                                     <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="Edit Menu">
+                                                        data-bs-original-title="Delete Menu">
                                                         <i class="fas fa-trash-alt text-secondary" data-bs-toggle="modal"
                                                             data-bs-target="#modal-delete">
 
@@ -135,7 +140,7 @@
                     <div class="card card-plain">
                         <div class="card-header pb-0 text-center">
                             <h2 class="text-danger">Hapus Data</h2>
-                            <p class="text-danger">Apakah anda yakin ingin menghapus data ini?</p>
+                            <p class="text">Apakah anda yakin ingin menghapus data ini?</p>
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">
@@ -157,58 +162,63 @@
     {{-- end modal --}}
 
     {{-- modal tambah mata kuliah --}}
-    <div class="modal fade" id="modal-tambah-matakuliah" tabindex="-1" role="dialog"
-        aria-labelledby="modal-tambah-matakuliah" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body p-0">
-                    <div class="card card-plain">
-                        <div class="card-header pb-0 text-center">
-                            <h2 class="text-danger">Tambah Mata Kuliah</h2>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrationModalLabel">Tambah Mata Kuliah</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/tambah-matakuliah" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="kategori" class="form-label">Kategori</label>
+                            <select class="form-control" id="kategori" name="kategori">
+                                <option disabled selected>Pilih Kategori</option>
+                                <option value="MKWU">Mata Kuliah Wajib Universitas</option>
+                                <option value="MKWP">Mata Kuliah Wajib Prodi</option>
+                                <option value="MKPP">Mata Kuliah Pilihan Prodi</option>
+                                <option value="MKWK">Mata Kuliah Wajib Kurikulum</option>
+                            </select>
                         </div>
-                        <div class="card-body">
-                            <form action="{{ route('matakuliah.store') }}" method="post">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="kategori" class="form-label">Kategori</label>
-                                    <input type="text" class="form-control" id="kategori" name="kategori">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="kode" class="form-label">Kode Mata Kuliah</label>
-                                    <input type="text" class="form-control" id="kode" name="kode">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="namamatakuliah"
-                                        class="form-label
-                                    ">Nama Mata Kuliah</label>
-                                    <input type="text" class="form-control" id="namamatakuliah"
-                                        name="namamatakuliah">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="namamatakuliahenglish"
-                                        class="form-label
+                        <div class="mb-3">
+                            <label for="kode" class="form-label">Kode Mata Kuliah</label>
+                            <input type="text" class="form-control" id="kode" name="kode">
+                        </div>
+                        <div class="mb-3">
+                            <label for="namamatakuliah" class="form-label
+                                    ">Nama Mata
+                                Kuliah</label>
+                            <input type="text" class="form-control" id="namamatakuliah" name="namamatakuliah">
+                        </div>
+                        <div class="mb-3">
+                            <label for="namamatakuliahenglish"
+                                class="form-label
                                     ">Nama Mata Kuliah
-                                        (English)</label>
-                                    <input type="text" class="form-control" id="namamatakuliahenglish"
-                                        name="namamatakuliahenglish">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="sks" class="form-label">SKS</label>
-                                    <input type="text" class="form-control" id="sks" name="sks">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="semester" class="form-label">Semester</label>
-                                    <input type="text" class="form-control" id="semester" name="semester">
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
+                                (English)</label>
+                            <input type="text" class="form-control" id="namamatakuliahenglish"
+                                name="namamatakuliahenglish">
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <label for="sks" class="form-label">SKS</label>
+                            <input type="text" class="form-control" id="sks" name="sks">
+                        </div>
+                        <div class="mb-3">
+                            <label for="semester" class="form-label">Semester</label>
+                            <input type="text" class="form-control" id="semester" name="semester">
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-info">Tambah Mata Kuliah</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
     </div>
     {{-- end modal tambah mata kuliah --}}
@@ -224,7 +234,7 @@
                             <h2 class="text-danger">Edit Mata Kuliah</h2>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('matakuliah.update') }}" method="post">
+                            <form action="/edit-matakuliah" method="post">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="kategori" class="form-label">Kategori</label>

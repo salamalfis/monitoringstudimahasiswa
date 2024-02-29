@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kelas;
 use App\Traits\GenUid;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
@@ -16,13 +17,11 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::all();
-        return view('mahasiswa.index', compact('mahasiswa'));
+        $kelas = Kelas::all();
+        return view('mahasiswa.index', compact('mahasiswa', 'kelas'));
     }
 
-    public function create()
-    {
-        return view('mahasiswa.create');
-    }
+
 
     public function registermahasiswa()
     {
@@ -30,9 +29,7 @@ class MahasiswaController extends Controller
             'nama' => 'required',
             'nim' => 'required|numeric|min:10|unique:mahasiswa,nim',
             'email' => 'required|email|unique:users,email',
-            'dosenwali' => 'required',
-            'kelas' => 'required|min:8|max:9',
-            'angkatan' => 'required|min:4|max:4',
+            'kelas' => 'required|min:6|max:9',
             'password' => 'required|min:8',
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
@@ -43,13 +40,12 @@ class MahasiswaController extends Controller
             'email.required' => 'Email tidak boleh kosong',
             'email.email' => 'Email tidak valid',
             'email.unique' => 'Email sudah terdaftar',
-            'dosenwali.required' => 'Dosen wali tidak boleh kosong',
+
             'kelas.required' => 'Kelas tidak boleh kosong',
             'kelas.min' => 'Kelas minimal 8 karakter',
             'kelas.max' => 'Kelas maksimal 9 karakter',
-            'angkatan.min' => 'Angkatan minimal 4 karakter',
-            'angkatan.max' => 'Angkatan maksimal 4 karakter',
-            'angkatan.required' => 'Angkatan tidak boleh kosong',
+
+
             'password.required' => 'Password tidak boleh kosong',
             'password.min' => 'Password minimal 8 karakter',
         ]);

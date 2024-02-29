@@ -26,4 +26,9 @@ class DosenWali extends Model
     {
         return $this->hasMany(Mahasiswa::class);
     }
+
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class);
+    }
 }
