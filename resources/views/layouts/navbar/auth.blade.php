@@ -32,7 +32,7 @@
                  <li class="nav-item px-2 d-flex align-items-center">
                      <a href="{{ asset('/logout') }}" class="nav-link text-body font-weight-bold px-0">
                          <i class="fa fa-user me-sm-1"></i>
-                         <span class="d-sm-inline d-none">Sign Out</span>
+                         <span class="d-sm-inline d-none">{{ $profile->name }}</span>
                      </a>
                  </li>
 

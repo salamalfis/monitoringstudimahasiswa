@@ -24,5 +24,11 @@ class AppServiceProvider extends ServiceProvider
             $menu = \App\Models\Menu::with('Submenu')->orderBy('nama', 'asc')->get();
             $view->with('menu', $menu);
         });
+
+        view()->composer('layouts.navbar.auth', function ($view) {
+            $profile = \App\Models\User::where('id', auth()->user()->id)->first();
+            $view->with('profile', $profile);
+
+        });
     }
 }

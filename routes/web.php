@@ -7,12 +7,16 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ResetController;
+use App\Http\Controllers\MagangController;
+use App\Http\Controllers\MetlitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SideBarController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\DosenWaliController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\TugasAkhirController;
 use App\Http\Controllers\ProgramStudiController;
 
 /*
@@ -46,7 +50,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 
     #ProfileRouteAuth
-    Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/{id}',[ProfileController::class, 'index'])->name('profile');
 
     #MahasiswaRouteAuth
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
@@ -58,8 +62,8 @@ Route::group(['middleware' => 'auth'],function () {
     #menuRouteAuth
     Route::get('/menu',[MenuController::class, 'index'])->name('menu');
     Route::post('/menu-tambah',[MenuController::class, 'registermenu'])->name('menu');
-    Route::post('/menu-edit',[MenuController::class, 'editmenu'])->name('menu');
-    Route::post('/menu-delete',[MenuController::class, 'deletemenu'])->name('menu');
+    Route::post('/menu-edit/{id}',[MenuController::class, 'editmenu'])->name('menu');
+    Route::post('/menu-delete/{id}',[MenuController::class, 'deletemenu'])->name('menu');
 
     #submenuRouteAuth
     Route::get('/sub-menu',[MenuController::class, 'submenu'])->name('submenu');
@@ -98,15 +102,20 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/role-akses', [RoleController::class, 'assignrole'])->name('role');
     Route::post('/role-akses', [RoleController::class, 'assignrole'])->name('role');
 
+    #MetlitRouteAuth
+    Route::get('/metode-penelitian', [MetlitController::class, 'index'])->name('metlit');
+
+    #MagangRouteAuth
+    Route::get('/magang', [MagangController::class, 'index'])->name('magang');
+
+    #TugasAkhirRouteAuth
+    Route::get('/tugas-akhir', [TugasAkhirController::class, 'index'])->name('tugasakhir');
 
 
-
-
-
-
-
-
-
+    #semesterRouteAuth
+    Route::get('/semester', [SemesterController::class, 'index'])->name('semester');
+    Route::post('/semester-tambah', [SemesterController::class, 'create'])->name('Tambah Semester');
+    Route::post('/semester-edit', [SemesterController::class, 'edit'])->name('Edit Semester');
 });
 
 

@@ -15,7 +15,7 @@
                                     <p class="mb-0 text-center">Aplikasi Monitoring Perkembangan Studi Mahasiswa</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ asset('') }}">
+                                    <form role="form" method="POST" action="{{ url('') }}">
                                         @csrf
                                         <label>Email</label>
                                         <div class="mb-3">
