@@ -13,14 +13,35 @@ class Mahasiswa extends Model
     use HasFactory, HasFactory, Notifiable, HasRoles;
 
 
-    public $table = 'mahasiswa';
+    public $table = 'users';
 
     protected $fillable = [
         'id',
-        'nim',
-        'email',
+        'nama',
+        'emailsso',
+        'emailpribadi',
+        'password',
+    ];
 
-        'kelas',
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+
+        'password',
+       
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'password' => 'hashed',
+
     ];
 
 

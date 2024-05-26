@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -29,8 +32,9 @@ class RegisterController extends Controller
     public function storeDosenWali(Request $request) {
         request()->validate([
             'nama' => 'required',
-            'nim' => 'requires',
+            'nim' => 'required',
             'emailsso' => 'required|email',
+            'kelas' => 'required',
             'emailpribadi' => 'required|email',
             'jeniskelamin' => 'required',
             'notelp' => 'required|number|min:8',
@@ -40,6 +44,7 @@ class RegisterController extends Controller
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
             'nim.required' => 'NIM tidak boleh kosong',
+            'kelas.required' => 'Kelas tidak boleh kosong',
             'emailsso.required' => 'Email SSO tidak boleh kosong',
             'emailsso.email' => 'Email SSO harus valid',
             'emailpribadi.required' => 'Email pribadi tidak boleh kosong',
@@ -55,11 +60,23 @@ class RegisterController extends Controller
 
         ]);
 
-        $mahasiswa = 
+        $mahasiswa = Mahasiswa::create([
+            'nama' => request('nama'),
+            'nim' => request('nim'),
+            'kelas' => request('kelas'),
+            'emailsso' => request('emailsso'),
+            'emailpribadi' => request('emailpribadi'),
+            'notelp' => request('notelp'),
+            'jeniskelamin' => request('jeniskelamin'),
+            'password' => request('password'),
+        ]);
+
+        Alert::success('Berhasil', 'Registrasi Mahasiswa berhasil');
+        return view('login');
     }
 
     public function storeMahasiswa(Request $request) {
-        
+
     }
 
 }
