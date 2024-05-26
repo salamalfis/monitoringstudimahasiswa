@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
+            
+            $table->timestampsTz();
+            $table->softDeletesTz();
+
         });
     }
 

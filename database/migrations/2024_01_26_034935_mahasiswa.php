@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->uuid('id')->primary();
-
             $table->integer('nim')->unique();
-
             $table->integer('angkatan');
             $table->string('kelas');
             $table->string('dosenwali');
-            $table->timestamps();
+            $table->uuid('user_id');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

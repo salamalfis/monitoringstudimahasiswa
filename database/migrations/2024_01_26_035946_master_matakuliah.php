@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('namamatakuliahenglish');
             $table->tinyInteger('sks');
             $table->tinyInteger('semester');
-            $table->timestamps();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
 
         Schema::create('matkul_pilihan', function (Blueprint $table) {
@@ -30,7 +33,8 @@ return new class extends Migration
             $table->string('namamatakuliahenglish');
             $table->tinyInteger('sks');
             $table->tinyInteger('semester');
-            $table->timestamps();
+            $table->timestampsTz();
+            $table->softDeletesTz();
     });
 }
 

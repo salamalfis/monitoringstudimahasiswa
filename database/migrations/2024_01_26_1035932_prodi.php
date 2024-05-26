@@ -15,7 +15,12 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('nip')->unique();
             $table->string('kodejabatan');
-            
+            $table->uuid('user_id');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
+
     });
 }
 

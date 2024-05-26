@@ -15,8 +15,11 @@ return new class extends Migration
             $table->uuid('id')->primary;
             $table->string('nama_kelas');
             $table->string('kode_kelas');
-            $table->timestamps();
-
+            $table->string('angkatan');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 
         });
     }

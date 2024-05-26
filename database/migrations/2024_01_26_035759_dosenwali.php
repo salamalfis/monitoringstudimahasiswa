@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('dosenwali', function (Blueprint $table) {
             $table->uuid('id')->primary();
-
             $table->string('nama');
             $table->integer('nip')->unique();
             $table->string('kodedosen')->unique();
             $table->string('kelaswali')->unique();
-            $table->string('angkatan');
-            $table->timestamps();
+            $table->uuid('user_id');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

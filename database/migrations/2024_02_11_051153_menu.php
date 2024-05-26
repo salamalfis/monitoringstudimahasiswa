@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('route');
             $table->string('icon');
-            $table->timestamps();
-            
+            $table->timestampsTz();
+            $table->softDeletesTz();
+
         });
 
         Schema::create('submenu', function (Blueprint $table) {
@@ -25,7 +26,10 @@ return new class extends Migration
             $table->string('nama');
             $table->string('route');
             $table->uuid('menu_id');
-            $table->timestamps();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

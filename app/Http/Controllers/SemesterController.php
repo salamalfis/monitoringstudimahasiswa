@@ -23,13 +23,15 @@ class SemesterController extends Controller
     public function create()
     {
         request()->validate([
-            'tahun' => 'required',
+            'tahun' => 'required|max:4|min:4',
             'semester' => 'required',
 
         ], [
 
             'tahun.required' => 'Tahun tidak boleh kosong',
             'semester.required' => 'Semester tidak boleh kosong',
+            'tahun.max' => 'Tahun Maksimal 4 Karakter',
+            'tahun.min' => 'Tahun Minimal 4 Karakter',
 
         ]);
 

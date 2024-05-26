@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('buktieprt')->nullable();
             $table->string('tak');
             $table->string('ipk');
-            $table->timestamps();
+            $table->string('mahasiswa_id');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 
