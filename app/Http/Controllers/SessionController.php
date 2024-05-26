@@ -26,6 +26,7 @@ class SessionController extends Controller
         $data = request()->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',
+            
           
         ], [
             'email.required' => 'Email tidak boleh kosong',
@@ -36,10 +37,22 @@ class SessionController extends Controller
 
 
         if (Auth::attempt($data)) {
-            session()->regenerate();
-            Alert::success('Selamat Datang', 'Anda berhasil login');
-            return redirect('/dashboard');
-        } else {
+            
+            $is_active = Auth::user()->active;
+
+            if (!$is_active == 1)
+            {
+                Auth::logout();
+                Alert::error('Akun anda belum aktif','Silahkan menghubungi Prodi');
+                return back();
+            }
+            else{
+                session()->regenerate();
+                Alert::success('Selamat Datang', 'Anda berhasil login');
+                return redirect('/dashboard');
+            }
+        }         
+        else {
             Alert::error('Password atau email salah','Silahkan coba lagi');
             return back();
         }
@@ -47,6 +60,6 @@ class SessionController extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('/')->with('success', 'Anda berhasil logout');
+        return redirect('/')->with('Berhasil', 'Anda berhasil logout');
     }
 }

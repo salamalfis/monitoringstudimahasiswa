@@ -49,8 +49,7 @@
                                             class="text-info text-gradient font-weight-bold">Disini!</a>
                                     </small>
                                     </p>
-                                </div>
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                
                                     <small class="text-muted">Belum Punya Akun? Klik
                                         <a href="{{ asset('register') }}"
                                             class="text-info text-gradient font-weight-bold">Disini!</a>

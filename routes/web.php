@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -26,9 +27,18 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/forgot-password', [ResetController::class, 'sendEmail'])->name('forgot-password');
     Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
     Route::get('/register', [RegisterController::class, 'index']);
+    
+    // #Prodi
+    // Route::get('/register-prodi', [RegisterController::class, 'registerProdi'])->name('registerprodi');
+    // Route::post('/register-prodi', [RegisterController::class, 'storeprodi'])->name('storeprodi');
 
+    #Dosenwali
+    Route::get('/register-dosen-wali', [RegisterController::class, 'registerDosenWali'])->name('registerdosenwali');
+    Route::post('/register-dosen-wali', [RegisterController::class, 'storeDosenWali'])->name('storedosenwali');
 
-
+    #Mahasiswa
+    Route::get('/register-mahasiswa', [RegisterController::class, 'registerMahasiswa'])->name('registermahasiswa');
+    Route::post('/register-mahasiswa', [RegisterController::class, 'storeMahasiswa'])->name('storemahasiswa');
 });
 
 Route::group(['middleware' => 'auth'],function () {
@@ -42,7 +52,7 @@ Route::group(['middleware' => 'auth'],function () {
 
 
     #Mahasiswa
-    
+
    });
 
 

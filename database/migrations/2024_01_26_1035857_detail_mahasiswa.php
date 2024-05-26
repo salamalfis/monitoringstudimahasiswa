@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('detail_mahasiswa', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('kode')->refrences('kode')->on('master_matakuliah');
-            $table->string('nilaimatakuliah');
-            $table->string('indeks')->refrences('indeks')->on('nilai');
-            $table->string('mahasiswa_id');
+            $table->string('TAK')->nullable();
+            $table->string('EPRT')->nullable();
+            $table->string('user_id');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestampsTz();

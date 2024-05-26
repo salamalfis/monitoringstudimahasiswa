@@ -13,23 +13,33 @@
 
                                     <h3 class="font-weight-bolder text-info text-gradient">Selamat Datang </h3>
                                     <p class="mb-0 text-center">Aplikasi Monitoring Perkembangan Studi Mahasiswa</p>
-
                                 </div>
                                 <div class="card-body">
+                                    <form role="form" method="POST" action="{{ url('registerprodi') }}">
+                                        @csrf
 
-                                    <div class="text-center">
-                                        <p>Silahkan Pilih Role: </p>
-                                        <div class="mx-2">
-                                            <a href="register-dosen-wali" class="btn bg-gradient-info w-100 "
-                                                value="dosen_wali">Dosen
-                                                Wali</a>
+                                        <label>Nama</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="nama" id="nama"
+                                                placeholder="Nama" aria-label="Nama" aria-describedby="nama-addon"
+                                                value="{{ old('nama') }}">
+                                            @error('nama')
+                                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
-                                        <div class="mx-2">
-                                            <a href="register-mahasiswa" class="btn bg-gradient-info w-100 "
-                                                value="mahasiswa">Mahasiswa</a>
+
+                                        <label>NIP</label>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="NIP" id="NIP"
+                                                placeholder="NIP" aria-label="NIP" aria-describedby="NIP-addon"
+                                                value="{{ old('NIP') }}">
+                                            @error('NIP')
+                                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                            @enderror
                                         </div>
-                                    </div>
+
+
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
@@ -44,10 +54,10 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                            {{-- <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                                 <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
                                     style="background-image:url('{{ asset('') }}assets/img/.jpeg')"></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

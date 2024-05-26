@@ -12,14 +12,8 @@ class DosenWali extends Model
     protected $table = 'dosenwali';
 
     protected $fillable = [
-        'id',
-        'nama',
-        'nip',
-        'email',
-        'password',
-        'kodedosen',
-        'kelaswali',
-        'angkatan',
+        'nip'
+        
     ];
 
     public function mahasiswa()
