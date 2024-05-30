@@ -15,9 +15,9 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
+                            {{-- <a data-bs-toggle="modal" data-bs-target="#registrationModal"
                                 class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
-                                Mahasiswa</a>
+                                Mahasiswa</a> --}}
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">

@@ -17,12 +17,12 @@
                                 <div class="card-body">
                                     <form role="form" method="POST" action="{{ url('login') }}">
                                         @csrf
-                                        <label>Email</label>
+                                        <label>NIM/NIP</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="email" id="email"
-                                                placeholder="Email" aria-label="Email" aria-describedby="email-addon"
-                                                value="{{ old('email') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
-                                            @error('email')
+                                            <input type="text" class="form-control" name="nim/nip" id="nim/nip"
+                                                placeholder="Nim/Nip" aria-label="nim/nip" aria-describedby="nim/nip-addon"
+                                                value="{{ old('nim/nip') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
+                                            @error('nim/nip')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -49,9 +49,9 @@
                                             class="text-info text-gradient font-weight-bold">Disini!</a>
                                     </small>
                                     </p>
-                                
+
                                     <small class="text-muted">Belum Punya Akun? Klik
-                                        <a href="{{ asset('register') }}"
+                                        <a href="{{ asset('register-mahasiswa') }}"
                                             class="text-info text-gradient font-weight-bold">Disini!</a>
                                     </small>
                                     </p>

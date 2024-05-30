@@ -15,7 +15,7 @@
                                     <p class="mb-0 text-center">Aplikasi Monitoring Perkembangan Studi Mahasiswa</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ url('login') }}">
+                                    <form role="form" method="POST" action="{{ url('register-mahasiswa') }}">
                                         @csrf
 
 
@@ -32,10 +32,10 @@
 
                                         <label>NIM</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="NIM" id="NIM"
-                                                placeholder="NIM" aria-label="NIM" aria-describedby="NIM-addon"
-                                                value="{{ old('NIM') }}">
-                                            @error('NIM')
+                                            <input type="text" class="form-control" name="nim" id="nim"
+                                                placeholder="NIM" aria-label="NIM" aria-describedby="nim-addon"
+                                                value="{{ old('nim') }}">
+                                            @error('nim')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -44,6 +44,8 @@
                                         <div class="mb-3">
                                             <select class="form-control" name="kelas" id="kelas">
                                                 <option value="">Pilih Kelas</option>
+                                                <option value="SIX-46-01">SIX-46-01</option>
+
                                                 {{-- @foreach ($kelas as $k)
                                                     <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
                                                 @endforeach --}}
@@ -54,7 +56,7 @@
                                         </div>
                                         <label>Email SSO</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="email" id="email"
+                                            <input type="text" class="form-control" name="emailsso" id="emailsso"
                                                 placeholder="Email SSO" aria-label="EmailSSO"
                                                 aria-describedby="emailsso-addon" value="{{ old('emailsso') }}"
                                                 {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
@@ -64,19 +66,19 @@
                                         </div>
                                         <label>Email Pribadi</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" name="email_pribadi"
-                                                id="email_pribadi" placeholder="Email Pribadi" aria-label="Email Pribadi"
-                                                aria-describedby="email-pribadi-addon" value="{{ old('email_pribadi') }}">
-                                            @error('email_pribadi')
+                                            <input type="text" class="form-control" name="emailpribadi"
+                                                id="emailpribadi" placeholder="Email Pribadi" aria-label="Email Pribadi"
+                                                aria-describedby="email-pribadi-addon" value="{{ old('emailpribadi') }}">
+                                            @error('emailpribadi')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <label>No Telepon</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="no_telepon" id="no_telepon"
+                                            <input type="text" class="form-control" name="notelp" id="notelp"
                                                 placeholder="No Telepon" aria-label="No Telepon"
-                                                aria-describedby="no-telepon-addon" value="{{ old('no_telepon') }}">
-                                            @error('no_telepon')
+                                                aria-describedby="no-telepon-addon" value="{{ old('notelp') }}">
+                                            @error('notelp')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -84,16 +86,16 @@
                                         <label>Jenis Kelamin</label>
                                         <div class="mb-3">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" name="jeniskelamin"
                                                     id="laki-laki" value="Laki-laki">
                                                 <label class="form-check-label" for="laki-laki">Laki-laki</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" name="jeniskelamin"
                                                     id="perempuan" value="Perempuan">
                                                 <label class="form-check-label" for="perempuan">Perempuan</label>
                                             </div>
-                                            @error('jenis_kelamin')
+                                            @error('jeniskelamin')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>

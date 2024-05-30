@@ -2,27 +2,45 @@
 
 namespace App\Models;
 
+use App\Traits\GenUid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class DosenWali extends Model
 {
-    use HasFactory;
+    use HasFactory, GenUid;
 
-    protected $table = 'dosenwali';
+    public $table = 'users';
 
     protected $fillable = [
-        'nip'
-        
+        'id',
+        'nama',
+        'nim/nip',
+        'emailsso',
+        'emailpribadi',
+        'notelp',
+        'kelas',
+        'password',
     ];
 
-    public function mahasiswa()
-    {
-        return $this->hasMany(Mahasiswa::class);
-    }
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
 
-    public function kelas()
-    {
-        return $this->hasMany(Kelas::class);
-    }
+        'password',
+
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'password' => 'hashed',
+
+    ];
 }

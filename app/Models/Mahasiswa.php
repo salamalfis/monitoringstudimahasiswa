@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Mahasiswa extends Model
 {
-    use HasFactory, HasFactory, Notifiable, HasRoles;
+    use HasFactory, HasFactory, Notifiable, HasRoles, GenUid;
 
 
     public $table = 'users';
@@ -18,8 +18,11 @@ class Mahasiswa extends Model
     protected $fillable = [
         'id',
         'nama',
+        'nim/nip',
         'emailsso',
         'emailpribadi',
+        'notelp',
+        'kelas',
         'password',
     ];
 
@@ -31,7 +34,7 @@ class Mahasiswa extends Model
     protected $hidden = [
 
         'password',
-       
+
     ];
 
     /**

@@ -11,11 +11,11 @@
 
                                 <div class="card-header pb-0 text-center bg-transparent">
 
-                                    <h4 class="font-weight-bolder text-info text-gradient">Registrasi Dosen Wali </h4>
+                                    <h4 class="font-weight-bolder text-info text-gradient">Registrasi Mahasiswa </h4>
                                     <p class="mb-0 text-center">Aplikasi Monitoring Perkembangan Studi Mahasiswa</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST" action="{{ url('login') }}">
+                                    <form role="form" method="POST" action="{{ url('register-dosen-wali') }}">
                                         @csrf
 
 
@@ -33,7 +33,7 @@
                                         <label>NIP</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="nip" id="nip"
-                                                placeholder="NIP" aria-label="NIP" aria-describedby="nip-addon"
+                                                placeholder="Nip" aria-label="NIP" aria-describedby="nip-addon"
                                                 value="{{ old('nip') }}">
                                             @error('nip')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -42,11 +42,21 @@
 
                                         <label>Kelas</label>
                                         <div class="mb-3">
-                                            <select class="form-control" name="kelas" id="kelas">
-                                                <option value="">Pilih Kelas</option>
-                                                {{-- @foreach ($kelas as $k)
-                                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
-                                                @endforeach --}}
+                                            <select class="form-control" name="kelas"id="kelas">
+                                                @forelse ($kelas as $k)
+                                                    <option>Pilih Kelas</option>
+                                                    <option value="{{ $k->kode_kelas }}">{{ $k->nama_kelas }}</option>
+                                                @empty
+                                                    <tr>
+
+                                                        <td class="text-center" colspan="8">
+                                                            <p class="text-xs font-weight-bold mb-0">Data kelas tidak
+                                                                ditemukan
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                @endforelse
                                             </select>
                                             @error('kelas')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -54,7 +64,7 @@
                                         </div>
                                         <label>Email SSO</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="email" id="email"
+                                            <input type="text" class="form-control" name="emailsso" id="emailsso"
                                                 placeholder="Email SSO" aria-label="EmailSSO"
                                                 aria-describedby="emailsso-addon" value="{{ old('emailsso') }}"
                                                 {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
@@ -64,20 +74,19 @@
                                         </div>
                                         <label>Email Pribadi</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" name="email_pribadi"
-                                                id="email_pribadi" placeholder="Email Pribadi" aria-label="Email Pribadi"
-                                                aria-describedby="email-pribadi-addon" value="{{ old('email_pribadi') }}">
-                                            @error('email_pribadi')
+                                            <input type="text" class="form-control" name="emailpribadi" id="emailpribadi"
+                                                placeholder="Email Pribadi" aria-label="Email Pribadi"
+                                                aria-describedby="email-pribadi-addon" value="{{ old('emailpribadi') }}">
+                                            @error('emailpribadi')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
-
                                         <label>No Telepon</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="no_telepon" id="no_telepon"
+                                            <input type="text" class="form-control" name="notelp" id="notelp"
                                                 placeholder="No Telepon" aria-label="No Telepon"
-                                                aria-describedby="no-telepon-addon" value="{{ old('no_telepon') }}">
-                                            @error('no_telepon')
+                                                aria-describedby="no-telepon-addon" value="{{ old('notelp') }}">
+                                            @error('notelp')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -85,19 +94,20 @@
                                         <label>Jenis Kelamin</label>
                                         <div class="mb-3">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" name="jeniskelamin"
                                                     id="laki-laki" value="Laki-laki">
                                                 <label class="form-check-label" for="laki-laki">Laki-laki</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" name="jeniskelamin"
                                                     id="perempuan" value="Perempuan">
                                                 <label class="form-check-label" for="perempuan">Perempuan</label>
                                             </div>
-                                            @error('jenis_kelamin')
+                                            @error('jeniskelamin')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
+
 
                                         <label>Password</label>
                                         <div class="mb-3">
@@ -108,6 +118,7 @@
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
+
                                         <label>Konfirmasi Password</label>
                                         <div class="mb-3">
                                             <input type="password" class="form-control" name="password_confirmation"

@@ -14,17 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nama');
-            $table->string('nip')->nullable()->unique();
-            $table->string('nim')->nullable()->unique();
+            $table->string('nim/nip')->nullable()->unique();
+            $table->string('kelas');
             $table->string('emailsso')->unique();
             $table->string('emailpribadi')->unique();
             $table->string('notelp');
             $table->string('password');
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
             $table->boolean('active')->default(false);
             $table->timestampsTz();
-            $table->softDeletesTz(); 
+            $table->softDeletesTz();
 
         });
     }

@@ -83,7 +83,7 @@
                                                 <a type="button" class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Kelas">
                                                     <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                                        value="{{ $kelasitem->id }}" data-bs-target="#editModal">
 
                                                     </i>
                                                 </a>
@@ -163,7 +163,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -175,19 +175,26 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Kode Kelas</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                {{-- value="{{ $Submenu->nama }}" --}}>
+                            <label for="kode_kelas" class="form-label">Kode Kelas</label>
+                            <input type="text" name="kode_kelas" class="form-control" id="kode_kelas"
+                                value="{{ $kelasitem->kode_kelas }}">
                         </div>
                         <div class="mb-3">
-                            <label for="role" class="form-label">Nama Kelas</label>
-                            <input type="text" name="role" class="form-control" id="role">
+                            <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                            <input type="text" name="nama_kelas" class="form-control" id="nama_kelas"
+                                value="{{ $kelasitem->nama_kelas }}">
                         </div>
+                        <div class="mb-3">
+                            <label for="angkatan" class="form-label">Angkatan</label>
+                            <select class="form-select" name="angkatan" id="angkatan">
+                                <option selected>{{ $kelasitem->angkatan }}</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
 
-
-
-
-
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
                         </div>

@@ -7,7 +7,7 @@
             Monitoring Perkembangan Studi Mahasiswa
         </a>
 
-        <div class="collapse navbar-collapse" id="navigation">
+        {{-- <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
 
 
@@ -17,7 +17,7 @@
                     <a class="btn btn-sm btn-round mb-0 me-1 bg-dark bg-gradient text-white ">HelpDesk</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </nav>
 <!-- End Navbar -->

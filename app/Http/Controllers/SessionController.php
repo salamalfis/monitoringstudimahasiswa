@@ -24,36 +24,36 @@ class SessionController extends Controller
     function login()
     {
         $data = request()->validate([
-            'email' => 'required|email',
+            'idUser' => 'required|numeric',
             'password' => 'required|min:8',
-            
-          
+
+
         ], [
-            'email.required' => 'Email tidak boleh kosong',
-            'email.email' => 'Email tidak valid',
+            'nim/nip.required' => 'Nim/Nip tidak boleh kosong',
+            'nim/nip.numeric' => 'Nim/Nip harus berupa angka',
             'password.required' => 'Password tidak boleh kosong',
             'password.min' => 'Password minimal 8 karakter'
         ]);
 
 
         if (Auth::attempt($data)) {
-            
+
             $is_active = Auth::user()->active;
 
-            if (!$is_active == 1)
+            if (!$is_active == true)
             {
                 Auth::logout();
                 Alert::error('Akun anda belum aktif','Silahkan menghubungi Prodi');
-                return back();
+                return redirect('/');
             }
             else{
                 session()->regenerate();
                 Alert::success('Selamat Datang', 'Anda berhasil login');
                 return redirect('/dashboard');
             }
-        }         
+        }
         else {
-            Alert::error('Password atau email salah','Silahkan coba lagi');
+            Alert::error('Nim/Nip atau Password salah','Silahkan coba lagi');
             return back();
         }
     }
