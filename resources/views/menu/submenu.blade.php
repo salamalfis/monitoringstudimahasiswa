@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Sub Menu</a>
+                            <a href="tambah-sub-menu" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Sub
+                                Menu</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -50,7 +50,6 @@
                                 <tbody>
                                     <?php $i = 0; ?>
                                     @forelse ($Submenu as $Submenuitem)
-
                                         <?php $i++; ?>
                                         <tr>
 
@@ -75,14 +74,16 @@
                                             </td>
 
                                             <td class="text-center ">
-                                                <a href="/edit-sub-menu/{{ $Submenuitem->id }}" type="button" class="mx-3"
-                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Menu">
-                                                    <i class="fas fa-pencil-alt text-secondary" >
+                                                <a href="/edit-sub-menu/{{ $Submenuitem->id }}" type="button"
+                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Menu">
+                                                    <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-                                                <a href="/delete-sub-menu/{{$Submenuitem->id }}" class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+                                                <a href="/delete-sub-menu/{{ $Submenuitem->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
 
                                         </tr>
@@ -100,89 +101,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Sub Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Registration form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Sub Menu</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="route" class="form-label">Route</label>
-                            <input type="text" name="route" class="form-control" id="route">
-                        </div>
-                        <div class="mb-3">
-                            <label for="menu_id" class="form-label">Menu</label>
-                            <select class="form-control" id="menu_id" name="menu_id">
-                                <option disabled selected>Pilih Menu</option>
-                                @foreach ($menu as $position)
-                                    <option value="{{ $position->id }}">{{ $position->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn btn-info">Tambah Sub Menu</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Sub Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Menu</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                {{-- value="{{ $Submenu->nama }}" --}}>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editRoute" class="form-label">Route</label>
-                            <input type="text" name="route" class="form-control" id="editRoute">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editMenu" class="form-label">Menu</label>
-                            <select class="form-control" id="editMenu" name="menu_id">
-                                <option disabled selected>Pilih Menu</option>
-                                @foreach ($menu as $position)
-                                    <option value="{{ $position->id }}">{{ $position->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

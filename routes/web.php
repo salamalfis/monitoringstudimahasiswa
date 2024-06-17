@@ -80,8 +80,8 @@ Route::group(['middleware' => 'auth'],function () {
 
     #submenuRouteAuth
     Route::get('/sub-menu',[MenuController::class, 'submenu'])->name('submenu');
-
-    Route::post('/sub-menu',[MenuController::class, 'registersubmenu'])->name('submenu');
+    Route::get('/tambah-sub-menu',[MenuController::class, 'tambahsubmenu'])->name('submenu');
+    Route::post('/tambah-sub-menu',[MenuController::class, 'registersubmenu'])->name('submenu');
 
     Route::get('/edit-sub-menu/{id}',[MenuController::class, 'editsubmenu'])->name('submenu');
     Route::put('/edit-sub-menu/{id}',[MenuController::class, 'updatesubmenu'])->name('submenu');

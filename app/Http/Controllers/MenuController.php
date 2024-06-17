@@ -11,13 +11,13 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menu = Menu::with('Submenu')->get();
+        $menu = Menu::all()->sortBy('nama');
         $title = 'Delete Menu!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);
         return view('menu.index', compact('menu'));
     }
-    
+
 
 
     public function submenu()
@@ -62,6 +62,8 @@ class MenuController extends Controller
         Alert::success('Berhasil', 'Menu berhasil ditambahkan');
         return redirect('menu');
     }
+
+
 
     public function registersubmenu()
     {
@@ -121,10 +123,17 @@ class MenuController extends Controller
         return redirect('menu');
     }
 
+    public function tambahsubmenu()
+    {
+        $menu = Menu::all()->sortBy('nama');
+
+        return view('menu.tambahsubmenu', compact('menu'));
+    }
     public function editsubmenu($id)
     {
         $submenu = Submenu::find($id);
-        return view('menu.editsubmenu', compact('submenu'));
+        $menu = Menu::all()->sortBy('nama');
+        return view('menu.editsubmenu', compact('submenu','menu'));
     }
     public function updatesubmenu($id)
     {
@@ -160,7 +169,7 @@ class MenuController extends Controller
         Alert::success('Berhasil', 'Menu berhasil dihapus');
         return redirect('menu');
 
- 
+
     }
     public function deletesubmenu($id)
     {
@@ -170,6 +179,6 @@ class MenuController extends Controller
         return redirect('sub-menu');
     }
 
-   
+
 
 }
