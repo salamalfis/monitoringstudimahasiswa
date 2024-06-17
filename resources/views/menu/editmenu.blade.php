@@ -12,8 +12,9 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
 
-                        <form action="/edit-menu" method="PUT">
+                        <form action="/edit-menu/{{ $menu->id }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="mx-4">
                                 <label for="nama" class="form-label">Nama Menu</label>
                                 <input type="text" name="nama" class="form-control" id="nama"
