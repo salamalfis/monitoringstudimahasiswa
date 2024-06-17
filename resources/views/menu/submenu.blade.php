@@ -75,23 +75,14 @@
                                             </td>
 
                                             <td class="text-center ">
-
-
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Sub Menu">
-                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                                <a href="/edit-sub-menu/{{ $Submenuitem->id }}" type="button" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Menu">
+                                                    <i class="fas fa-pencil-alt text-secondary" >
 
                                                     </i>
                                                 </a>
 
-
-
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Sub Menu">
-                                                    <i class=" fas fa-trash text-secondary"></i>
-                                                </a>
-
+                                                <a href="/delete-sub-menu/{{$Submenuitem->id }}" class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
 
                                         </tr>

@@ -13,8 +13,9 @@
     <title>
         @if (request()->is('/'))
             Monitoring Perkembangan Studi Mahasiswa
+
         @else
-            {{ str_replace('-', ' ', Str::title(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
+            {{ str_replace(['-', '/'], [' ', ' '], Str::title(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
         @endif
     </title>
     <!--     Fonts and icons     -->

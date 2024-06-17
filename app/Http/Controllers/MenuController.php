@@ -12,18 +12,28 @@ class MenuController extends Controller
     public function index()
     {
         $menu = Menu::with('Submenu')->get();
+        $title = 'Delete Menu!';
+        $text = "Apakah anda yakin?";
+        confirmDelete($title, $text);
         return view('menu.index', compact('menu'));
     }
+    
 
 
     public function submenu()
     {
         $menu = Menu::all();
         $Submenu = Submenu::all();
+        $title = 'Delete Menu!';
+        $text = "Apakah anda yakin?";
+        confirmDelete($title, $text);
         return view('menu.submenu', compact('Submenu','menu'));
     }
 
-
+    public function tambahmenu()
+    {
+        return view('menu.tambahmenu');
+    }
 
     public function registermenu()
     {
@@ -83,8 +93,8 @@ class MenuController extends Controller
 
     public function editmenu($id)
     {
-        $menuid = Menu::find($id);
-        return view('menu.edit', compact('menu'));
+        $menu = Menu::find($id);
+        return view('menu.editmenu', compact('menu'));
     }
     public function updatemenu($id)
     {
@@ -113,7 +123,7 @@ class MenuController extends Controller
 
     public function editsubmenu($id)
     {
-        $submenuid = Submenu::find($id);
+        $submenu = Submenu::find($id);
         return view('menu.editsubmenu', compact('submenu'));
     }
     public function updatesubmenu($id)
@@ -146,26 +156,20 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $menu->delete();
-        $title = 'Delete Menu!';
-        $text = "Apakah anda yakin ingin menghapus menu ini?";
-        confirmDelete($title, $text);
+
+        Alert::success('Berhasil', 'Menu berhasil dihapus');
         return redirect('menu');
+
+ 
     }
     public function deletesubmenu($id)
     {
         $submenu = Submenu::find($id);
         $submenu->delete();
-        $title = 'Delete Submenu!';
-        $text = "Apakah anda yakin ingin menghapus submenu ini?";
-        confirmDelete($title, $text);
+        Alert::success('Berhasil', 'Sub Menu berhasil dihapus');
         return redirect('sub-menu');
     }
 
-    public function sidebar()
-    {
-        $menu = Menu::with('Submenu')->get();
-
-        return  compact('menu');
-    }
+   
 
 }

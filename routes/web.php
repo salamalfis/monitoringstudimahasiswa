@@ -65,21 +65,31 @@ Route::group(['middleware' => 'auth'],function () {
     Route::post('/dosen-wali', [DosenWaliController::class, 'inputdosenwali'])->name('dosenwali');
 
     #menu
+
+
     Route::get('/menu',[MenuController::class, 'index'])->name('menu');
-    Route::post('/menu-tambah',[MenuController::class, 'registermenu'])->name('menu');
-    Route::post('/menu-edit',[MenuController::class, 'editmenu'])->name('menu');
-    Route::post('/menu-delete',[MenuController::class, 'deletemenu'])->name('menu');
+
+    Route::get('/tambah-menu',[MenuController::class, 'tambahmenu'])->name('menu');
+    Route::post('/tambah-menu',[MenuController::class, 'registermenu'])->name('menu');
+
+    Route::get('/edit-menu/{id}', [MenuController::class, 'editmenu'])->name('edit-menu');
+    Route::put('/edit-menu/{id}',[MenuController::class, 'updatemenu'])->name('menu');
+
+    Route::delete('/delete-menu/{id}',[MenuController::class, 'deletemenu'])->name('menu');
 
 
     #submenuRouteAuth
     Route::get('/sub-menu',[MenuController::class, 'submenu'])->name('submenu');
-    Route::post('/menu',[MenuController::class, 'registermenu'])->name('menu');
-    Route::post('/sub-menu',[MenuController::class, 'registersubmenu'])->name('submenu');
-    Route::get('/user', function () {
-        return view('user.index');
-    })->name('useredit');
 
-    #Mahasiswa
+    Route::post('/sub-menu',[MenuController::class, 'registersubmenu'])->name('submenu');
+
+    Route::get('/edit-sub-menu/{id}',[MenuController::class, 'editsubmenu'])->name('submenu');
+    Route::put('/edit-sub-menu/{id}',[MenuController::class, 'updatesubmenu'])->name('submenu');
+
+    Route::delete('/delete-sub-menu/{id}',[MenuController::class, 'deletesubmenu'])->name('submenu');
+
+
+
 
 
     #Kelas

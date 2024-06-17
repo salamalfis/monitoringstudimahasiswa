@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Menu</a>
+                            <a href="{{ asset('tambah-menu') }}" class="btn bg-gradient-info btn-sm mb-0"
+                                type="button">Tambah Menu</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -67,23 +67,14 @@
                                                 </p>
                                             </td>
                                             <td class="text-center ">
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Menu">
-                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                                <a href="/edit-menu/{{ $menuitem->id }}" type="button" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Menu">
+                                                    <i class="fas fa-pencil-alt text-secondary" >
 
                                                     </i>
                                                 </a>
 
-
-
-                                                <a
-                                            {{-- href="{{ route('users.destroy', $user->id) }}" --}}
-                                            data-bs-toggle="tooltip" type="button" class="mx-3"
-                                                    data-bs-original-title="Hapus Menu" data-confirm-delete="true">
-
-                                                    <i class=" fas fa-trash text-secondary"></i>
-                                                </a>
+                                                <a href="/delete-menu/{{$menuitem->id }}" class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
                                         </tr>
                                     @empty
@@ -101,91 +92,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Registration form goes here -->
-                    <form action="/menu-tambah" method="POST" >
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Menu</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="route" class="form-label">Route</label>
-                            <input type="text" name="route" class="form-control" id="route">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="icon" class="form-label">Icon</label>
-                            <input type="text" name="icon" class="form-control" id="icon">
-                        </div>
-                        <div class="mb-3">
-                            <label for="infoicon" class="formlabel">Referensi Icon? klik
-                                <a href="https://fontawesome.com/v6/search" target="_blank"
-                                    class="text-info text-gradient font-weight-bold">Disini!</a>
-                            </label>
-                        </div>
-
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn bg-gradient-info">Tambah Menu</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit form goes here -->
-                    <form action="/menu-edit" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="editNama" class="form-label">Nama Menu</label>
-                            <input type="text" name="nama" class="form-control" id="editNama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editRoute" class="form-label">Route</label>
-                            <input type="text" name="route" class="form-control" id="editRoute">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="editIcon" class="form-label">Icon</label>
-                            <input type="text" name="icon" class="form-control" id="editIcon">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editInfoIcon" class="formlabel">Referensi Icon? klik
-                                <a href="https://fontawesome.com/v6/search" target="_blank"
-                                    class="text-info text-gradient font-weight-bold">Disini!</a>
-                            </label>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
