@@ -3,6 +3,7 @@
 use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\ProfileController;
@@ -85,13 +86,21 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
     Route::post('/kelas', [KelasController::class, 'inputkelas'])->name('kelas');
 
-#Approval
-Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
+    #Approval
+    Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
 
 
-#Permission
-Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
-Route::get('/assign-permission', [PermissionController::class, 'assignpermission'])->name('assignpermission');
+    #Permission
+    Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
+
+    Route::get('/assign-permission', [PermissionController::class, 'assignpermission'])->name('assignpermission');
+
+    #Roles
+    Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+    Route::post('/roles', [RoleController::class, 'storeRole'])->name('roles');
+    Route::get('/assign-role', [RoleController::class, 'assignrole'])->name('assignrole');
+
+
 
    });
 

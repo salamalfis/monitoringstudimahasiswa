@@ -54,12 +54,6 @@
                                                 </p>
                                             </td>
 
-
-
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0"></p>
-                                            </td>
-
                                             <td class="text-center ">
 
 
@@ -127,7 +121,7 @@
 
                         <div class="modal-footer">
 
-                            <button type="submit" class="btn btn-info">TRole</button>
+                            <button type="submit" class="btn btn-info">Tambah Role</button>
                         </div>
                     </form>
                 </div>
