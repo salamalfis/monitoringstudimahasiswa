@@ -39,8 +39,8 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::post('/register-prodi', [RegisterController::class, 'storeprodi'])->name('storeprodi');
 
     #Dosenwali
-    Route::get('/register-dosen-wali', [RegisterController::class, 'registerDosenWali'])->name('registerdosenwali');
-    Route::post('/register-dosen-wali', [RegisterController::class, 'storeDosenWali'])->name('storedosenwali');
+    // Route::get('/register-dosen-wali', [RegisterController::class, 'registerDosenWali'])->name('registerdosenwali');
+    // Route::post('/register-dosen-wali', [RegisterController::class, 'storeDosenWali'])->name('storedosenwali');
 
     #Mahasiswa
     Route::get('/register-mahasiswa', [RegisterController::class, 'registerMahasiswa'])->name('registermahasiswa');
@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
     Route::post('/kelas', [KelasController::class, 'inputkelas'])->name('kelas');
 
-#Approval 
+#Approval
 Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
 
    });
