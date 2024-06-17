@@ -32,6 +32,20 @@
                 </a>
             </li>
 
+            @foreach ($submenu as $submenus)
+                @if ($submenus->menu_id == $menus->id)
+                    <li class="nav-item mx-3">
+                        <a class="nav-link {{ Request::is($submenus->route) ? 'active' : '' }}"
+                            href="{{ url($submenus->route) }}">
+
+                            <span class="nav-link-text ms-1">{{ $submenus->nama }}</span>
+                        </a>
+                    </li>
+                @else
+                    @continue
+                @endif
+            @endforeach
+
         @empty
             <li class="nav-item">
                 <a class="nav-link">

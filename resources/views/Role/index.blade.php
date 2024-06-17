@@ -33,13 +33,6 @@
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Role
-                                        </th>
-
-
-
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
                                         </th>
                                     </tr>
@@ -47,7 +40,7 @@
                                 <tbody>
                                     <?php $i = 0; ?>
 
-
+                                    @forelse ($roles as $role)
                                         <?php $i++; ?>
                                         <tr>
 
@@ -78,27 +71,29 @@
                                                     </i>
                                                 </a>
 
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Deactive Role">
-                                                    <i class="fas fa-key text-secondary"></i>
-                                                </a>
+
 
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Hapus Role">
-                                                    <i class=" fas fa-user-slash text-secondary"></i>
+                                                    <i class=" fas fa-trash text-secondary"></i>
                                                 </a>
 
                                             </td>
 
                                         </tr>
+
+                                    @empty
+
 
                                         <tr>
 
                                             <td class="text-center" colspan="8">
                                                 <p class="text-xs font-weight-bold mb-0">Data
-                                                    {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan</p>
+                                                    {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                                </p>
                                             </td>
                                         </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -127,10 +122,6 @@
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" name="nama" class="form-control" id="nama">
                         </div>
-                        <div class="mb-3">
-                            <label for="route" class="form-label">Role</label>
-                            <input type="text" name="route" class="form-control" id="route">
-                        </div>
 
 
 
@@ -157,14 +148,10 @@
                     <form action="" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Role</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                {{-- value="{{ $Submenu->nama }}" --}}>
+                            <label for="nama" class="form-label">Nama </label>
+                            <input type="text" name="nama" class="form-control" id="nama" {{-- value="{{ $Submenu->nama }}" --}}>
                         </div>
-                        <div class="mb-3">
-                            <label for="role" class="form-label">Role</label>
-                            <input type="text" name="role" class="form-control" id="role">
-                        </div>
+
 
 
 

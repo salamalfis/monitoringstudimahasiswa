@@ -21,8 +21,9 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('layouts.sidebar.auth', function ($view) {
-            $menu = \App\Models\Menu::with('Submenu')->orderBy('nama', 'asc')->get();
-            $view->with('menu', $menu);
+            $menu = \App\Models\Menu::all()->sortBy('nama');
+            $submenu = \App\Models\Submenu::all()->sortBy('nama');
+            $view->with('menu', $menu)->with('submenu', $submenu);
         });
 
         view()->composer('layouts.navbar.auth', function ($view) {
