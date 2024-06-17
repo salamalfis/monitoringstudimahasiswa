@@ -57,10 +57,10 @@
                                             <td class="text-center ">
 
 
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
+                                                <a type="button" class="mx-3" data-id="{{ $role->id }}" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Role">
-                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                                    <i class="fas fa-pencil-alt text-secondary"  data-bs-toggle="modal"
+                                                        data-bs-target="#editModal" >
 
                                                     </i>
                                                 </a>
