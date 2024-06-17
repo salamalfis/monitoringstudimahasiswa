@@ -19,10 +19,10 @@
                                         @csrf
                                         <label>NIM/NIP</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="nim/nip" id="nim/nip"
-                                                placeholder="Nim/Nip" aria-label="nim/nip" aria-describedby="nim/nip-addon"
-                                                value="{{ old('nim/nip') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
-                                            @error('nim/nip')
+                                            <input type="text" class="form-control" name="idUser" id="idUser"
+                                                placeholder="Nim/Nip" aria-label="idUser" aria-describedby="idUser-addon"
+                                                value="{{ old('idUser') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
+                                            @error('idUser')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>

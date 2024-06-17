@@ -10,8 +10,8 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DosenWaliController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProgramStudiController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +88,17 @@ Route::group(['middleware' => 'auth'],function () {
 #Approval
 Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
 
+
+#Permission
+Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
+Route::get('/assign-permission', [PermissionController::class, 'assignpermission'])->name('assignpermission');
+
    });
+
+
+
+
+
+
 
 

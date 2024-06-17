@@ -29,8 +29,8 @@ class SessionController extends Controller
 
 
         ], [
-            'nim/nip.required' => 'Nim/Nip tidak boleh kosong',
-            'nim/nip.numeric' => 'Nim/Nip harus berupa angka',
+            'idUser.required' => 'Nim/Nip tidak boleh kosong',
+            'idUser.numeric' => 'Nim/Nip harus berupa angka',
             'password.required' => 'Password tidak boleh kosong',
             'password.min' => 'Password minimal 8 karakter'
         ]);
@@ -60,6 +60,8 @@ class SessionController extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('/')->with('Berhasil', 'Anda berhasil logout');
+        Alert::success('Berhasil', 'Anda berhasil logout');
+        return redirect('/');
+
     }
 }

@@ -15,7 +15,7 @@
                                 </div>
                             </div>
                             <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Role</a>
+                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Permission</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -40,7 +40,7 @@
                                 <tbody>
                                     <?php $i = 0; ?>
 
-                                    @forelse ($roles as $role)
+                                    @forelse ($permissions as $permission)
                                         <?php $i++; ?>
                                         <tr>
 
@@ -50,7 +50,7 @@
 
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $role->name }}
+                                                    {{ $permission->name }}
                                                 </p>
                                             </td>
 
@@ -74,7 +74,7 @@
 
 
                                                 <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Role">
+                                                    data-bs-original-title="Hapus Permission">
                                                     <i class=" fas fa-trash text-secondary"></i>
                                                 </a>
 
@@ -111,7 +111,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Role</h5>
+                    <h5 class="modal-title" id="registrationModalLabel">Tambah Permission</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -127,7 +127,7 @@
 
                         <div class="modal-footer">
 
-                            <button type="submit" class="btn btn-info">TRole</button>
+                            <button type="submit" class="btn btn-info">Tambah Permission</button>
                         </div>
                     </form>
                 </div>
@@ -140,7 +140,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Role</h5>
+                    <h5 class="modal-title" id="editModalLabel">Edit Permission</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -151,12 +151,6 @@
                             <label for="nama" class="form-label">Nama </label>
                             <input type="text" name="nama" class="form-control" id="nama" {{-- value="{{ $Submenu->nama }}" --}}>
                         </div>
-
-
-
-
-
-
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-info">Simpan Perubahan</button>
                         </div>

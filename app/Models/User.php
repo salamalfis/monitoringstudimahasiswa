@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, GenUid;
 
 
     /**
@@ -25,6 +25,7 @@ class User extends Authenticatable
         'nama',
         'emailsso',
         'emailpribadi',
+        'jeniskelamin',
         'password',
     ];
 
@@ -46,6 +47,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'password' => 'hashed',
-        
+
     ];
 }
