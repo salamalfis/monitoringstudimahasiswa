@@ -12,6 +12,7 @@ class Permission extends SpatiePermission
     use HasFactory,GenUid;
 
     protected $fillable = [
-        'name'
+        'name',
+        'guard_name'
     ];
 }

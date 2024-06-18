@@ -102,12 +102,26 @@ Route::group(['middleware' => 'auth'],function () {
 
     #Permission
     Route::get('/permission', [PermissionController::class, 'index'])->name('permission');
+    Route::get('/tambah-permission',[PermissionController::class, 'tambahpermission'])->name('permission');
+    Route::post('/tambah-permission',[PermissionController::class, 'storePermission'])->name('permission');
+
+    Route::get('/edit-permission/{id}',[PermissionController::class, 'editPermission'])->name('permission');
+    Route::put('/edit-permission/{id}', [PermissionController::class, 'updatePermission'])->name('permission');
+
+    Route::delete('/delete-permission/{id}', [PermissionController::class, 'deletePermission'])->name('permission');
 
     Route::get('/assign-permission', [PermissionController::class, 'assignpermission'])->name('assignpermission');
 
     #Roles
     Route::get('/roles', [RoleController::class, 'index'])->name('roles');
-    Route::post('/roles', [RoleController::class, 'storeRole'])->name('roles');
+    Route::get('/tambah-role',[RoleController::class, 'tambahrole'])->name('roles');
+    Route::post('/tambah-role', [RoleController::class, 'storeRole'])->name('roles');
+
+    Route::get('/edit-role/{id}', [RoleController::class, 'editRole'])->name('roles');
+    Route::put('/edit-role/{id}', [RoleController::class, 'updateRole'])->name('roles');
+
+    Route::delete('/delete-role/{id}', [RoleController::class, 'deleteRole'])->name('roles');
+
     Route::get('/assign-role', [RoleController::class, 'assignrole'])->name('assignrole');
 
 

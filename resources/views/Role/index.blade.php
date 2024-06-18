@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Role</a>
+                            <a href="{{ asset('/tambah-role') }}" class="btn bg-gradient-info btn-sm mb-0"
+                                type="button">Tambah Role</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -57,22 +57,19 @@
                                             <td class="text-center ">
 
 
-                                                <a type="button" class="mx-3" data-id="{{ $role->id }}" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Role">
-                                                    <i class="fas fa-pencil-alt text-secondary"  data-bs-toggle="modal"
-                                                        data-bs-target="#editModal" >
+
+                                                <a href="/edit-role/{{ $role->id }}" type="button" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Role">
+                                                    <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-
-
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Role">
-                                                    <i class=" fas fa-trash text-secondary"></i>
-                                                </a>
-
+                                                <a href="/delete-role/{{ $role->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
+
+
 
                                         </tr>
 
@@ -92,69 +89,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Role</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Registration form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
-                        </div>
-
-
-
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn btn-info">Tambah Role</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Role</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama </label>
-                            <input type="text" name="nama" class="form-control" id="nama" {{-- value="{{ $Submenu->nama }}" --}}>
-                        </div>
-
-
-
-
-
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -12,6 +12,11 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all()->sortBy('name');
+
+        $title = 'Delete Role!';
+        $text = "Apakah anda yakin?";
+        confirmDelete($title, $text);
+
         return view('role.index', compact('roles'));
     }
 
@@ -20,17 +25,57 @@ class RoleController extends Controller
         return view('role.access');
     }
 
+    public function tambahrole()
+    {
+        return view('role.tambahrole');
+    }
+
     public function storeRole(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'nama' => 'required'
+        ],[
+            'nama.required' => 'Nama tidak boleh kosong'
         ]);
+
+
 
         $role = Role::create([
             'name' => request('nama')
         ]);
 
         Alert::success('Berhasil', 'Role berhasil ditambahkan');
+        return redirect('roles');
+    }
+
+    public function editRole($id)
+    {
+        $role = Role::find($id);
+        return view('role.editrole', compact('role'));
+    }
+
+    public function updateRole(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required'
+        ],[
+            'nama.required' => 'Nama tidak boleh kosong'
+        ]);
+
+        $role = Role::find($id);
+        $role->name = request('nama');
+        $role->save();
+
+        Alert::success('Berhasil', 'Role berhasil diubah');
+        return redirect('roles');
+    }
+
+    public function deleteRole($id)
+    {
+        $role = Role::find($id);
+        $role->delete();
+
+        Alert::success('Berhasil', 'Role berhasil dihapus');
         return redirect('roles');
     }
 }
