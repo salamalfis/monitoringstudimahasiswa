@@ -164,6 +164,7 @@ class MenuController extends Controller
     public function deletemenu($id)
     {
         $menu = Menu::find($id);
+        //$menu->submenu()->delete();
         $menu->delete();
 
         Alert::success('Berhasil', 'Menu berhasil dihapus');
