@@ -24,7 +24,7 @@ class MenuController extends Controller
     {
         $menu = Menu::all();
         $Submenu = Submenu::all();
-        $title = 'Delete Menu!';
+        $title = 'Delete Sub Menu!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);
         return view('menu.submenu', compact('Submenu','menu'));
