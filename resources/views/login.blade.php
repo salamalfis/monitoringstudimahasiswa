@@ -21,7 +21,7 @@
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="idUser" id="idUser"
                                                 placeholder="Nim/Nip" aria-label="idUser" aria-describedby="idUser-addon"
-                                                value="{{ old('idUser') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
+                               a                 value="{{ old('idUser') }}" {{-- Tambahkan AutoComplete="off" untuk menghilangkan autocomplete --}}>
                                             @error('idUser')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
@@ -61,7 +61,7 @@
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                                 <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                                    style="background-image:url('{{ asset('') }}assets/img/.jpeg')"></div>
+                                    style="background-image:url('{{ asset('') }}assets/img/logo1.png')"></div>
                             </div>
                         </div>
                     </div>
