@@ -22,10 +22,13 @@
                                 @enderror
                             </div>
 
+                            
+
                             <div class="mx-5 d-flex justify-content-end">
-                                <button type="submit" class="btn bg-gradient-info ">Tambah Permission</button>
+                                <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Permission</button>
 
                             </div>
+                        </form>
 
                     </div>
                 </div>

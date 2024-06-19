@@ -48,7 +48,7 @@
                                 </label>
                             </div>
                             <div class="mx-5 d-flex justify-content-end">
-                                <button type="submit" class="btn bg-gradient-info ">Edit Menu</button>
+                                <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Edit Menu</button>
 
                             </div>
 

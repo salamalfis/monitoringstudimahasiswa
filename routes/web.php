@@ -122,8 +122,9 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::delete('/delete-role/{id}', [RoleController::class, 'deleteRole'])->name('roles');
 
-    Route::get('/assign-role', [RoleController::class, 'assignrole'])->name('assignrole');
+    Route::post('/roles-permission/{id}', [RoleController::class. 'givepermission'])->name('roles permission');
 
+    Route::delete('/delete-roles-permission/{id}', [RoleController::class, 'deleterolepermission'])->name('roles');
 
 
    });

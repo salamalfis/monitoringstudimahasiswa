@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,20 +28,25 @@ class PermissionController extends Controller
 
     public function tambahPermission()
     {
-        return view('permission.tambahpermission');
+
+        $menu = Menu::all()->sortBy('sort');
+        return view('permission.tambahpermission', compact('menu'));
     }
 
     public function storePermission(Request $request)
     {
         $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'group' => 'required'
         ],[
-            'nama.required' => 'Nama permission tidak boleh kosong'
+            'nama.required' => 'Nama permission tidak boleh kosong',
+            'group.required' => 'Group permission tidak boleh kosong'
         ]);
-        
+
 
         $permission = Permission::create([
-            'name' => request('nama')
+            'name' => request('nama'),
+            'group' => request('group')
         ]);
 
         Alert::success('Berhasil', 'Permission berhasil ditambahkan');

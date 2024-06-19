@@ -31,6 +31,10 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama
                                         </th>
+
+                                       
+
+
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -54,14 +58,18 @@
                                                 </p>
                                             </td>
 
+                                            
+
+
 
 
 
                                             <td class="text-center ">
 
 
-                                                <a href="/edit-permission/{{ $permission->id }}" type="button" class="mx-3"
-                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Permission">
+                                                <a href="/edit-permission/{{ $permission->id }}" type="button"
+                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Permission">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
