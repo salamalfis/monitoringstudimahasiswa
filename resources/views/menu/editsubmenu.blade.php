@@ -47,7 +47,7 @@
 
                             </div>
                             <div class="mx-5 d-flex justify-content-end">
-                                <button type="submit" class="btn bg-gradient-info ">Edit Sub Menu</button>
+                                <button type="submit" class="btn bg-gradient-info mx-5">Edit Sub Menu</button>
                             </div>
                         </form>
 

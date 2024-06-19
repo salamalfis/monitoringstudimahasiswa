@@ -18,9 +18,9 @@
                                 type="button">Tambah Menu</a>
                         </div>
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                    <div class="card-body px-0 pt-0 pb-2 mt-3">
+                        <div class="container">
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th
@@ -69,12 +69,13 @@
                                             <td class="text-center ">
                                                 <a href="/edit-menu/{{ $menuitem->id }}" type="button" class="mx-3"
                                                     data-bs-toggle="tooltip" data-bs-original-title="Edit Menu">
-                                                    <i class="fas fa-pencil-alt text-secondary" >
+                                                    <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-                                                <a href="/delete-menu/{{$menuitem->id }}" class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+                                                <a href="/delete-menu/{{ $menuitem->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
                                         </tr>
                                     @empty

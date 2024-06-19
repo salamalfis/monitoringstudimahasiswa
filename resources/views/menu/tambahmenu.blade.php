@@ -44,7 +44,7 @@
                                 </label>
                             </div>
                             <div class="mx-5 d-flex justify-content-end">
-                                <button type="submit" class="btn bg-gradient-info ">Tambah Menu</button>
+                                <button type="submit" class="btn bg-gradient-info mx-5">Tambah Menu</button>
 
                             </div>
 

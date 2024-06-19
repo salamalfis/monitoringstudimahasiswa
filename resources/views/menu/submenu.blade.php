@@ -20,7 +20,7 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                            <table class="table align-items-center mb-0 mw-100">
                                 <thead>
                                     <tr>
                                         <th
@@ -39,8 +39,6 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Menu
                                         </th>
-
-
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -54,28 +52,28 @@
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $i }}</p>
                                             </td>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">
                                                     {{ $Submenuitem->nama }}
                                                 </p>
                                             </td>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $Submenuitem->route }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $Submenuitem->route }}</p>
                                             </td>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">
                                                     {{ $Submenuitem->menu->nama }}
                                                 </p>
                                             </td>
 
                                             <td class="text-center ">
                                                 <a href="/edit-sub-menu/{{ $Submenuitem->id }}" type="button"
-                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                    class="mx-2" data-bs-toggle="tooltip"
                                                     data-bs-original-title="Edit Menu">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
@@ -83,7 +81,7 @@
                                                 </a>
 
                                                 <a href="/delete-sub-menu/{{ $Submenuitem->id }}"
-                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+                                                    class="fas fa-trash text-secondary mx-2" data-confirm-delete="true"></a>
                                             </td>
 
                                         </tr>

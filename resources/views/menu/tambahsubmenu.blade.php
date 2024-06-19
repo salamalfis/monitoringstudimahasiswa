@@ -7,7 +7,7 @@
                 <div class="card mb-4 mx-4">
                     <div class="card-header pb-0">
                         <div class="d-flex flex-row justify-content-between">
-                            <h5 class="mb-4">Tambah Menu</h5>
+                            <h5 class="mb-4">Tambah Sub Menu</h5>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
