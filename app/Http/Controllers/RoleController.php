@@ -88,30 +88,10 @@ class RoleController extends Controller
 
     {
 
-        $request->validate([
-            'permission' => 'required'
-        ],[
-            'permission.required' => 'Nama tidak boleh kosong'
-        ]); 
-        $role = Role::find($id);
-
-        $role->givePermissionTo($request->permission);
-
-       
-        Alert::success('Berhasil', 'Role Permission berhasil ditambahkan');
-        return back();       
+          
     }
 
-    // public function deleterolepermission (Request $request, $id)
-    // {
-       
-
-    //     $role = Role::find($id);
-
-    //     $role->revokePermissionTo($permission);
-    //     Alert::success('Berhasil', 'Role Permission berhasil dihapus');
-    //     return back();
-    // }
+    
 
 
 }
