@@ -18,30 +18,30 @@
                                 type="button">Tambah Menu</a>
                         </div>
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2 mt-3">
-                        <div class="container">
-                            <table class="">
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0 mw-100">
                                 <thead>
                                     <tr>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-wrap">
                                             No
                                         </th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-wrap">
                                             Nama
                                         </th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-wrap">
                                             Route
                                         </th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-wrap">
                                             Icon
                                         </th>
 
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-wrap">
                                             Action
                                         </th>
                                     </tr>
@@ -53,16 +53,17 @@
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $i }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $menuitem->nama }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $menuitem->nama }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $menuitem->route }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $menuitem->route }}
+                                                </p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">
                                                     <i class="fas {{ $menuitem->icon }}"></i>
                                                 </p>
                                             </td>
