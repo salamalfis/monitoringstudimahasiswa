@@ -12,6 +12,7 @@ use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\LabRisetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DosenWaliController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\UndurDiriController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProgramStudiController;
@@ -142,6 +143,9 @@ Route::group(['middleware' => 'auth'],function () {
    #labriset
    Route::get('/lab-riset',[LabRisetController::class, 'index'])->name('labriset');
 
+   #Mahasiswa
+   Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
+   
 
 
 

@@ -18,8 +18,7 @@
                 </div>
                 <div class="error-actions">
                     <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Kembali Ke Beranda </a><a class="btn btn-default btn-lg"><span
-                            class="glyphicon glyphicon-envelope"></span> Helpdesk </a>
+                        Kembali Ke Beranda </a>
                 </div>
             </div>
         </div>
