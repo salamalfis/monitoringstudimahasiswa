@@ -10,4 +10,18 @@ class TugasAkhirController extends Controller
     {
         return view('tugasakhir.index');
     }
+    public function bimbingantugasakhir()
+    {
+        return view('tugasakhir.bimbingan');
+    }
+    public function progresstugasakhir()
+    {
+        return view('tugasakhir.progress');
+    }
+    public function topiktugasakhir()
+    {
+        return view('tugasakhir.topik');
+    }
+
+
 }

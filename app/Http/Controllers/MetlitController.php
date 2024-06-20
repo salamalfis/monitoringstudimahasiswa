@@ -10,4 +10,22 @@ class MetlitController extends Controller
     {
         return view('metlit.index');
     }
+    public function bimbinganmetlit()
+    {
+        return view('metlit.bimbingan');
+    }
+    public function pilihtopikmetlit()
+    {
+        return view('metlit.pilih');
+    }
+    public function progressmetlit()
+    {
+        return view('metlit.progress');
+    }
+    public function topikmetlit()
+    {
+        return view('metlit.topik');
+    }
+
+
 }

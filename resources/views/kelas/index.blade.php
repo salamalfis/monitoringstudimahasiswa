@@ -162,7 +162,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    {{-- <!-- Modal -->
     <div class="modal fade" id="editModal" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -202,5 +202,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

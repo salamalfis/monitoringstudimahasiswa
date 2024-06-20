@@ -6,8 +6,10 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ResetController;
+use App\Http\Controllers\MetlitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\AngkatanController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\LabRisetController;
 use App\Http\Controllers\RegisterController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\DosenWaliController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\UndurDiriController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\TugasAkhirController;
 use App\Http\Controllers\ProgramStudiController;
 
 /*
@@ -101,6 +104,15 @@ Route::group(['middleware' => 'auth'],function () {
 
     #Approval
     Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
+    Route::post('/approval-user', [ApprovalController::class, 'inputapproval'])->name('Aproval');
+    Route::get('/approval-metode-penelitian', [ApprovalController::class, 'approvalmetlit'])->name('Aproval');
+    Route::post('/approval-metode-penelitian', [ApprovalController::class, 'inputapprovalmetlit'])->name('Aproval');
+    Route::get('/approval-tugas-akhir', [ApprovalController::class, 'approvaltugasakhir'])->name('Aproval');
+    Route::post('/approval-tugas-akhir', [ApprovalController::class, 'inputapprovaltugasakhir'])->name('Aproval');
+    Route::get('/approval-undur-diri', [ApprovalController::class, 'approvalundurdiri'])->name('Aproval');
+    Route::post('/approval-undur-diri', [ApprovalController::class, 'inputapprovalundurdiri'])->name('Aproval');
+
+
 
 
     #Permission
@@ -146,10 +158,36 @@ Route::group(['middleware' => 'auth'],function () {
    #Mahasiswa
    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
    
+   #Kelas
+   Route::get('/kelas',[KelasController::class, 'index'])->name('kelas');
 
+   #Peminatan
+   Route::get('/peminatan',[KelasController::class, 'index'])->name('peminatan');
 
+   #angkatan
+   Route::get('/angkatan',[AngkatanController::class, 'index'])->name('angkatan');
 
-
-
-
-
+   #metode penelitian
+   Route::get('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'index'])->name('metlit');
+    Route::post('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'inputmetlit'])->name('metlit');
+    Route::get('/bimbingan-metode-penelitian',[MetlitController::class, 'bimbinganmetlit'])->name('metlit');
+    Route::post('/bimbingan-metode-penelitian',[MetlitController::class, 'inputbimbinganmetlit'])->name('metlit');
+    Route::get('/pilih-topik-metode-penelitian',[MetlitController::class, 'pilihtopikmetlit'])->name('metlit');
+    Route::post('/pilih-topik-metode-penelitian',[MetlitController::class, 'inputpilihtopikmetlit'])->name('metlit');
+    Route::get('/progress-metode-penelitian',[MetlitController::class, 'progressmetlit'])->name('metlit');
+    Route::post('/progress-metode-penelitian',[MetlitController::class, 'inputprogressmetlit'])->name('metlit');
+    Route::get('/topik-metode-penelitian',[MetlitController::class, 'topikmetlit'])->name('metlit');
+    Route::post('/topik-metode-penelitian',[MetlitController::class, 'inputtopikmetlit'])->name('metlit');
+    Route::get('/approval-metode-penelitian',[MetlitController::class, 'approvalmetlit'])->name('metlit');
+    
+   #tugas akhir
+    Route::get('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'index'])->name('tugasakhir');
+     Route::post('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'inputtugasakhir'])->name('tugasakhir');
+     Route::get('/bimbingan-tugas-akhir',[TugasAkhirController::class, 'bimbingantugasakhir'])->name('tugasakhir');
+     Route::post('/bimbingan-tugas-akhir',[TugasAkhirController::class, 'inputbimbingantugasakhir'])->name('tugasakhir');
+     Route::get('/progress-tugas-akhir',[TugasAkhirController::class, 'progresstugasakhir'])->name('tugasakhir');
+     Route::post('/progress-tugas-akhir',[TugasAkhirController::class, 'inputprogresstugasakhir'])->name('tugasakhir');
+     Route::get('/topik-tugas-akhir',[TugasAkhirController::class, 'topiktugasakhir'])->name('tugasakhir');
+     Route::post('/topik-tugas-akhir',[TugasAkhirController::class, 'inputtopiktugasakhir'])->name('tugasakhir');
+   
+     
