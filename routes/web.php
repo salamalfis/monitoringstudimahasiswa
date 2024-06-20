@@ -9,8 +9,10 @@ use App\Http\Controllers\ResetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\LabRisetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DosenWaliController;
+use App\Http\Controllers\UndurDiriController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProgramStudiController;
 
@@ -127,7 +129,18 @@ Route::group(['middleware' => 'auth'],function () {
     Route::delete('/delete-roles-permission/{id}', [RoleController::class, 'deleterolepermission'])->name('roles');
 
 
+    #undur diri
+
+    Route::get('/undur-diri', [UndurDiriController::class, 'index'])->name('undurdiri');
+    Route::post('/undur-diri', [UndurDiriController::class, 'inputundurdiri'])->name('undurdiri');
+    Route::get('/approval-undur-diri',[UndurDiriController::class,'approvalundur'])->name('undurdiri');
    });
+
+   #dosen
+   Route::get('/dosen',[RegisterController::class, 'dosen'])->name('dosen');
+
+   #labriset
+   Route::get('/lab-riset',[LabRisetController::class, 'index'])->name('labriset');
 
 
 

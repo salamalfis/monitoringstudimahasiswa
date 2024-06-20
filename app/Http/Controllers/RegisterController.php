@@ -126,4 +126,8 @@ class RegisterController extends Controller
         return redirect('/');
     }
 
+    public function dosen() {
+        return view('dosen.index');
+    }
+
 }
