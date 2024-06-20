@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        
+
     }
 
     /**
@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('layouts.sidebar.auth', function ($view) {
-            $menu = \App\Models\Menu::all()->sortBy('nama');
+            $menu = \App\Models\Menu::all()->sortBy('sort');
             $submenu = \App\Models\Submenu::all()->sortBy('nama');
             $view->with('menu', $menu)->with('submenu', $submenu);
         });

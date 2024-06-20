@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 
     #ProfileRouteAuth
-    Route::get('/profile/{id}',[ProfileController::class, 'index'])->name('profile');
+    Route::get('/edit-profile/{id}',[ProfileController::class, 'index'])->name('profile');
 
     #Prodi
     Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('programstudi');
@@ -122,7 +122,7 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::delete('/delete-role/{id}', [RoleController::class, 'deleteRole'])->name('roles');
 
-    Route::post('/roles-permission/{id}', [RoleController::class. 'givepermission'])->name('roles permission');
+    Route::post('/roles-permission/{id}', [RoleController::class. ''])->name('roles permission');
 
     Route::delete('/delete-roles-permission/{id}', [RoleController::class, 'deleterolepermission'])->name('roles');
 

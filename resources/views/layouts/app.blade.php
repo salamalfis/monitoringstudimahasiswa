@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
@@ -13,9 +16,9 @@
     <title>
         @if (request()->is('/'))
             Monitoring Perkembangan Studi Mahasiswa
-
         @else
-            {{ str_replace(['-', '/'], [' ', ' '], Str::title(Request::path())) }} | Monitoring Perkembangan Studi Mahasiswa
+            {{ str_replace(['-', '/'], [' ', ' '], Str::title(Request::path())) }} | Monitoring Perkembangan Studi
+            Mahasiswa
         @endif
     </title>
     <!--     Fonts and icons     -->
@@ -53,6 +56,7 @@
     <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+
 
 
     @stack('dashboard')

@@ -84,14 +84,11 @@ class RoleController extends Controller
         return redirect('roles');
     }
 
-    public function givepermission( Request $request, $id)
-
-    {
-
-          
-    }
-
     
+
+
+
+
 
 
 }
