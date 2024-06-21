@@ -147,7 +147,8 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/undur-diri', [UndurDiriController::class, 'index'])->name('undurdiri');
     Route::post('/undur-diri', [UndurDiriController::class, 'inputundurdiri'])->name('undurdiri');
     Route::get('/approval-undur-diri',[UndurDiriController::class,'approvalundur'])->name('undurdiri');
-   });
+    Route::get('/alasan-undur-diri', [UndurDiriController::class, 'alasanundurdiri'])->name('alasanundurdiri');
+
 
    #dosen
    Route::get('/dosen',[RegisterController::class, 'dosen'])->name('dosen');
@@ -157,7 +158,7 @@ Route::group(['middleware' => 'auth'],function () {
 
    #Mahasiswa
    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
-   
+
    #Kelas
    Route::get('/kelas',[KelasController::class, 'index'])->name('kelas');
 
@@ -179,7 +180,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/topik-metode-penelitian',[MetlitController::class, 'topikmetlit'])->name('metlit');
     Route::post('/topik-metode-penelitian',[MetlitController::class, 'inputtopikmetlit'])->name('metlit');
     Route::get('/approval-metode-penelitian',[MetlitController::class, 'approvalmetlit'])->name('metlit');
-    
+
    #tugas akhir
     Route::get('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'index'])->name('tugasakhir');
      Route::post('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'inputtugasakhir'])->name('tugasakhir');
@@ -189,5 +190,8 @@ Route::group(['middleware' => 'auth'],function () {
      Route::post('/progress-tugas-akhir',[TugasAkhirController::class, 'inputprogresstugasakhir'])->name('tugasakhir');
      Route::get('/topik-tugas-akhir',[TugasAkhirController::class, 'topiktugasakhir'])->name('tugasakhir');
      Route::post('/topik-tugas-akhir',[TugasAkhirController::class, 'inputtopiktugasakhir'])->name('tugasakhir');
-   
-     
+
+
+
+
+    });

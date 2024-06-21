@@ -17,4 +17,7 @@ class UndurDiriController extends Controller
     public function approvalundur(){
         return view('undurdiri.approval');
     }
+    public function alasanundurdiri(){
+        return view('undurdiri.alasan');
+    }
 }
