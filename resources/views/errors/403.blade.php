@@ -9,9 +9,9 @@
         <div class="col-md-12">
             <div class="error-template mt-5 text-capitalize">
                 <h1>
-                    404</h1>
+                    403</h1>
                 <h2 style="text-transform: capitalize;">
-                    Halaman {{ str_replace(['-', '/'], [' ', ' '], Str::title(Request::path())) }} Tidak Ditemukan</h2>
+                    Anda Tidak Memiliki Akses Ke Halaman {{ str_replace(['-', '/'], [' ', ' '], Str::title(Request::path())) }} </h2>
                 <div class="error-details">
                     Jika anda merasa melihat pesan ini karena kesalahan,
                     Tolong beritahu kami.
