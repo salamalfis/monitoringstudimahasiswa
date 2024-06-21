@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+
 
 class RoleController extends Controller
 {
@@ -84,9 +84,42 @@ class RoleController extends Controller
         return redirect('roles');
     }
 
-    
+    public function assignpermision(Request $request, $id){
+        $request -> validate([
+            'assign' => 'required'
+        ],[
+            'assign' => 'Assign Permission tidak boleh kosong'
+
+        ]);
+        $role = Role::find($id);
+        if($role->hasPermissionTo($request->assign)){
+            Alert::warning('Warning', 'Role Permission Sudah Ada');
+            return back();
+        }
+
+            $role->givePermissionTo($request->assign);
+            Alert::success('Berhasil', 'Role Permission berhasil ditambahkan');
+            return back();
+
+    }
+
+    public function deleterolepermission($id, $idrole){
+
+        $permission = Permission::find($id);
+        $role = Role::find($idrole);
+        if ($role->hasPermissionTo($permission)){
+            $role->revokePermissionTo($permission);
+            Alert::success('Berhasil', 'Role Permission berhasil dihapus');
+            return back();
+        }
+        Alert::warning('Warning', 'Role Permission tidak ada');
+    }
 
     
+
+
+
+
 
 
 

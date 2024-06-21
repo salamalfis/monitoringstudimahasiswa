@@ -4,6 +4,7 @@ use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\MetlitController;
@@ -137,9 +138,9 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::delete('/delete-role/{id}', [RoleController::class, 'deleteRole'])->name('roles');
 
-    Route::post('/roles-permission/{id}', [RoleController::class. ''])->name('roles permission');
+    Route::post('/roles-permission/{id}', [RoleController::class, 'assignpermision'])->name('roles');
 
-    Route::delete('/delete-roles-permission/{id}', [RoleController::class, 'deleterolepermission'])->name('roles');
+    Route::delete('/delete-roles-permission/{id}/{idrole}', [RoleController::class, 'deleterolepermission'])->name('roles');
 
 
     #undur diri
@@ -192,6 +193,7 @@ Route::group(['middleware' => 'auth'],function () {
      Route::post('/topik-tugas-akhir',[TugasAkhirController::class, 'inputtopiktugasakhir'])->name('tugasakhir');
 
 
-
+    #user
+    Route::get('/user',[UserController::class, 'index'])->name('user');
 
     });

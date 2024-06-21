@@ -11,8 +11,10 @@ class Role extends SpatieRole
 {
     use HasFactory, GenUid;
 
+    protected $primaryKey = 'id';
 
     protected $fillable = [
+
         'name',
         'guard_name',
 

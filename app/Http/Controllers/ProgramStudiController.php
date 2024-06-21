@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class ProgramStudiController extends Controller
 {
     public function index()
     {
-        $prodi = ProgramStudi::all();
+        $prodi = User::role('Program Studi')->get();
         return view('prodi.index', compact('prodi'));
     }
 }

@@ -47,7 +47,7 @@
                         </div>
                         @if ($role->permissions)
                             @foreach ($role->permissions as $role_permission)
-                                <a href="/delete-roles-permission/{{ $role_permission->name }}"
+                                <a href="/delete-roles-permission/{{ $role_permission->id }}/{{ $role->id }}"
                                     class="btn bg-danger text-white text-secondary" data-confirm-delete="true">
                                     {{ $role_permission->name }}</a>
                             @endforeach
@@ -58,12 +58,12 @@
 
                         <form action="/roles-permission/{{ $role->id }}" method="POST">
                             @csrf
-
+                            @method('POST')
                             <div class="mx-4 mb-3">
-                                <label for="permission" class="form-label">Permission</label>
-                                <select name="permission" class="form-control" id="permission">
+                                <label for="assign" class="form-label">Permission</label>
+                                <select name="assign" class="form-control" id="assign">
                                     @foreach ($permissions as $permission)
-                                        <option value="{{ $permission->id }}">{{ $permission->name }}</option>
+                                        <option value="{{ $permission->name }}">{{ $permission->name }}</option>
                                     @endforeach
                                 </select>
 

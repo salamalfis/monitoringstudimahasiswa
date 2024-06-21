@@ -18,7 +18,7 @@ class DosenWaliController extends Controller
      */
     public function index()
     {
-        $dosenWali = DosenWali::all();
+        $dosenWali = User::role('Dosen Wali')->get();
         $kelas = Kelas::all();
         return view('dosenwali.index', compact('dosenWali', 'kelas'));
 
