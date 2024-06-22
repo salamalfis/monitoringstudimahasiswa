@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -18,48 +22,39 @@ class ProfileController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+
+    public function store(Request $request, $id)
     {
-        //
+        $profile = User::findOrFail($id);
+
+        
+
+        // Validate the new password and confirmation password
+        $request->validate([
+
+            'current_password' => 'required',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
+
+        ],[
+            'current_password.required' => 'Kolom password saat ini harus diisi.',
+            'password.required' => 'Kolom password baru harus diisi.',
+            'password.min' => 'Password baru harus terdiri dari minimal 8 karakter.',
+            'password_confirmation.required' => 'Kolom konfirmasi password harus diisi.',
+            'password_confirmation.same' => 'Konfirmasi password tidak sesuai dengan password baru.',
+        ]);
+
+    // Validate the current password
+    if (!Hash::check($request->input('current_password'), $profile->password)) {
+        return redirect()->back()->with('error', 'Password saat ini tidak sesuai.');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    $profile->password = Hash::make($request->input('password'));
+    $profile->save();
+
+    Alert::success('Berhasil', 'Password Berhasil Diubah');
+    return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Profile $profile)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Profile $profile)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Profile $profile)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Profile $profile)
-    {
-        //
-    }
 }

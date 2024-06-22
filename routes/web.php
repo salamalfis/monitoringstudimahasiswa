@@ -62,7 +62,8 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 
     #ProfileRouteAuth
-    Route::get('/edit-profile/{id}',[ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile/{id}',[ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/{id}',[ProfileController::class, 'store'])->name('profile');
 
     #Prodi
     Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('programstudi');

@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
         
 
-        $mahasiswa->assignRole('Mahasiswa');
+       
 
         Alert::success('Berhasil', 'Registrasi Mahasiswa berhasil');
         return redirect('/');

@@ -34,7 +34,7 @@
                  </li>
 
                  <li class="nav-item dropdown px-2 d-flex align-items-center">
-                     <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
+                     <a href="" class="nav-link text-body p-0" id="dropdownMenuButton"
                          data-bs-toggle="dropdown" aria-expanded="false">
                          <i class="fa fa-user me-sm-1"></i>
                          <span class="d-sm-inline d-none">{{ $profile->nama }}</span>
@@ -58,7 +58,7 @@
                                  </a>
                              </div>
                          </li>
-                       
+
                      </ul>
                  </li>
              </ul>
