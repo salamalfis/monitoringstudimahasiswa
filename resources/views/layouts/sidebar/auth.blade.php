@@ -23,6 +23,7 @@
     <div class="collapse navbar-collapse h-auto w-auto  " id="sidenav-collapse-main">
         <ul class="navbar-nav text-wrap ">
             @forelse ($menu as $menus)
+            
                 <li class="nav-item ">
                     <a class="nav-link {{ Request::is($menus->route) ? 'active' : '' }} "
                         href=" {{ url($menus->route) }}">

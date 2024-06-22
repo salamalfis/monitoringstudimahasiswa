@@ -1,8 +1,8 @@
-@if (Auth::user()->role == 'prodi')
+@if (Auth::user()->hasRole('Program Studi'))
     @include('prodi.dashboard')
-@elseif (Auth::user()->role == 'dosenwali')
+@elseif (Auth::user()->hasRole('Dosen Wali'))
     @include('dosenwali.dashboard')
-@elseif (Auth::user()->role == 'mahasiswa')
+@elseif (Auth::user()->hasRole('Mahasiswa'))
     @include('mahasiswa.dashboard')
 @else
     @include('dashboardcontoh')

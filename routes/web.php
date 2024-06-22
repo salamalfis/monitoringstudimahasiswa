@@ -182,7 +182,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::post('/progress-metode-penelitian',[MetlitController::class, 'inputprogressmetlit'])->name('metlit');
     Route::get('/topik-metode-penelitian',[MetlitController::class, 'topikmetlit'])->name('metlit');
     Route::post('/topik-metode-penelitian',[MetlitController::class, 'inputtopikmetlit'])->name('metlit');
-    Route::get('/approval-metode-penelitian',[MetlitController::class, 'approvalmetlit'])->name('metlit');
+    Route::get('/approval-metode-penelitian',[ApprovalController::class, 'approvalmetlit'])->name('metlit');
 
    #tugas akhir
     Route::get('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'index'])->name('tugasakhir');

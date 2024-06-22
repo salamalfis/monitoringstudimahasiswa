@@ -67,14 +67,18 @@ class RegisterController extends Controller
 
         $mahasiswa = Mahasiswa::create([
             'nama' => request('nama'),
-            'nim/nip' => request('nim'),
-            'kelas' => request('kelas'),
+            'iduser' => request('nim'),
+
             'emailsso' => request('emailsso'),
             'emailpribadi' => request('emailpribadi'),
             'notelp' => request('notelp'),
             'jeniskelamin' => request('jeniskelamin'),
             'password' => request('password'),
         ]);
+
+        
+
+        $mahasiswa->assignRole('Mahasiswa');
 
         Alert::success('Berhasil', 'Registrasi Mahasiswa berhasil');
         return redirect('/');

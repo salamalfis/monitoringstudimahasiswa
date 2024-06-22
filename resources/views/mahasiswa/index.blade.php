@@ -60,7 +60,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ $mhs->nama }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $mhs->nim }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $mhs->iduser }}</p>
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">{{ $mhs->kelas }}</p>
