@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,10 +22,7 @@ class PermissionController extends Controller
         return view('permission.index', compact('permissions'));
     }
 
-    public function assignpermission()
-    {
-        return view('permission.access');
-    }
+ 
 
     public function tambahPermission()
     {
@@ -56,7 +54,15 @@ class PermissionController extends Controller
     public function editPermission($id)
     {
         $permission = Permission::find($id);
-        return view('permission.editpermission', compact('permission'));
+
+
+        $role = Role::all();
+
+        $title = 'Delete Permission Role!';
+        $text = "Apakah anda yakin?";
+        confirmDelete($title, $text);
+        return view('permission.editpermission', compact('permission','role'));
+      
     }
 
     public function updatePermission(Request $request, $id)
@@ -83,4 +89,42 @@ class PermissionController extends Controller
         Alert::success('Berhasil', 'Permission berhasil dihapus');
         return redirect('permission');
     }
+
+    public function assignpermissionrole(Request $request, $id){
+        $request -> validate([
+            'assign' => 'required'
+        ],[
+            'assign' => 'Assign Role tidak boleh kosong'
+
+        ]);
+        $permission = Permission::find($id);
+        if($permission->hasRole($request->assign)){
+            Alert::warning('Warning', 'Role Permission Sudah Ada');
+            return back();
+        }
+
+            $permission->assignRole($request->assign);
+            Alert::success('Berhasil', 'Role Permission berhasil ditambahkan');
+            return back();
+
+    }
+
+    public function deletepermissionrole($id, $idpermission){
+
+        $role = Role::find($id);
+        $permission = Permission::find($idpermission);
+
+        if ($permission->hasRole($role)){
+            $permission->removeRole($role);
+            Alert::success('Berhasil', 'Permission Role berhasil dihapus');
+            return back();
+        }
+        Alert::warning('Warning', 'Permission Role tidak ada');
+    }
+
+
+
+ 
+
+
 }

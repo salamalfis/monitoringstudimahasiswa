@@ -126,7 +126,9 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::delete('/delete-permission/{id}', [PermissionController::class, 'deletePermission'])->name('permission');
 
-    Route::get('/assign-permission', [PermissionController::class, 'assignpermission'])->name('assignpermission');
+    Route::post('/permission-roles/{id}', [PermissionController::class, 'assignpermissionrole'])->name('assignpermission');
+    Route::delete('/delete-permission-roles/{id}/{idpermission}', [PermissionController::class, 'deletepermissionrole'])->name('assignpermission');
+
 
     #Roles
     Route::get('/roles', [RoleController::class, 'index'])->name('roles');
@@ -195,5 +197,9 @@ Route::group(['middleware' => 'auth'],function () {
 
     #user
     Route::get('/user',[UserController::class, 'index'])->name('user');
-
+    Route::get('/assign-user/{iduser}',[UserController::class, 'assignuser'])->name('user');
+    Route::post('/assign-user-role/{iduser}',[UserController::class, 'assignuserrole'])->name('user');
+    Route::delete('/delete-user-role/{iduser}/{idrole}',[UserController::class, 'deleteuserrole'])->name('user');
+    Route::post('/assign-user-permission/{iduser}',[UserController::class, 'assignuserpermission'])->name('user');
+    Route::delete('/delete-user-permission/{iduser}/{idpermission}',[UserController::class, 'deleteuserpermission'])->name('user');
     });

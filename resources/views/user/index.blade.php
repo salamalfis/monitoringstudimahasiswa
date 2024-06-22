@@ -61,7 +61,7 @@
 
 
                                         <td class="text-center">
-                                            <a href="/user-role/{{ $useritem->id }}" type="button" class="mx-3"
+                                            <a href="/assign-user/{{ $useritem->id }}" type="button" class="mx-3"
                                                 data-bs-toggle="tooltip" data-bs-original-title="Edit Role User">
                                                 <i class="fas fa-id-card text-secondary">
 

@@ -12,9 +12,9 @@
     <div class="text-center">
         @if (Auth::user()->hasRole('Program Studi'))
             <h6 class=" text-uppercase text-xs font-weight-bolder opacity-6">program Studi</h6>
-        @elseif (Auth::user()->role == 'dosenwali')
+        @elseif (Auth::user()->hasRole('Dosen Wali'))
             <h6 class=" text-uppercase text-xs font-weight-bolder opacity-6">Dosen Wali</h6>
-        @elseif (Auth::user()->role == 'mahasiswa')
+        @elseif (Auth::user()->hasRole('Mahasiswa'))
             <h6 class=" text-uppercase text-xs font-weight-bolder opacity-6">mahasiswa</h6>
         @else
             <h6 class="text-uppercase text-xs font-weight-bolder opacity-6">Belum Memiliki Role</h6>
