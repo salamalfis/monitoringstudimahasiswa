@@ -16,6 +16,7 @@ use App\Http\Controllers\LabRisetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DosenWaliController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PeminatanController;
 use App\Http\Controllers\UndurDiriController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\TugasAkhirController;
@@ -171,10 +172,19 @@ Route::group(['middleware' => 'auth'],function () {
    #Kelas
    Route::get('/kelas',[KelasController::class, 'index'])->name('kelas');
    Route::get('tambah-kelas',[KelasController::class, 'tambahkelas'])->name('kelas');
-   Route::post('')
+   Route::post('/tambah-kelas', [KelasController::class, 'storekelas'])->name('kelas');
+    Route::get('/edit-kelas/{id}',[KelasController::class, 'editkelas'])->name('kelas');
+    Route::put('/edit-kelas/{id}',[KelasController::class, 'updatekelas'])->name('kelas');
+    Route::delete('/delete-kelas/{id}',[KelasController::class, 'deletekelas'])->name('kelas');
+
 
    #Peminatan
-   Route::get('/peminatan',[KelasController::class, 'index'])->name('peminatan');
+   Route::get('/peminatan',[PeminatanController::class, 'index'])->name('peminatan');
+    Route::get('/tambah-peminatan',[PeminatanController::class, 'tambahpeminatan'])->name('peminatan');
+    Route::post('/tambah-peminatan',[PeminatanController::class, 'storepeminatan'])->name('peminatan');
+    Route::get('/edit-peminatan/{id}',[PeminatanController::class, 'editpeminatan'])->name('peminatan');
+    Route::put('/edit-peminatan/{id}',[PeminatanController::class, 'updatepeminatan'])->name('peminatan');
+    Route::delete('/delete-peminatan/{id}',[PeminatanController::class, 'deletepeminatan'])->name('peminatan');
 
    #angkatan
    Route::get('/angkatan',[AngkatanController::class, 'index'])->name('angkatan');

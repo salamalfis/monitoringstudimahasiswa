@@ -14,7 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="/tambah-kelas" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Kelas</a>
+                            <a href="{{ asset('/tambah-peminatan') }}" class="btn bg-gradient-info btn-sm mb-0"
+                                type="button">Tambah Peminatan</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -28,17 +29,12 @@
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kode Kelas
+                                            Kode Peminatan
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Nama Kelas
+                                            Nama Peminatan
                                         </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Angkatan
-                                        </th>
-
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -48,7 +44,7 @@
                                 <tbody>
                                     <?php $i = 0; ?>
 
-                                    @forelse ($kelas as $kelasitem)
+                                    @forelse ($peminatan as $peminatans)
                                         <?php $i++; ?>
                                         <tr>
 
@@ -58,22 +54,17 @@
 
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $kelasitem->kode_kelas }}
-                                                </p>
-                                            </td>
-
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $kelasitem->nama_kelas }}
+                                                    {{ $peminatans->kode_peminatan }}
                                                 </p>
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                   <?php  $angkatanTahun = $angkatan->firstWhere('id', $kelasitem->angkatan_id)->tahun_angkatan ?? 'Tahun angkatan tidak ditemukan'; ?>
-                                                   {{ $angkatanTahun }}
-
+                                                    {{ $peminatans->nama_peminatan }}
                                                 </p>
                                             </td>
+
+
+
 
 
 
@@ -81,20 +72,23 @@
                                             <td class="text-center ">
 
 
-
-                                                <a href="/edit-kelas/{{ $kelasitem->id }}" type="button" class="mx-3"
-                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Role">
+                                                <a href="/edit-peminatan/{{ $peminatans->id }}" type="button"
+                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Peminatan">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-                                                <a href="/delete-kelas/{{ $kelasitem->id }}"
+                                                <a href="/delete-peminatan/{{ $peminatans->id }}"
                                                     class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                             </td>
 
                                         </tr>
+
                                     @empty
+
+
                                         <tr>
 
                                             <td class="text-center" colspan="8">

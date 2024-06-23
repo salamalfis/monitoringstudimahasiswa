@@ -15,7 +15,7 @@ class RoleController extends Controller
         $roles = Role::all()->sortBy('name');
 
 
-        $title = 'Delete Role!';
+        $title = 'Hapus Role!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);
 
@@ -115,7 +115,7 @@ class RoleController extends Controller
         Alert::warning('Warning', 'Role Permission tidak ada');
     }
 
-    
+
 
 
 
