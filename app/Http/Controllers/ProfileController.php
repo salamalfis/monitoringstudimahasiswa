@@ -27,7 +27,7 @@ class ProfileController extends Controller
     {
         $profile = User::findOrFail($id);
 
-        
+
 
         // Validate the new password and confirmation password
         $request->validate([
@@ -37,10 +37,10 @@ class ProfileController extends Controller
             'password_confirmation' => 'required|same:password',
 
         ],[
-            'current_password.required' => 'Kolom password saat ini harus diisi.',
-            'password.required' => 'Kolom password baru harus diisi.',
+            'current_password.required' => 'Password saat ini tidak boleh kosong.',
+            'password.required' => 'Password baru tidak boleh kosong.',
             'password.min' => 'Password baru harus terdiri dari minimal 8 karakter.',
-            'password_confirmation.required' => 'Kolom konfirmasi password harus diisi.',
+            'password_confirmation.required' => 'Konfirmasi password tidak boleh kosong.',
             'password_confirmation.same' => 'Konfirmasi password tidak sesuai dengan password baru.',
         ]);
 
