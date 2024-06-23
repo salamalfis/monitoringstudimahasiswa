@@ -38,7 +38,10 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Angkatan
                                         </th>
-
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status
+                                        </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action
@@ -74,9 +77,15 @@
 
                                                 </p>
                                             </td>
-
-
-
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    @if($kelasitem->active == 1)
+                                                        <span class="badge bg-success">Aktif</span>
+                                                    @else
+                                                        <span class="badge bg-danger">Tidak Aktif</span>
+                                                    @endif
+                                                </p>
+                                            </td>
 
                                             <td class="text-center ">
 

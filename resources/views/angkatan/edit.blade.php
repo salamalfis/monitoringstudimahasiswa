@@ -35,6 +35,7 @@
                                 @error('status')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
+                            </div>
 
                                 <div class="mx-5 mt-3 d-flex justify-content-end">
                                     <button type="submit" class="btn bg-gradient-info ">Edit Angkatan</button>
