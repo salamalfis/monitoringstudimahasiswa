@@ -14,6 +14,12 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
+
+        
+        $title = 'Hapus User!';
+        $text = "Apakah anda yakin?";
+        confirmDelete($title, $text);
+
         return view('user.index', compact('user'));
     }
 
@@ -85,7 +91,14 @@ class UserController extends Controller
             return back();
         }
         Alert::warning('Warning', 'Permission User tidak ada');
-        
+
+    }
+
+    public function deleteuser($id){
+        $user = User::find($id);
+        $user->delete();
+        Alert::success('Berhasil', 'User berhasil dihapus');
+        return back();
     }
 
 }

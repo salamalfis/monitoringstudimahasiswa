@@ -225,4 +225,6 @@ Route::group(['middleware' => 'auth'],function () {
     Route::delete('/delete-user-role/{iduser}/{idrole}',[UserController::class, 'deleteuserrole'])->name('user');
     Route::post('/assign-user-permission/{iduser}',[UserController::class, 'assignuserpermission'])->name('user');
     Route::delete('/delete-user-permission/{iduser}/{idpermission}',[UserController::class, 'deleteuserpermission'])->name('user');
-    });
+
+    Route::delete('/delete-user/{id}',[UserController::class, 'deleteuser'])->name('user');
+});
