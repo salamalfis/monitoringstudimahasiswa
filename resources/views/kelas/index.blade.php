@@ -14,7 +14,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
+                            <a href="/tambah-kelas"
                                 class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Kelas</a>
                         </div>
                     </div>
@@ -115,92 +115,4 @@
             </div>
         </div>
     </div>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Tambah Kelas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Registration form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="kode_kelas" class="form-label">Kode Kelas</label>
-                            <input type="text" name="kode_kelas" class="form-control" id="kode_kelas">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nama_kelas" class="form-label">Nama Kelas</label>
-                            <input type="text" name="nama_kelas" class="form-control" id="nama_kelas">
-                        </div>
-                        <div class="mb-3">
-                            <label for="angkatan" class="form-label">Angkatan</label>
-                            <select class="form-select" name="angkatan" id="angkatan">
-                                <option selected>Pilih Angkatan</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                            </select>
-
-
-                        </div>
-
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn bg-gradient-info">Tambah Kelas</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- <!-- Modal -->
-    <div class="modal fade" id="editModal" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Kelas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit form goes here -->
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="kode_kelas" class="form-label">Kode Kelas</label>
-                            <input type="text" name="kode_kelas" class="form-control" id="kode_kelas"
-                                value="{{ $kelasitem->kode_kelas }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nama_kelas" class="form-label">Nama Kelas</label>
-                            <input type="text" name="nama_kelas" class="form-control" id="nama_kelas"
-                                value="{{ $kelasitem->nama_kelas }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="angkatan" class="form-label">Angkatan</label>
-                            <select class="form-select" name="angkatan" id="angkatan">
-                                <option selected>{{ $kelasitem->angkatan }}</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                            </select>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 @endsection

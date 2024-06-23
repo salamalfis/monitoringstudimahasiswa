@@ -21,7 +21,7 @@ class UndurDiriController extends Controller
         return view('undurdiri.approval');
     }
     public function alasanundurdiri(){
-        $alasan = AlasanUndurDiri::all();
+        $alasan = AlasanUndurDiri::orderBy('sort')->get();
 
         $title = 'Hapus Alasan Undur Diri!';
         $text = "Apakah anda yakin?";

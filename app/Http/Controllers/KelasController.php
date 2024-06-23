@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Angkatan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -19,38 +20,38 @@ class KelasController extends Controller
         return view('kelas.index', compact('kelas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function inputkelas()
+    public function tambahkelas()
     {
+        $angkatan = Angkatan::orderBy('tahun_angkatan')->get();
+        return view('kelas.tambah', compact('angkatan'));
+    }
 
+    public function storekelas(Request $request)
+    {
+        $request->validate([
+            'kode' => 'required|unique:kelas',
+            'nama' => 'required',
+            'angkatan_id' => 'required',
+            'kapasitas' => 'required|numeric|min:1',
+            'status' => 'required'
+        ],[
+            'kode.required' => 'Kode kelas tidak boleh kosong',
+            'kode.unique' => 'Kode kelas sudah ada',
+            'nama.required' => 'Nama kelas tidak boleh kosong',
+            'angkatan_id.required' => 'Angkatan tidak boleh kosong',
+            'kapasitas.required' => 'Kapasitas kelas tidak boleh kosong',
+            'kapasitas.numeric' => 'Kapasitas kelas harus berupa angka',
+            'kapasitas.min' => 'Kapasitas kelas minimal 1',
+            'status.required' => 'Status kelas tidak boleh kosong'
 
-        request()->validate([
-            'kode_kelas' => 'required|max:7|unique:kelas,kode_kelas',
-            'nama_kelas' => 'required|max:10|unique:kelas,nama_kelas',
-            'angkatan' => 'required|numeric',
-
-
-        ], [
-            'kode_kelas.required' => 'Kode Kelas tidak boleh kosong',
-            'nama_kelas.required' => 'Nama Kelas tidak boleh kosong',
-            'kode_kelas.max' => 'Kode Kelas maksimal 7 karakter',
-            'nama_kelas.max' => 'Nama Kelas maksimal 10 karakter',
-            'kode_kelas.unique' => 'Kode Kelas sudah ada',
-            'nama_kelas.unique' => 'Nama Kelas sudah ada',
-            'angkatan.required' => 'Angkatan tidak boleh kosong',
-            'angkatan.numeric' => 'Angkatan harus berupa angka'
+        
         ]);
 
-        $kelas = Kelas::create([
-            'kode_kelas' => request('kode_kelas'),
-            'nama_kelas' => request('nama_kelas'),
-            'angkatan' => request('angkatan'),
-
+        Kelas::create([
+            
         ]);
-        Alert::success('Berhasil', 'Data kelas berhasil ditambahkan');
-        return redirect('/kelas');
 
+        Alert::success('Berhasil', 'Kelas berhasil ditambahkan');
+        return redirect()->route('kelas.index');
     }
 }

@@ -170,12 +170,19 @@ Route::group(['middleware' => 'auth'],function () {
 
    #Kelas
    Route::get('/kelas',[KelasController::class, 'index'])->name('kelas');
+   Route::get('tambah-kelas',[KelasController::class, 'tambahkelas'])->name('kelas');
+   Route::post('')
 
    #Peminatan
    Route::get('/peminatan',[KelasController::class, 'index'])->name('peminatan');
 
    #angkatan
    Route::get('/angkatan',[AngkatanController::class, 'index'])->name('angkatan');
+    Route::get('/tambah-angkatan',[AngkatanController::class, 'tambahangkatan'])->name('angkatan');
+    Route::post('/tambah-angkatan',[AngkatanController::class, 'storeangkatan'])->name('angkatan');
+    Route::get('/edit-angkatan/{id}',[AngkatanController::class, 'editangkatan'])->name('angkatan');
+    Route::put('/edit-angkatan/{id}',[AngkatanController::class, 'updateangkatan'])->name('angkatan');
+    Route::delete('/delete-angkatan/{id}',[AngkatanController::class, 'deleteangkatan'])->name('angkatan');
 
    #metode penelitian
    Route::get('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'index'])->name('metlit');
