@@ -165,6 +165,12 @@ Route::group(['middleware' => 'auth'],function () {
 
    #labriset
    Route::get('/lab-riset',[LabRisetController::class, 'index'])->name('labriset');
+    Route::get('/tambah-lab-riset',[LabRisetController::class, 'tambahlabriset'])->name('labriset');
+    Route::post('/tambah-lab-riset',[LabRisetController::class, 'storelabriset'])->name('labriset');
+    Route::get('/edit-lab-riset/{id}',[LabRisetController::class, 'editlabriset'])->name('labriset');
+    Route::put('/edit-lab-riset/{id}',[LabRisetController::class, 'updatelabriset'])->name('labriset');
+    Route::delete('/delete-lab-riset/{id}',[LabRisetController::class, 'deletelabriset'])->name('labriset');
+    
 
    #Mahasiswa
    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');

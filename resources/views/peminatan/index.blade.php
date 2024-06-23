@@ -68,7 +68,7 @@
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    @if($peminatans->active == 1)
+                                                    @if ($peminatans->active == 1)
                                                         <span class="badge bg-success">Aktif</span>
                                                     @else
                                                         <span class="badge bg-danger">Tidak Aktif</span>
