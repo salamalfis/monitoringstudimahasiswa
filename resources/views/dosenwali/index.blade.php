@@ -131,41 +131,4 @@
 
     
 
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Role</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Edit form goes here -->
-                    <form action="/edit-dosenwali" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Role</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                {{-- value="{{ $Submenu->nama }}" --}}>
-                        </div>
-                        <div class="mb-3">
-                            <label for="role" class="form-label">Role</label>
-                            <input type="text" name="role" class="form-control" id="role">
-                        </div>
-
-
-
-
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn bg-gradient-info">Simpan Perubahan</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-@endsection
+   @endsection

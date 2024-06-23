@@ -36,7 +36,7 @@ class RegisterController extends Controller
     public function storeMahasiswa(Request $request) {
         request()->validate([
             'nama' => 'required',
-            'nim' => 'required|numeric',
+            'iduser' => 'required|numeric|unique:users,iduser',
             'emailsso' => 'required|email',
             'kelas' => 'required',
             'emailpribadi' => 'required|email',
@@ -47,8 +47,9 @@ class RegisterController extends Controller
 
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
-            'nim.required' => 'NIM tidak boleh kosong',
-            'nim.numeric'=> 'NIM harus berupa angka',
+            'iduser.required' => 'NIM tidak boleh kosong',
+            'iduser.numeric'=> 'NIM harus berupa angka',
+            'iduser.unique' => 'NIM sudah terdaftar',
             'kelas.required' => 'Kelas tidak boleh kosong',
             'emailsso.required' => 'Email SSO tidak boleh kosong',
             'emailsso.email' => 'Email SSO harus valid',
@@ -67,8 +68,8 @@ class RegisterController extends Controller
 
         $mahasiswa = Mahasiswa::create([
             'nama' => request('nama'),
-            'iduser' => request('nim'),
-
+            'iduser' => request('iduser'),
+            
             'emailsso' => request('emailsso'),
             'emailpribadi' => request('emailpribadi'),
             'notelp' => request('notelp'),

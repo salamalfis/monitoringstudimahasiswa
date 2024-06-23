@@ -107,7 +107,10 @@ Route::group(['middleware' => 'auth'],function () {
 
     #Approval
     Route::get('/approval-user', [ApprovalController::class, 'index'])->name('Aproval');
-    Route::post('/approval-user', [ApprovalController::class, 'inputapproval'])->name('Aproval');
+    Route::get('/detail-approval-user/{id}',[ApprovalController::class, 'detailapprovaluser'])->name('Aproval');
+    Route::post('/approval-user', [ApprovalController::class, 'approve'])->name('Aproval');
+
+
     Route::get('/approval-metode-penelitian', [ApprovalController::class, 'approvalmetlit'])->name('Aproval');
     Route::post('/approval-metode-penelitian', [ApprovalController::class, 'inputapprovalmetlit'])->name('Aproval');
     Route::get('/approval-tugas-akhir', [ApprovalController::class, 'approvaltugasakhir'])->name('Aproval');

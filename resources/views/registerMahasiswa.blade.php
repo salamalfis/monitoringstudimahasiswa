@@ -32,10 +32,10 @@
 
                                         <label>NIM</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="nim" id="nim"
+                                            <input type="text" class="form-control" name="iduser" id="iduser"
                                                 placeholder="NIM" aria-label="NIM" aria-describedby="nim-addon"
-                                                value="{{ old('nim') }}">
-                                            @error('nim')
+                                                value="{{ old('iduser') }}">
+                                            @error('iduser')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -44,11 +44,11 @@
                                         <div class="mb-3">
                                             <select class="form-control" name="kelas" id="kelas">
                                                 <option value="">Pilih Kelas</option>
-                                                <option value="SIX-46-01">SIX-46-01</option>
 
-                                                {{-- @foreach ($kelas as $k)
+
+                                                @foreach ($kelas as $k)
                                                     <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
-                                                @endforeach --}}
+                                                @endforeach
                                             </select>
                                             @error('kelas')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -66,8 +66,8 @@
                                         </div>
                                         <label>Email Pribadi</label>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="emailpribadi"
-                                                id="emailpribadi" placeholder="Email Pribadi" aria-label="Email Pribadi"
+                                            <input type="text" class="form-control" name="emailpribadi" id="emailpribadi"
+                                                placeholder="Email Pribadi" aria-label="Email Pribadi"
                                                 aria-describedby="email-pribadi-addon" value="{{ old('emailpribadi') }}">
                                             @error('emailpribadi')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>

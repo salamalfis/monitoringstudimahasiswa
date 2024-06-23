@@ -15,9 +15,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            {{-- <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
-                                Mahasiswa</a> --}}
+
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -36,10 +34,7 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nim/Nip
                                         </th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kelas
-                                        </th>
+
 
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -60,28 +55,16 @@
                                                 <p class="text-xs font-weight-bold mb-0">{{ $user->nama }}</p>
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0"></p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $user->iduser }}</p>
                                             </td>
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $user->kelas }}</p>
-                                            </td>
-
                                             <td class="text-center ">
-
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Detail User">
+                                                <a href="/detail-approval-user/{{ $user->id }}" type="button"
+                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Detail Approval User">
                                                     <i class="fas fa-eye text-secondary"></i>
+
+                                                    </i>
                                                 </a>
-
-                                                
-
-                                                
-
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Approve User">
-                                                    <i class=" fas fa-check text-secondary"></i>
-                                                </a>
-
                                             </td>
                                         </tr>
                                     @empty

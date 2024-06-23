@@ -92,7 +92,7 @@
 
 
                                                 <a href="/edit-kelas/{{ $kelasitem->id }}" type="button" class="mx-3"
-                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Role">
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Kelas">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
