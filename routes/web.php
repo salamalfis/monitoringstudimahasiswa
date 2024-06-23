@@ -152,6 +152,11 @@ Route::group(['middleware' => 'auth'],function () {
     Route::post('/undur-diri', [UndurDiriController::class, 'inputundurdiri'])->name('undurdiri');
     Route::get('/approval-undur-diri',[UndurDiriController::class,'approvalundur'])->name('undurdiri');
     Route::get('/alasan-undur-diri', [UndurDiriController::class, 'alasanundurdiri'])->name('alasanundurdiri');
+    Route::get('/tambah-alasan-undur-diri', [UndurDiriController::class, 'tambahalasanundurdiri'])->name('alasanundurdiri');
+    Route::post('/tambah-alasan-undur-diri', [UndurDiriController::class, 'storealasanundurdiri'])->name('alasanundurdiri');
+    Route::get('edit-alasan-undur-diri/{id}', [UndurDiriController::class, 'editalasan'])->name('alasanundurdiri');
+    Route::put('edit-alasan-undur-diri/{id}', [UndurDiriController::class, 'updatealasan'])->name('alasanundurdiri');
+    Route::delete('/delete-alasan-undur-diri/{id}', [UndurDiriController::class, 'deletealasan'])->name('alasanundurdiri');
 
 
    #dosen
