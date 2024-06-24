@@ -2,12 +2,45 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\GenUid;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProgramStudi extends Model
 {
-    use HasFactory;
+    use HasFactory, HasFactory, Notifiable, HasRoles, GenUid;
+    public $table = 'users';
 
-    protected $table = 'prodi';
+    protected $fillable = [
+        'id',
+        'nama',
+        'iduser',
+        'emailsso',
+        'emailpribadi',
+        'notelp',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+
+        'password',
+
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'password' => 'hashed',
+
+    ];
 }

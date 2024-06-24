@@ -16,13 +16,11 @@ class Mahasiswa extends Model
     public $table = 'users';
 
     protected $fillable = [
-        'id',
         'nama',
-        'nim/nip',
+        'iduser',
         'emailsso',
         'emailpribadi',
         'notelp',
-        'kelas',
         'password',
     ];
 

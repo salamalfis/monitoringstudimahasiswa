@@ -44,8 +44,6 @@
                                         <div class="mb-3">
                                             <select class="form-control" name="kelas" id="kelas">
                                                 <option value="">Pilih Kelas</option>
-
-
                                                 @foreach ($kelas as $k)
                                                     <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
                                                 @endforeach
@@ -83,23 +81,7 @@
                                             @enderror
                                         </div>
 
-                                        <label>Jenis Kelamin</label>
-                                        <div class="mb-3">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jeniskelamin"
-                                                    id="laki-laki" value="Laki-laki">
-                                                <label class="form-check-label" for="laki-laki">Laki-laki</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jeniskelamin"
-                                                    id="perempuan" value="Perempuan">
-                                                <label class="form-check-label" for="perempuan">Perempuan</label>
-                                            </div>
-                                            @error('jeniskelamin')
-                                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
+                                
 
                                         <label>Password</label>
                                         <div class="mb-3">

@@ -63,7 +63,7 @@
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $prodiitem->nip }}
+                                                    {{ $prodiitem->iduser }}
                                                 </p>
                                             </td>
 

@@ -14,12 +14,6 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-
-        
-        $title = 'Hapus User!';
-        $text = "Apakah anda yakin?";
-        confirmDelete($title, $text);
-
         return view('user.index', compact('user'));
     }
 

@@ -67,12 +67,6 @@
 
                                                 </i>
                                             </a>
-                                            <a href="/delete-user/{{ $useritem->id }}"
-                                                class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
-
-
-
-
 
                                         </td>
                                     </tr>
