@@ -68,6 +68,8 @@ Route::group(['middleware' => 'auth'],function () {
 
     #Prodi
     Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('programstudi');
+    Route::get('/tambah-program-studi', [ProgramStudiController::class, 'tambahprogramstudi'])->name('programstudi');
+
 
     #dosenWaliRouteAuth
     Route::get('/dosen-wali', [DosenWaliController::class, 'index'])->name('dosenwali');

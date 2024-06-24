@@ -14,7 +14,7 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a data-bs-toggle="modal" data-bs-target="#registrationModal"
+                            <a href="/tambah-program-studi"
                                 class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Program Studi</a>
                         </div>
                     </div>

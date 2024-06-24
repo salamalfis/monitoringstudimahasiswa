@@ -13,4 +13,9 @@ class ProgramStudiController extends Controller
         $prodi = User::role('Program Studi')->get();
         return view('prodi.index', compact('prodi'));
     }
+
+    public function tambahprogramstudi()
+    {
+        return view('prodi.tambah');
+    }
 }
