@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Dosen;
 use App\Models\Kelas;
 use App\Traits\GenUid;
 use App\Models\DosenWali;
@@ -43,7 +44,7 @@ class RegisterController extends Controller
             'emailsso' => 'required|email|unique:users,emailsso',
             'emailpribadi' => 'required|email|unique:users,emailpribadi',
             'kelas' => 'required',
-          
+
             'notelp' => 'required|numeric|min:8',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password'
@@ -61,7 +62,7 @@ class RegisterController extends Controller
 
             'emailpribadi.required' => 'Email pribadi tidak boleh kosong',
             'emailpribadi.email' => 'Email pribadi harus valid',
-   
+
             'notelp.required' => 'No Telepon Harus diisi',
             'notelp.number' => 'No Telepon harus berupa angka',
             'notelp.min' => 'No Telepon minimal harus 8 angka',
@@ -101,7 +102,7 @@ class RegisterController extends Controller
             $user->assignRole('Mahasiswa');
             Alert::success('Berhasil', 'Registrasi Mahasiswa berhasil');
             return redirect('/');
-          } 
+          }
         }
     }
 
@@ -154,7 +155,7 @@ class RegisterController extends Controller
                 'kelas_id' => request('kelas'),
                 'user_id' => $dosenwali->id,
             ]);
-    
+
             if(!$detaildosen){
                 $dosenwali = User::find($dosenwali->id);
                 $dosenwali->delete();
@@ -166,7 +167,7 @@ class RegisterController extends Controller
 
                 Alert::success('Berhasil', 'Registrasi Dosen Wali berhasil');
                 return redirect('/');
-            }  
+            }
         }
     }
 
@@ -177,13 +178,12 @@ class RegisterController extends Controller
             'emailsso' => 'required|email|unique:users,emailsso',
             'emailpribadi' => 'required|email|unique:users,emailpribadi',
             'notelp' => 'required|numeric|min:8',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password'
-
+            'jabatan' =>'required',
         ], [
             'nama.required' => 'Nama tidak boleh kosong',
             'iduser.required' => 'NIP tidak boleh kosong',
             'iduser.numeric'=> 'NIP harus berupa angka',
+            'jabatan' => 'Jabatan tidak boleh kosong',
             'emailsso.required' => 'Email SSO tidak boleh kosong',
             'emailsso.email' => 'Email SSO harus valid',
             'emailsso.unique' => 'Email SSO sudah terdaftar',
@@ -193,10 +193,7 @@ class RegisterController extends Controller
             'notelp.required' => 'No Telepon Harus diisi',
             'notelp.number' => 'No Telepon harus berupa angka',
             'notelp.min' => 'No Telepon minimal harus 8 angka',
-            'password.required' => 'Password tidak boleh kosong',
-            'password.min' => 'Password minimal harus 8 karakter',
-            'password_confirmation.required' => 'Konfirmasi password tidak boleh kosong',
-            'password_confirmation.same' => 'Konfirmasi password harus sama dengan password'
+
         ]);
 
         $prodi = ProgramStudi::create([
@@ -205,7 +202,8 @@ class RegisterController extends Controller
             'emailsso' => request('emailsso'),
             'emailpribadi' => request('emailpribadi'),
             'notelp' => request('notelp'),
-            'password' => request('password'),
+            'password' => 'SIJuara1',
+            'active' => true,
         ]);
 
         if(!$prodi){
@@ -231,4 +229,6 @@ class RegisterController extends Controller
 
         }
     }
+
+  
 }

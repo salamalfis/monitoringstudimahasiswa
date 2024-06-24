@@ -43,7 +43,7 @@
                                         <label>Kelas</label>
                                         <div class="mb-3">
                                             <select class="form-control" name="kelas" id="kelas">
-                                                <option value="">Pilih Kelas</option>
+                                                <option value="" disable selected>Pilih Kelas</option>
                                                 @foreach ($kelas as $k)
                                                     <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
                                                 @endforeach

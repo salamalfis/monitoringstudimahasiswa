@@ -21,6 +21,7 @@ class ProgramStudi extends Model
         'emailpribadi',
         'notelp',
         'password',
+        'active',
     ];
 
     /**

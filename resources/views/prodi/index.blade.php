@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="/tambah-program-studi"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Program Studi</a>
+                            <a href="/tambah-program-studi" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
+                                Program Studi</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -70,26 +70,27 @@
 
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $prodiitem->jabatan }}
+                                                    @foreach ($jabatan as $jabatanitem)
+                                                        @if ($prodiitem->id == $jabatanitem->user_id)
+                                                            {{ $jabatanitem->jabatan }}
+                                                        @endif
+                                                    @endforeach
                                                 </p>
                                             </td>
 
                                             <td class="text-center ">
 
 
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Program Studi">
-                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                                <a href="/edit-program-studi/{{ $prodiitem->id }}" type="button" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Program Studi">
+                                                    <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
+                                                <a href="/delete-program-studi/{{ $prodiitem->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
 
-                                                <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Hapus Program Studi">
-                                                    <i class=" fas fa-trash text-secondary"></i>
-                                                </a>
 
                                             </td>
 

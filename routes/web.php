@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\MetlitController;
@@ -69,15 +70,16 @@ Route::group(['middleware' => 'auth'],function () {
     #Prodi
     Route::get('/program-studi', [ProgramStudiController::class, 'index'])->name('programstudi');
     Route::get('/tambah-program-studi', [ProgramStudiController::class, 'tambahprogramstudi'])->name('programstudi');
-
+    Route::post('/tambah-program-studi', [RegisterController::class, 'storeProdi'])->name('programstudi');
+    Route::get('/edit-program-studi/{id}', [ProgramStudiController::class, 'editprogramstudi'])->name('programstudi');
+    Route::put('/edit-program-studi/{id}', [ProgramStudiController::class, 'updateprogramstudi'])->name('programstudi');
+    Route::delete('/delete-program-studi/{id}', [ProgramStudiController::class, 'deleteprogramstudi'])->name('programstudi');
 
     #dosenWaliRouteAuth
     Route::get('/dosen-wali', [DosenWaliController::class, 'index'])->name('dosenwali');
     Route::post('/dosen-wali', [DosenWaliController::class, 'inputdosenwali'])->name('dosenwali');
 
     #menu
-
-
     Route::get('/menu',[MenuController::class, 'index'])->name('menu');
 
     Route::get('/tambah-menu',[MenuController::class, 'tambahmenu'])->name('menu');
@@ -166,7 +168,12 @@ Route::group(['middleware' => 'auth'],function () {
 
 
    #dosen
-   Route::get('/dosen',[RegisterController::class, 'dosen'])->name('dosen');
+   Route::get('/dosen',[DosenController::class, 'index'])->name('dosen');
+    Route::get('/tambah-dosen',[DosenController::class, 'tambahdosen'])->name('dosen');
+    Route::post('/tambah-dosen',[DosenController::class, 'storedosen'])->name('dosen');
+    Route::get('/edit-dosen/{id}',[DosenController::class, 'editdosen'])->name('dosen');
+    Route::put('/edit-dosen/{id}',[DosenController::class, 'updatedosen'])->name('dosen');
+    Route::delete('/delete-dosen/{id}',[DosenController::class, 'deletedosen'])->name('dosen');
 
    #labriset
    Route::get('/lab-riset',[LabRisetController::class, 'index'])->name('labriset');
@@ -175,7 +182,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('/edit-lab-riset/{id}',[LabRisetController::class, 'editlabriset'])->name('labriset');
     Route::put('/edit-lab-riset/{id}',[LabRisetController::class, 'updatelabriset'])->name('labriset');
     Route::delete('/delete-lab-riset/{id}',[LabRisetController::class, 'deletelabriset'])->name('labriset');
-    
+
 
    #Mahasiswa
    Route::get('/mahasiswa',[MahasiswaController::class, 'index'])->name('mahasiswa');
