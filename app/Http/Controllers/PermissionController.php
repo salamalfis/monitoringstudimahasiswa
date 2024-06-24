@@ -13,7 +13,7 @@ class PermissionController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::orderby('created_at')->get();
 
         $title = 'Delete Permission!';
         $text = "Apakah anda yakin?";
@@ -22,29 +22,28 @@ class PermissionController extends Controller
         return view('permission.index', compact('permissions'));
     }
 
- 
+
 
     public function tambahPermission()
     {
 
-        $menu = Menu::all()->sortBy('sort');
-        return view('permission.tambahpermission', compact('menu'));
+        return view('permission.tambahpermission');
     }
 
     public function storePermission(Request $request)
     {
         $request->validate([
             'nama' => 'required',
-            'group' => 'required'
+
         ],[
             'nama.required' => 'Nama permission tidak boleh kosong',
-            'group.required' => 'Group permission tidak boleh kosong'
+
         ]);
 
 
         $permission = Permission::create([
             'name' => request('nama'),
-            'group' => request('group')
+
         ]);
 
         Alert::success('Berhasil', 'Permission berhasil ditambahkan');
@@ -62,7 +61,7 @@ class PermissionController extends Controller
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);
         return view('permission.editpermission', compact('permission','role'));
-      
+
     }
 
     public function updatePermission(Request $request, $id)
@@ -124,7 +123,7 @@ class PermissionController extends Controller
 
 
 
- 
+
 
 
 }

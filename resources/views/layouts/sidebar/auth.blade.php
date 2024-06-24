@@ -23,34 +23,36 @@
     <div class="collapse navbar-collapse h-auto w-auto  " id="sidenav-collapse-main">
         <ul class="navbar-nav text-wrap ">
             @forelse ($menu as $menus)
-            
-                <li class="nav-item ">
-                    <a class="nav-link {{ Request::is($menus->route) ? 'active' : '' }} "
-                        href=" {{ url($menus->route) }}">
-                        <div
-                            class="icon icon-shape icon-sm shadow border-radius-md  text-center  d-flex align-items-center justify-content-center  ">
-                            <i class="fas {{ $menus->icon }}" style="color: #000000;"></i>
+                @can('read ' . $menus->route)
+                    <li class="nav-item ">
+                        <a class="nav-link {{ Request::is($menus->route) ? 'active' : '' }} "
+                            href=" {{ url($menus->route) }}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md  text-center  d-flex align-items-center justify-content-center  ">
+                                <i class="fas {{ $menus->icon }}" style="color: #000000;"></i>
 
-                        </div>
-                        <span class="nav-link-text ms-2">{{ $menus->nama }}</span>
-                    </a>
-                </li>
+                            </div>
+                            <span class="nav-link-text ms-2">{{ $menus->nama }}</span>
+                        </a>
+                    </li>
 
 
-                @foreach ($submenu as $submenus)
-                    @if ($submenus->menu_id == $menus->id)
-                        <li class="nav-item ms-3 ">
-                            <a class="nav-link text-wrap {{ Request::is($submenus->route) ? 'active' : '' }}"
-                                href="{{ url($submenus->route) }}">
+                    @foreach ($submenu as $submenus)
+                        @can('read ' . $submenus->route)
+                            @if ($submenus->menu_id == $menus->id)
+                                <li class="nav-item ms-3 ">
+                                    <a class="nav-link text-wrap {{ Request::is($submenus->route) ? 'active' : '' }}"
+                                        href="{{ url($submenus->route) }}">
 
-                                <span class="nav-link-text ms-2">{{ $submenus->nama }}</span>
-                            </a>
-                        </li>
-                    @else
-                        @continue
-                    @endif
-                @endforeach
-
+                                        <span class="nav-link-text ms-2">{{ $submenus->nama }}</span>
+                                    </a>
+                                </li>
+                            @else
+                                @continue
+                            @endif
+                        @endcan
+                    @endforeach
+                @endcan
             @empty
                 <li class="nav-item">
                     <a class="nav-link">

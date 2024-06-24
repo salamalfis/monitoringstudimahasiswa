@@ -50,7 +50,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
 
-        $permissions = Permission::all();
+        $permissions = Permission::orderBy('name')->get();
 
         $title = 'Delete Role Permission!';
         $text = "Apakah anda yakin?";
