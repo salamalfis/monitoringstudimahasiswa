@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MetlitController extends Controller
 {
     public function index()
     {
-        return view('metlit.index');
+        $anggota = User::all();
+        return view('metlit.index',compact('anggota'));
     }
     public function bimbinganmetlit()
     {
