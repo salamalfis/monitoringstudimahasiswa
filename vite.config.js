@@ -9,7 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'public/assets/js/soft-ui-dashboard.js',
                 'public/assets/scss/soft-ui-dashboard.scss',
-                'public/assets/css',
+                'public/assets/css/soft-ui-dashboard.css',
 
             ],
             refresh: true,
