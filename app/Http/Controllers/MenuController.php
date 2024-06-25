@@ -23,7 +23,7 @@ class MenuController extends Controller
     public function submenu()
     {
         $menu = Menu::all();
-        $Submenu = Submenu::all();
+        $Submenu = Submenu::paginate(10);
         $title = 'Delete Sub Menu!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);

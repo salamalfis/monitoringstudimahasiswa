@@ -9,7 +9,7 @@ class MetlitController extends Controller
 {
     public function index()
     {
-        $anggota = User::all();
+        $anggota = User::paginate(10);
         return view('metlit.index',compact('anggota'));
     }
     public function bimbinganmetlit()
