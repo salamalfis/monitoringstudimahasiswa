@@ -49,4 +49,10 @@ class User extends Authenticatable
         'password' => 'hashed',
 
     ];
+
+    public function detailMahasiswa()
+    {
+        return $this->hasOne(DetailMahasiswa::class, 'user_id'); 
+    }
+
 }

@@ -25,4 +25,9 @@ class DetailMahasiswa extends Model
         'nimaimetlit',
         'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -45,6 +45,11 @@ class Mahasiswa extends Model
 
     ];
 
+    public function kelompokmetlit()
+    {
+        return $this->hasMany(KelompokMetlit::class);
+    }
+
 
 
 

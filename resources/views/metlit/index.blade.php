@@ -19,6 +19,7 @@
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
+                     
                         <div class="mx-3 d-flex justify-content-end">
                             <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Anggota</button>
 
@@ -53,6 +54,7 @@
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Nama Anggota
                                     </th>
+
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
@@ -71,7 +73,7 @@
 
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">
-                                                {{ $anggota->iduser }}
+                                                {{ $anggota->detailmahasiswa->user->iduser }}
                                             </p>
                                         </td>
                                         <td class="text-center">
@@ -79,15 +81,20 @@
                                                 {{ $anggota->nama }}
                                             </p>
                                         </td>
+                                        {{-- @if ($anggota->id != Auth::user()->id) --}}
                                         <td class="text-center ">
                                             <a href="/delete-anggota/{{ $anggota->id }}"
                                                 class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
                                         </td>
+                                        {{-- @else
+                                            @continue
+                                        @endif --}}
                                     </tr>
                                 @empty
                                     <tr>
                                         <td class="text-center" colspan="8">
-                                            <p class="text-xs font-weight-bold mb-0">Data {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                            <p class="text-xs font-weight-bold mb-0">Data
+                                                {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
                                             </p>
                                         </td>
                                     </tr>
@@ -100,5 +107,4 @@
             </div>
         </div>
     </div>
-
 @endsection
