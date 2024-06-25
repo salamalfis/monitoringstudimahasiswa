@@ -11,7 +11,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menu = Menu::all()->sortBy('nama');
+        $menu = Menu::orderBy('nama', 'asc')->paginate(10);
         $title = 'Delete Menu!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);
@@ -22,8 +22,8 @@ class MenuController extends Controller
 
     public function submenu()
     {
-        $menu = Menu::all();
-        $Submenu = Submenu::paginate(10);
+        $menu = Menu::orderBy('nama', 'asc')->paginate(10);
+        $Submenu = Submenu::orderBy('nama', 'asc')->paginate(10);
         $title = 'Delete Sub Menu!';
         $text = "Apakah anda yakin?";
         confirmDelete($title, $text);

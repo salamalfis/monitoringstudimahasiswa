@@ -47,13 +47,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
                                     @forelse ($menu as $menuitem)
-                                        <?php $i++; ?>
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">
+                                                    {{ $loop->iteration + $menu->firstItem() - 1 }}
+                                                </p>
                                             </td>
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $menuitem->nama }}</p>
@@ -93,6 +94,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($menu->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $menu->firstItem() }} to {{ $menu->lastItem() }} of
+                                {{ $menu->total() }} results
+                            </p>
+                        @else
+                            {{ $menu->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

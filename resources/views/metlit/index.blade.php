@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="card mb-4 mx-4">
                 <div class="card-header pb-0">
-                    <div class="d-flex flex-row justify-content-between">                        
+                    <div class="d-flex flex-row justify-content-between">
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -87,8 +87,7 @@
                                 @empty
                                     <tr>
                                         <td class="text-center" colspan="8">
-                                            <p class="text-xs font-weight-bold mb-0">Data
-                                                {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                            <p class="text-xs font-weight-bold mb-0">Data {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
                                             </p>
                                         </td>
                                     </tr>
@@ -96,10 +95,10 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    
+
 @endsection

@@ -46,13 +46,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
                                     @forelse ($Submenu as $Submenuitem)
-                                        <?php $i++; ?>
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">
+                                                    {{ $loop->iteration + $Submenu->firstItem() - 1 }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -62,7 +63,8 @@
                                             </td>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $Submenuitem->route }}</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-wrap">{{ $Submenuitem->route }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -98,6 +100,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($Submenu->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $Submenu->firstItem() }} to {{ $Submenu->lastItem() }} of
+                                {{ $Submenu->total() }} results
+                            </p>
+                        @else
+                            {{ $Submenu->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>
