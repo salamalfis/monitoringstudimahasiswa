@@ -30,10 +30,11 @@
                         <a class="nav-link {{ Request::is($menus->route) ? 'active' : '' }}"
                             href="{{ $hasSubmenu ? '#' : url($menus->route) }}"
                             onclick="{{ $hasSubmenu ? 'event.preventDefault(); toggleDropdown(this);' : '' }}">
-                            <div class="icon icon-shape icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
                                 <i class="fas {{ $menus->icon }}" style="color: #000000;"></i>
                             </div>
-                            <span class="nav-link-text ms-2">{{ $menus->nama }}</span>
+                            <span class="nav-link-text mx-2">{{ $menus->nama }}</span>
                             @if ($hasSubmenu)
                                 <i class="fas fa-chevron-down ms-auto"></i>
                             @endif
@@ -43,8 +44,8 @@
                                 @foreach ($submenu as $submenus)
                                     @can('read ' . $submenus->route)
                                         @if ($submenus->menu_id == $menus->id)
-                                            <li class="nav-item">
-                                                <a class="nav-link {{ Request::is($submenus->route) ? 'active' : '' }}"
+                                            <li class="nav-item ">
+                                                <a class="text-wrap nav-link {{ Request::is($submenus->route) ? 'active bg-info' : '' }}"
                                                     href="{{ url($submenus->route) }}">
                                                     {{ $submenus->nama }}
                                                 </a>
@@ -59,7 +60,8 @@
             @empty
                 <li class="nav-item">
                     <a class="nav-link">
-                        <div class="icon icon-shape icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md text-center d-flex align-items-center justify-content-center">
                             <i class="fas fa-exclamation-triangle" style="color: #000000;"></i>
                         </div>
                         <span class="nav-link-text ms-1">Menu Tidak Tersedia</span>
@@ -94,15 +96,20 @@
 </script>
 
 <style>
-    .has-submenu > .submenu {
+    .has-submenu>.submenu {
         display: none;
         list-style: none;
-        padding-left: 1.25rem; /* Adjust as needed */
+        padding-left: 1.25rem;
+        /* Adjust as needed */
     }
-    .has-submenu.open > .submenu {
-        display: block; /* Tampilkan submenu jika kelas 'open' ditambahkan ke elemen parent (li) */
+
+    .has-submenu.open>.submenu {
+        display: block;
+        /* Tampilkan submenu jika kelas 'open' ditambahkan ke elemen parent (li) */
     }
-    .submenu > .nav-item > .nav-link {
-        padding-left: 1.5rem; /* Adjust as needed */
+
+    .submenu>.nav-item>.nav-link {
+        padding-left: 1.5rem;
+        /* Adjust as needed */
     }
 </style>
