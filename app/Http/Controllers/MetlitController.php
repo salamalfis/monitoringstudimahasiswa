@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\KelompokMetlit;
+use App\Models\BimbinganMetlit;
 use App\Models\DetailMahasiswa;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,41 +14,38 @@ class MetlitController extends Controller
 {
     public function index()
     {
-    // Mendapatkan pengguna yang sedang login
-    $user = Auth::user();
+        $user = Auth::user();
+        $detailMahasiswa = DetailMahasiswa::where('user_id', $user->id)->first();
+        $kelompok = KelompokMetlit::where('mahasiswa_id', $detailMahasiswa->id)->first();
 
-    // Mendapatkan detail mahasiswa dari pengguna
-    $detailMahasiswa = $user->detailMahasiswa;
-
-    if ($detailMahasiswa) {
-        $mahasiswaId = $detailMahasiswa->id;
-
-        // Mengecek apakah pengguna sudah terdaftar dalam kelompok
-        $anggota = KelompokMetlit::where('mahasiswa_id', $mahasiswaId)->first();
-
-        if ($anggota) {
-           return view('metlit.index', compact('anggota', 'detailMahasiswa'));
-        } else {
-            // Jika belum terdaftar, tambahkan ke database
-            $kelompok = new KelompokMetlit();
-            $kelompok->mahasiswa_id = $mahasiswaId;
-            $kelompok->namakelompok = 'Kelompok ' . $mahasiswaId;
-            $kelompok->save();
-
-            //return redirect()->back()->with('message', 'Anda berhasil ditambahkan ke dalam kelompok.');
+        if (!$kelompok?->mahasiswa_id) {
+            $anggota = KelompokMetlit::create([
+                'mahasiswa_id' => $detailMahasiswa->id,
+                'namakelompok' => 'Kelompok ' . $detailMahasiswa->id,
+            ]);
         }
-    } else {
-        // Jika detail mahasiswa tidak ditemukan, berikan pesan atau lakukan tindakan lain
-        //return redirect()->back()->with('message', 'Detail mahasiswa tidak ditemukan.');
-    }
-}
-        
-        
 
-     
-        public function bimbinganmetlit()
-    {
-        return view('metlit.bimbingan');
+        // Ambil kelompok berdasarkan nama kelompok
+        $kelompokan = KelompokMetlit::where('namakelompok', 'Kelompok ' . $detailMahasiswa->id)->paginate(10);
+
+        // Ambil user yang terkait dengan kelompok
+        $usersInKelompok = User::whereHas('detailMahasiswa', function($query) use ($kelompokan) {
+            $query->whereIn('id', $kelompokan->pluck('mahasiswa_id'));
+        })->orderBy('created_at')->paginate(10);
+
+        return view('metlit.index', compact('kelompokan', 'usersInKelompok'));
+    }
+
+
+
+
+
+    public function bimbinganmetlit()
+    {   $user = Auth::user()->id;
+        $detailMahasiswa = DetailMahasiswa::where('user_id', $user)->first();
+        $pilih = BimbinganMetlit::where('mahasiswa_id',$detailMahasiswa->id)->get();
+        $bimbingan = BimbinganMetlit::where('mahasiswa_id',$detailMahasiswa->id)->paginate(10);
+        return view('metlit.bimbingan', compact('bimbingan'));
     }
     public function pilihtopikmetlit()
     {

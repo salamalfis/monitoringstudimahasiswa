@@ -27,10 +27,18 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             No
                                         </th>
+
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Angkatan
+                                            Nama
                                         </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Dosen Pembimbing
+                                        </th>
+                                        
+
+
 
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -46,31 +54,8 @@
                                 <tbody>
 
 
-                                    @forelse ($angkatan as $angkatans)
-                                        <tr>
 
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $loop->iteration }}
-                                                </p>
-                                            </td>
 
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    {{ $angkatans->tahun_angkatan }}
-                                                </p>
-                                            </td>
-
-                                            <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">
-                                                    @if ($angkatans->active == 1)
-                                                        <span class="badge bg-success">Aktif</span>
-                                                    @else
-                                                        <span class="badge bg-danger">Tidak Aktif</span>
-                                                    @endif
-
-                                                </p>
-                                            </td>
                                             <td class="text-center ">
 
 

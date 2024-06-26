@@ -19,7 +19,7 @@
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-                     
+
                         <div class="mx-3 d-flex justify-content-end">
                             <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Anggota</button>
 
@@ -62,33 +62,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 0; ?>
-                                @forelse ($anggota as $anggota)
-                                    <?php $i++; ?>
+
+                                @forelse ($usersInKelompok as $usersInKelompok)
                                     <tr>
 
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $loop->iteration }}
+                                            </p>
                                         </td>
 
                                         <td class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $anggota->detailmahasiswa->user->iduser }}
+                                            <p class="text-xs font-weig t-bold mb-0">
+                                                {{ $usersInKelompok->iduser }}
                                             </p>
                                         </td>
                                         <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">
-                                                {{ $anggota->nama }}
+                                                {{ $usersInKelompok->nama }}
                                             </p>
                                         </td>
-                                        {{-- @if ($anggota->id != Auth::user()->id) --}}
+
                                         <td class="text-center ">
-                                            <a href="/delete-anggota/{{ $anggota->id }}"
-                                                class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+
+                                            @if ($usersInKelompok->iduser != Auth::user()->iduser)
+
+                                                <a href="/delete-anggota/{{ $usersInKelompok->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+                                            @endif
                                         </td>
-                                        {{-- @else
-                                            @continue
-                                        @endif --}}
+
                                     </tr>
                                 @empty
                                     <tr>

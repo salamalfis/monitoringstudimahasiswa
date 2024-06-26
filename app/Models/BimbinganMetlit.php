@@ -10,6 +10,14 @@ class BimbinganMetlit extends Model
 {
     use HasFactory,GenUid;
 
-    protected 
+    protected $table = 'bimbinganmetlit';
+
+    protected $fillable = [
+        'mahasiswa_id',
+        'dosenpbb_id',
+        'tanggal',
+        'bukti_bimbingan',
+        
+    ];
 
 }

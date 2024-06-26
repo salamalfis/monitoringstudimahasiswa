@@ -20,7 +20,10 @@ class KelompokMetlit extends Model
         'namakelompok',
     ];
 
-
+    public function anggota()
+    {
+        return $this->hasOne(DetailMahasiswa::class);
+    }
 
 
 }
