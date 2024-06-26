@@ -15,9 +15,6 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            {{-- <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
-                                Mahasiswa</a> --}}
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -48,12 +45,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
                                     @forelse ($mahasiswa as $mhs)
-                                        <?php $i++; ?>
+
                                         <tr>
                                             <td class="text-center ps-4">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -106,6 +105,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($mahasiswa->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $mahasiswa->firstItem() }} to {{ $mahasiswa->lastItem() }} of
+                                {{ $mahasiswa->total() }} results
+                            </p>
+                        @else
+                            {{ $mahasiswa->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

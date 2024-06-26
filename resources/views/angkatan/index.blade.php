@@ -44,14 +44,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
 
                                     @forelse ($angkatan as $angkatans)
-                                        <?php $i++; ?>
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -62,7 +63,7 @@
 
                                             <td class="text-center">
                                                 <p class="text-xs font-weight-bold mb-0">
-                                                    @if($angkatans->active == 1)
+                                                    @if ($angkatans->active == 1)
                                                         <span class="badge bg-success">Aktif</span>
                                                     @else
                                                         <span class="badge bg-danger">Tidak Aktif</span>
@@ -74,9 +75,8 @@
 
 
 
-                                                <a href="/edit-angkatan/{{ $angkatans->id }}" type="button"
-                                                    class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Alasan Undur Diri">
+                                                <a href="/edit-angkatan/{{ $angkatans->id }}" type="button" class="mx-3"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Angkatan">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
@@ -107,6 +107,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($angkatan->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $angkatan->firstItem() }} to {{ $angkatan->lastItem() }} of
+                                {{ $angkatan->total() }} results
+                            </p>
+                        @else
+                            {{ $angkatan->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

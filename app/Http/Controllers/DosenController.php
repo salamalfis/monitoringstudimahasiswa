@@ -10,7 +10,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 class DosenController extends Controller
 {
     public function index(){
-        return view('dosen.index');
+
+        $dosen = Dosen::orderBy('nama')->paginate(10);
+        return view('dosen.index', compact('dosen'));
     }
 
     public function tambahdosen(){

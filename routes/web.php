@@ -77,7 +77,8 @@ Route::group(['middleware' => 'auth'],function () {
 
     #dosenWaliRouteAuth
     Route::get('/dosen-wali', [DosenWaliController::class, 'index'])->name('dosenwali');
-    Route::post('/dosen-wali', [DosenWaliController::class, 'inputdosenwali'])->name('dosenwali');
+    Route::get('/tambah-dosen-wali', [DosenWaliController::class, 'tambahdosenwali'])->name('dosenwali');
+    Route::post('/tambah-dosen-wali', [RegisterController::class, 'storeDosenWali'])->name('dosenwali');
 
     #menu
     Route::get('/menu',[MenuController::class, 'index'])->name('menu');

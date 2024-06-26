@@ -10,10 +10,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class LabRisetController extends Controller
 {
-   
+
     public function index()
     {
-        $labriset = LabRiset::all();
+        $labriset = LabRiset::orderBy('nama_labriset')->paginate(10);
         $peminatan = Peminatan::all();
 
         $title = 'Hapus Lab Riset!';
@@ -36,7 +36,7 @@ class LabRisetController extends Controller
             'kode_lab' => 'required',
             'peminatan_id' => 'required',
             'status' => 'required',
-            
+
         ],[
             'nama_lab.required' => 'Nama Lab tidak boleh kosong',
             'kode_lab.required' => 'Kode Lab tidak boleh kosong',
@@ -50,7 +50,7 @@ class LabRisetController extends Controller
             'peminatan_id' => $request->peminatan_id,
             'active' => $request->status,
         ]);
-        
+
 
         Alert::success('Success', 'Data Lab Riset Berhasil Ditambahkan');
         return redirect('/lab-riset');
@@ -70,7 +70,7 @@ class LabRisetController extends Controller
             'kode_lab' => 'required',
             'peminatan_id' => 'required',
             'status' => 'required',
-            
+
         ],[
             'nama_lab.required' => 'Nama Lab tidak boleh kosong',
             'kode_lab.required' => 'Kode Lab tidak boleh kosong',

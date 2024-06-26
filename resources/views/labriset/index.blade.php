@@ -50,14 +50,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
 
                                     @forelse ($labriset as $labrisets)
-                                        <?php $i++; ?>
+
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -121,6 +123,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($labriset->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $labriset->firstItem() }} to {{ $labriset->lastItem() }} of
+                                {{ $labriset->total() }} results
+                            </p>
+                        @else
+                            {{ $labriset->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

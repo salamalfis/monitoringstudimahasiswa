@@ -223,12 +223,12 @@ class RegisterController extends Controller
             else{
             $user = User::find($prodi->id);
             $user->assignRole('Program Studi');
-            Alert::success('Berhasil', 'Registrasi Prodi berhasil');
+            Alert::success('Berhasil', 'Registrasi Program Studi berhasil');
             return redirect('/');
             }
 
         }
     }
 
-  
+
 }

@@ -16,7 +16,7 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::orderBy('kode_kelas')->get();
+        $kelas = Kelas::orderBy('kode_kelas')->paginate(10);
         $angkatan = Angkatan::all();
 
         $title = 'Hapus Kelas!';

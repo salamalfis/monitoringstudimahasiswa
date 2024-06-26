@@ -18,9 +18,16 @@ class DosenWaliController extends Controller
      */
     public function index()
     {
-        $dosenWali = User::role('Dosen Wali')->get();
+        $dosenWali = User::role('Dosen Wali')->orderBy('nama')->paginate(10);
         $kelas = Kelas::all();
+
         return view('dosenwali.index', compact('dosenWali', 'kelas'));
 
+    }
+
+    public function tambahdosenwali()
+    {
+        $kelas = Kelas::all();
+        return view('dosenwali.tambah', compact('kelas'));
     }
 }

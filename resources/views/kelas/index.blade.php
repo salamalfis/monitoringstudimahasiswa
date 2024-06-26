@@ -49,14 +49,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
 
                                     @forelse ($kelas as $kelasitem)
-                                        <?php $i++; ?>
+
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -116,6 +118,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($kelas->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $kelas->firstItem() }} to {{ $kelas->lastItem() }} of
+                                {{ $kelas->total() }} results
+                            </p>
+                        @else
+                            {{ $kelas->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

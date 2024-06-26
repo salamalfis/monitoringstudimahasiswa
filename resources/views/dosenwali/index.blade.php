@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            {{-- <a data-bs-toggle="modal" data-bs-target="#registrationModal"
-                                class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah Dosen Wali</a> --}}
+                            <a href="/tambah-dosen-wali" class="btn bg-gradient-info btn-sm mb-0" type="button">Tambah
+                                Dosen Wali</a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -50,13 +50,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+
                                     @forelse ($dosenWali as $dosenWaliitem)
-                                        <?php $i++; ?>
+
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -82,38 +84,24 @@
                                                 </p>
                                             </td>
 
-                                            <td class="text-center ">
-
-
-                                                <a type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Dosen Wali">
-                                                    <i class="fas fa-pencil-alt text-secondary" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
+                                            <td class="text-center">
+                                                <a href="/edit-dosen-wali/{{ $dosenWaliitem->id }}" type="button" class="mx-2"
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Dosen">
+                                                    <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-                                                <a href="#" type="button" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Reset Password Dosen Wali">
-                                                    <i class="fas fa-key text-secondary"></i>
-                                                </a>
-
-
-                                                <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Deactive Dosen Wali">
-                                                    <i class=" fas fa-user-slash text-secondary"></i>
-                                                </a>
-
-
+                                                <a href="/delete-dosen-wali/{{ $dosenWaliitem->id }}"
+                                                    class="fas fa-trash text-secondary mx-2" data-confirm-delete="true"></a>
                                             </td>
 
                                         </tr>
                                     @empty
                                         <tr>
-
                                             <td class="text-center" colspan="8">
                                                 <p class="text-xs font-weight-bold mb-0">Data
-                                                    {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                                    {{ str_replace('-', ' ', ucfirst(Request::path())) }} tidak ditemukan
                                                 </p>
                                             </td>
                                         </tr>
@@ -122,13 +110,18 @@
                             </table>
                         </div>
                     </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($dosenWali->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $dosenWali->firstItem() }} to {{ $dosenWali->lastItem() }} of
+                                {{ $dosenWali->total() }} results
+                            </p>
+                        @else
+                            {{ $dosenWali->links('pagination::bootstrap-5') }}
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    
-
-   @endsection
+@endsection

@@ -11,7 +11,7 @@ class PeminatanController extends Controller
 {
     public function index()
     {
-        $peminatan = Peminatan::orderBy('kode_peminatan')->get();
+        $peminatan = Peminatan::orderBy('kode_peminatan')->paginate(10);
 
         $title = 'Hapus Peminatan!';
         $text = "Apakah anda yakin?";

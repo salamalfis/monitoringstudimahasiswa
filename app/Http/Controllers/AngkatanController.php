@@ -11,7 +11,7 @@ class AngkatanController extends Controller
 {
     public function index()
     {
-        $angkatan = Angkatan::orderBy('tahun_angkatan')->get();
+        $angkatan = Angkatan::orderBy('tahun_angkatan')->paginate(10);
 
         $title = 'Hapus Angkatan!';
         $text = "Apakah anda yakin?";
