@@ -10,15 +10,19 @@
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
 
-                    <form action="/tambah-anggota-metode-penelitian" method="POST">
+                    <form action="" method="POST">
                         @csrf
                         <div class="mx-4 mb-3">
                             <label for="iduser" class="form-label">Nim Anggota</label>
-                            <input type="text" name="iduser" class="form-control" id="iduser">
+                            <input type="text" name="iduser" class="form-control" id="iduser" placeholder="Nim Anggota">
                             @error('iduser')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        @foreach($kelompokan as $namakelompok)
+                        <input type="hidden" name="namakelompok" value="{{ $namakelompok->namakelompok  }}">
+                        @endforeach                        
 
                         <div class="mx-3 d-flex justify-content-end">
                             <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Anggota</button>

@@ -220,7 +220,8 @@ Route::group(['middleware' => 'auth'],function () {
 
    #metode penelitian
    Route::get('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'index'])->name('metlit');
-    Route::post('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'inputmetlit'])->name('metlit');
+    Route::post('/anggota-kelompok-metode-penelitian',[MetlitController::class, 'tambahanggotakelompok'])->name('metlit');
+    Route::delete('/delete-anggota/{id}', [MetlitController::class, 'deleteanggota'])->name('metlit');
     Route::get('/bimbingan-metode-penelitian',[MetlitController::class, 'bimbinganmetlit'])->name('metlit');
     Route::post('/bimbingan-metode-penelitian',[MetlitController::class, 'inputbimbinganmetlit'])->name('metlit');
     Route::get('/pilih-topik-metode-penelitian',[MetlitController::class, 'pilihtopikmetlit'])->name('metlit');
