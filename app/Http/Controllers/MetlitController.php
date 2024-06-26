@@ -23,7 +23,7 @@ class MetlitController extends Controller
 
 
 
-        if (!$kelompok?->mahasiswa_id) {
+        if (!$kelompok?->mahasiswa_id == $detailMahasiswa->id) {
 
             $uid = $this->uid();
             $anggota = KelompokMetlit::create([
@@ -38,7 +38,7 @@ class MetlitController extends Controller
         }
 
         // Ambil kelompok berdasarkan nama kelompok
-        dump($kelompokan = KelompokMetlit::where('namakelompok', $detailMahasiswa->namakelompok)->paginate(10));
+        $kelompokan = KelompokMetlit::where('namakelompok', $detailMahasiswa->namakelompok)->paginate(10);
 
         // Ambil user yang terkait dengan kelompok
         $usersInKelompok = User::whereHas('detailMahasiswa', function($query) use ($kelompokan) {
