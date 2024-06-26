@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Traits\GenUid;
 use Illuminate\Http\Request;
 use App\Models\KelompokMetlit;
 use App\Models\BimbinganMetlit;
@@ -12,26 +13,38 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class MetlitController extends Controller
 {
+    use GenUid;
+
     public function index()
     {
         $user = Auth::user();
         $detailMahasiswa = DetailMahasiswa::where('user_id', $user->id)->first();
         $kelompok = KelompokMetlit::where('mahasiswa_id', $detailMahasiswa->id)->first();
 
+
+
         if (!$kelompok?->mahasiswa_id) {
+
+            $uid = $this->uid();
             $anggota = KelompokMetlit::create([
                 'mahasiswa_id' => $detailMahasiswa->id,
-                'namakelompok' => 'Kelompok ' . $detailMahasiswa->id,
+                'namakelompok' =>  'Kelompok '.$uid ,
+            ]);
+
+            // Update kolom namakelompok pada DetailMahasiswa
+            $updatekelompok = DetailMahasiswa::where('id', $detailMahasiswa->id)->update([
+                'namakelompok' => 'Kelompok '.$uid,
             ]);
         }
 
         // Ambil kelompok berdasarkan nama kelompok
-        $kelompokan = KelompokMetlit::where('namakelompok', 'Kelompok ' . $detailMahasiswa->id)->paginate(10);
+        dump($kelompokan = KelompokMetlit::where('namakelompok', $detailMahasiswa->namakelompok)->paginate(10));
 
         // Ambil user yang terkait dengan kelompok
         $usersInKelompok = User::whereHas('detailMahasiswa', function($query) use ($kelompokan) {
             $query->whereIn('id', $kelompokan->pluck('mahasiswa_id'));
-        })->orderBy('created_at')->paginate(10);
+        })->paginate(10);
+    
 
         return view('metlit.index', compact('kelompokan', 'usersInKelompok'));
     }

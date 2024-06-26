@@ -105,7 +105,16 @@
                             </tbody>
                         </table>
                     </div>
-
+                </div>
+                <div class="card-footer d-flex justify-content-end">
+                    @if ($kelompokan->total() < 11)
+                        <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                            {{ $kelompokan->firstItem() }} to {{ $kelompokan->lastItem() }} of
+                            {{ $kelompokan->total() }} results
+                        </p>
+                    @else
+                        {{ $kelompokan->links('pagination::bootstrap-5') }}
+                    @endif
                 </div>
             </div>
         </div>
