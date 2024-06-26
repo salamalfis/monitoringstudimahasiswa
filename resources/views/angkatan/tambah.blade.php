@@ -18,7 +18,10 @@
                             @csrf
                             <div class="mx-4 mb-3">
                                 <label for="angkatan" class="form-label">Tahun Angkatan</label>
-                                <input type="text" name="angkatan" class="form-control" id="angkatan">
+                                <select name="angkatan" class="form-control" id="angkatan"> <option value="" disabled selected>Pilih Tahun Angkatan</option> 
+                                    @foreach($tahun as $tahunitem)
+                                        <option value="{{ $tahunitem->tahun }}">{{ $tahunitem->tahun }}</option>
+                                    @endforeach
                                 @error('angkatan')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror

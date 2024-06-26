@@ -12,7 +12,7 @@ class ProgramStudiController extends Controller
 {
     public function index()
     {
-        $prodi = User::role('Program Studi')->get();
+        $prodi = User::role('Program Studi')->orderBy('nama')->paginate(10);
         $jabatan = DetailProdi::all();
         return view('prodi.index', compact('prodi', 'jabatan'));
     }

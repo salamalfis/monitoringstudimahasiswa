@@ -18,6 +18,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DosenWaliController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PeminatanController;
+use App\Http\Controllers\TahunAjarController;
 use App\Http\Controllers\UndurDiriController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\TugasAkhirController;
@@ -102,9 +103,13 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::delete('/delete-sub-menu/{id}',[MenuController::class, 'deletesubmenu'])->name('submenu');
 
-
-
-
+    #TahunAjar
+    Route::get('/tahun-ajar',[TahunAjarController::class, 'index'])->name('tahunajar');
+    Route::get('/tambah-tahun-ajar', [TahunAjarController::class, 'tambahtahunajar'])->name('tahunajar');
+    Route::post('/tambah-tahun-ajar', [TahunAjarController::class, 'storetahunajar'])->name('tahunajar');
+    Route::get('/edit-tahun-ajar/{id}', [TahunAjarController::class, 'edittahunajar'])->name('tahunajar');
+    Route::put('/edit-tahun-ajar/{id}', [TahunAjarController::class, 'updatetahunajar'])->name('tahunajar');
+    Route::delete('/delete-tahun-ajar/{id}', [TahunAjarController::class, 'deletetahunajar'])->name('tahunajar');
 
     #Kelas
     Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');

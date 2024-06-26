@@ -38,14 +38,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 0; ?>
+                                  
 
                                     @forelse ($roles as $role)
-                                        <?php $i++; ?>
+                                       
                                         <tr>
 
                                             <td class="text-center">
-                                                <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $loop->iteration }}
+                                                </p>
                                             </td>
 
                                             <td class="text-center">
@@ -88,6 +90,16 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        @if ($roles->total() < 11)
+                            <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                                {{ $roles->firstItem() }} to {{ $roles->lastItem() }} of
+                                {{ $roles->total() }} results
+                            </p>
+                        @else
+                            {{ $roles->links('pagination::bootstrap-5') }}
+                        @endif
                     </div>
                 </div>
             </div>

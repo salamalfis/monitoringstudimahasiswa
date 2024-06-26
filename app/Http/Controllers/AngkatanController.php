@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tahun;
 use App\Models\Angkatan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,8 @@ class AngkatanController extends Controller
 
     public function tambahangkatan()
     {
-        return view('angkatan.tambah');
+        $tahun = Tahun::orderBy('tahun')->paginate(10);
+        return view('angkatan.tambah', compact('tahun'));
     }
 
     public function storeangkatan(Request $request)

@@ -42,11 +42,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 0; ?>
+                                
                                 @forelse ($user as $useritem)
                                     <tr>
                                         <td class="ps-4">
-                                            <p class="text-xs font-weight-bold mb-0">{{ ++$i }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $loop->iteration }}
+                                            </p>
                                         </td>
 
                                         <td class="text-center">
@@ -81,11 +83,19 @@
                                         </td>
                                     </tr>
                                 @endforelse
-
-
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end">
+                    @if ($user->total() < 11)
+                        <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                            {{ $user->firstItem() }} to {{ $user->lastItem() }} of
+                            {{ $user->total() }} results
+                        </p>
+                    @else
+                        {{ $user->links('pagination::bootstrap-5') }}
+                    @endif
                 </div>
             </div>
         </div>

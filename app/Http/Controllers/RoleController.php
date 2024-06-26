@@ -12,7 +12,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::all()->sortBy('name');
+        $roles = Role::orderby('name')->paginate(10);
 
 
         $title = 'Hapus Role!';

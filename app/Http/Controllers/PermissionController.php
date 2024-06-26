@@ -13,7 +13,7 @@ class PermissionController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::orderby('created_at')->get();
+        $permissions = Permission::orderby('created_at')->paginate(10);
 
         $title = 'Delete Permission!';
         $text = "Apakah anda yakin?";

@@ -16,14 +16,14 @@
                             @csrf
                             <div class="mx-4">
                                 <label for="nama" class="form-label">Nama Sub Menu</label>
-                                <input type="text" name="nama" class="form-control" id="nama">
+                                <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama')}}">
                                 @error('nama')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mx-4">
                                 <label for="route" class="form-label">Route</label>
-                                <input type="text" name="route" class="form-control" id="route">
+                                <input type="text" name="route" class="form-control" id="route" value="{{ old('route') }}">
                                 @error('route')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
