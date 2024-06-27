@@ -58,10 +58,10 @@ class RegisterController extends Controller
             'emailsso.email' => 'Email SSO harus valid',
             'emailsso.unique' => 'Email SSO sudah terdaftar',
             'emailpribadi.unique' => 'Email pribadi sudah terdaftar',
-
+            'emailpribadi.different' => 'Email Pribadi dan Email SSO harus berbeda',
             'emailpribadi.required' => 'Email pribadi tidak boleh kosong',
             'emailpribadi.email' => 'Email pribadi harus valid',
-            
+
             'notelp.required' => 'No Telepon Harus diisi',
             'notelp.number' => 'No Telepon harus berupa angka',
             'notelp.min' => 'No Telepon minimal harus 8 angka',
@@ -110,7 +110,7 @@ class RegisterController extends Controller
             'nama' => 'required',
             'nip' => 'required|numeric',
             'emailsso' => 'required|email|unique:users,emailsso',
-            'emailpribadi' => 'required|email|unique:users,emailpribadi',
+            'emailpribadi' => 'required|email|unique:users,emailpribadi|different:emailsso',
             'kelas' => 'required',
             'notelp' => 'required|numeric|min:8',
             'password' => 'required|min:8',
@@ -126,6 +126,7 @@ class RegisterController extends Controller
             'emailpribadi.unique' => 'Email pribadi sudah terdaftar',
             'emailpribadi.required' => 'Email pribadi tidak boleh kosong',
             'emailpribadi.email' => 'Email pribadi harus valid',
+            'emailpribadi.different' => 'Email Pribadi dan Email SSO harus berbeda',
             'kelas.required' => 'Kelas tidak boleh kosong',
             'notelp.required' => 'No Telepon Harus diisi',
             'notelp.number' => 'No Telepon harus berupa angka',
@@ -134,6 +135,7 @@ class RegisterController extends Controller
             'password.min' => 'Password minimal harus 8 karakter',
             'password_confirmation.required' => 'Konfirmasi password tidak boleh kosong',
             'password_confirmation.same' => 'Konfirmasi password harus sama dengan password'
+
         ]);
 
         $dosenwali = DosenWali::create([
