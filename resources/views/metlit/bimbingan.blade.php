@@ -14,8 +14,8 @@
                                     <input type="text" class="form-control" placeholder="Cari">
                                 </div>
                             </div>
-                            <a href="{{ asset('/tambah-angkatan') }}" class="btn bg-gradient-info btn-sm mb-0"
-                                type="button">Tambah Angkatan </a>
+                            <a href="{{ asset('/tambah-bimbingan') }}" class="btn bg-gradient-info btn-sm mb-0"
+                                type="button">Tambah Bimbingan </a>
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -30,19 +30,15 @@
 
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Tanggal
+                                        </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Nama
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Dosen Pembimbing
-                                        </th>
-                                        
-
-
-
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Status
                                         </th>
 
                                         <th
@@ -53,21 +49,35 @@
                                 </thead>
                                 <tbody>
 
+                                    @forelse ($bimbingan as $bimbingan)
 
 
+                                        <tr>
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $loop->iteration }}</p>
+                                            </td>
 
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $bimbingan->tanggal }}</p>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $bimbingan->nama }}</p>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <p class="text-xs font-weight-bold mb-0">{{ $bimbingan->dosenpbb_id }}
+                                                </p>
+                                            </td>
                                             <td class="text-center ">
-
-
-
-                                                <a href="/edit-angkatan/{{ $angkatans->id }}" type="button" class="mx-3"
+                                                <a href="/edit-angkatan/{{ $bimbingan->id }}" type="button" class="mx-3"
                                                     data-bs-toggle="tooltip" data-bs-original-title="Edit Angkatan">
                                                     <i class="fas fa-pencil-alt text-secondary">
 
                                                     </i>
                                                 </a>
 
-                                                <a href="/delete-angkatan/{{ $angkatans->id }}"
+                                                <a href="/delete-angkatan/{{ $bimbingan->id }}"
                                                     class="fas fa-trash text-secondary" data-confirm-delete="true">
 
                                                 </a>
@@ -94,13 +104,13 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-end">
-                        @if ($angkatan->total() < 11)
+                        @if ($bimbingan->total() < 11)
                             <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
-                                {{ $angkatan->firstItem() }} to {{ $angkatan->lastItem() }} of
-                                {{ $angkatan->total() }} results
+                                {{ $bimbingan->firstItem() }} to {{ $bimbingan->lastItem() }} of
+                                {{ $bimbingan->total() }} results
                             </p>
                         @else
-                            {{ $angkatan->links('pagination::bootstrap-5') }}
+                            {{ $bimbingan->links('pagination::bootstrap-5') }}
                         @endif
                     </div>
                 </div>

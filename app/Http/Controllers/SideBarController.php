@@ -13,8 +13,7 @@ class SideBarController extends Controller
 {
     public function index()
     {
-        $menu = Menu::with('Submenu')->get();
-        return view('layouts.navbars.auth', compact('menu'));
+
     }
 }
 

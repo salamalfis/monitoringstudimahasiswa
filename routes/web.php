@@ -234,8 +234,9 @@ Route::group(['middleware' => 'auth'],function () {
 
    #tugas akhir
     Route::get('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'index'])->name('tugasakhir');
-     Route::post('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'inputtugasakhir'])->name('tugasakhir');
-     Route::get('/bimbingan-tugas-akhir',[TugasAkhirController::class, 'bimbingantugasakhir'])->name('tugasakhir');
+    Route::post('/anggota-kelompok-tugas-akhir',[TugasAkhirController::class, 'tambahanggotakelompok'])->name('tugasakhir');
+    Route::delete('/delete-anggota-tugas-akhir/{id}', [TugasAkhirController::class, 'deleteanggota'])->name('tugasakhir');
+    Route::get('/bimbingan-tugas-akhir',[TugasAkhirController::class, 'bimbingantugasakhir'])->name('tugasakhir');
      Route::post('/bimbingan-tugas-akhir',[TugasAkhirController::class, 'inputbimbingantugasakhir'])->name('tugasakhir');
      Route::get('/progress-tugas-akhir',[TugasAkhirController::class, 'progresstugasakhir'])->name('tugasakhir');
      Route::post('/progress-tugas-akhir',[TugasAkhirController::class, 'inputprogresstugasakhir'])->name('tugasakhir');

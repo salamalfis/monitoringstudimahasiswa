@@ -18,7 +18,7 @@ class MetlitController extends Controller
     public function index()
     {
 
-       
+
         $user = Auth::user();
         $detailMahasiswa = DetailMahasiswa::where('user_id', $user->id)->first();
         $kelompok = KelompokMetlit::where('mahasiswa_id', $detailMahasiswa->id)->first();
@@ -49,20 +49,20 @@ class MetlitController extends Controller
             $usersInKelompok = User::whereHas('detailMahasiswa', function($query) use ($kelompokan) {
                 $query->whereIn('id', $kelompokan->pluck('mahasiswa_id'));
             })->paginate(10);
-        
+
             $title = 'Hapus Anggota!';
             $text = "Apakah anda yakin?";
             confirmDelete($title, $text);
-    
+
             return view('metlit.index', compact('kelompokan', 'usersInKelompok'));
         }
     }
 
-    
+
     public function tambahanggotakelompok(Request $request)
     {
 
-     
+
         Request()->validate([
             'iduser' => 'required',
         ],
@@ -71,16 +71,17 @@ class MetlitController extends Controller
         ]);
 
         $user = User::where('iduser', $request->iduser)->first();
+        if($user == null){
+            Alert::error('Gagal', 'Nim Anggota tidak ditemukan');
+            return redirect('/anggota-kelompok-tugas-akhir');
+        }
         $detailMahasiswa = DetailMahasiswa::where('user_id', $user->id)->first();
 
-        if($detailMahasiswa == null){
-            Alert::error('Gagal', 'Nim Anggota tidak ditemukan');
-            return redirect('/anggota-kelompok-metode-penelitian');
-        }
+
 
         $kelompok = KelompokMetlit::where('mahasiswa_id', $detailMahasiswa->id)->first();
 
-       
+
 
         if ($kelompok?->mahasiswa_id == $detailMahasiswa->id) {
 
@@ -92,11 +93,11 @@ class MetlitController extends Controller
                 $updatekelompok = KelompokMetlit::where('id', $kelompok->id)->update([
                     'namakelompok' => $request->namakelompok,
                 ]);
-                
+
                 $updatedetail = DetailMahasiswa::where('id', $detailMahasiswa->id)->update([
                     'namakelompok' => $request->namakelompok,
                 ]);
-                
+
                 Alert::success('Berhasil', 'Anggota berhasil ditambahkan');
                 return redirect('/anggota-kelompok-metode-penelitian');
             }
@@ -145,11 +146,20 @@ class MetlitController extends Controller
 
 
     public function bimbinganmetlit()
-    {   $user = Auth::user()->id;
-        $detailMahasiswa = DetailMahasiswa::where('user_id', $user)->first();
-        $pilih = BimbinganMetlit::where('mahasiswa_id',$detailMahasiswa->id)->get();
-        $bimbingan = BimbinganMetlit::where('mahasiswa_id',$detailMahasiswa->id)->paginate(10);
+    {
+        $user = Auth::user();
+        $detailMahasiswa = DetailMahasiswa::where('user_id', $user->id)->first();
+        $kelompok = KelompokMetlit::where('mahasiswa_id', $detailMahasiswa->id)->first();
+
+        if($kelompok == null){
+            Alert::error('Gagal', 'Anda belum terdaftar pada kelompok');
+            return redirect('/anggota-kelompok-metode-penelitian');
+        }
+
+        $bimbingan = BimbinganMetlit::where('kelompok_id', $kelompok->id)->paginate(10);
+
         return view('metlit.bimbingan', compact('bimbingan'));
+
     }
     public function pilihtopikmetlit()
     {

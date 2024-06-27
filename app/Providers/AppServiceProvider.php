@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layouts.sidebar.auth', function ($view) {
             $menu = \App\Models\Menu::all()->sortBy('sort');
-            $submenu = \App\Models\Submenu::all()->sortBy('nama');
+            $submenu = \App\Models\Submenu::all()->sortBy('sort');
             $view->with('menu', $menu)->with('submenu', $submenu);
         });
 

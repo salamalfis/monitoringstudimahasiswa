@@ -27,11 +27,11 @@ class RegisterController extends Controller
     //     return view('registerProdi');
     // }
     public function registerDosenWali() {
-        $kelas = Kelas::all();
+        $kelas = Kelas::where('active', true)->orderBy('kode_kelas')->get();
         return view('registerDosenWali', compact('kelas'));
     }
     public function registerMahasiswa() {
-        $kelas = Kelas::all();
+        $kelas = Kelas::where('active', true)->orderBy('kode_kelas')->get();
         return view('registerMahasiswa', compact('kelas'));
     }
 
@@ -42,9 +42,8 @@ class RegisterController extends Controller
             'nama' => 'required',
             'iduser' => 'required|numeric|unique:users,iduser',
             'emailsso' => 'required|email|unique:users,emailsso',
-            'emailpribadi' => 'required|email|unique:users,emailpribadi',
+            'emailpribadi' => 'required|email|unique:users,emailpribadi|different:emailsso',
             'kelas' => 'required',
-
             'notelp' => 'required|numeric|min:8',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password'
@@ -62,7 +61,7 @@ class RegisterController extends Controller
 
             'emailpribadi.required' => 'Email pribadi tidak boleh kosong',
             'emailpribadi.email' => 'Email pribadi harus valid',
-
+            
             'notelp.required' => 'No Telepon Harus diisi',
             'notelp.number' => 'No Telepon harus berupa angka',
             'notelp.min' => 'No Telepon minimal harus 8 angka',

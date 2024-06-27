@@ -14,7 +14,7 @@
                         @csrf
                         <div class="mx-4 mb-3">
                             <label for="iduser" class="form-label">Nim Anggota</label>
-                            <input type="text" name="iduser" class="form-control" id="iduser" placeholder="Nim Anggota">
+                            <input type="text" name="iduser" class="form-control" id="iduser" placeholder="Nim Anggota" autocomplete="off">
                             @error('iduser')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -22,7 +22,7 @@
 
                         @foreach($kelompokan as $namakelompok)
                         <input type="hidden" name="namakelompok" value="{{ $namakelompok->namakelompok  }}">
-                        @endforeach                        
+                        @endforeach
 
                         <div class="mx-3 d-flex justify-content-end">
                             <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Anggota</button>
@@ -33,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">

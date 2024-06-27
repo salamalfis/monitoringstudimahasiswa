@@ -14,14 +14,14 @@ class ApprovalController extends Controller
 
         $users = User::all()->where('active', false);
 
-
         return view('approval.index', compact('users'));
     }
 
     public function approvalmetlit(){
+
         return view('approval.metlit');
     }
-    
+
     public function approvaltugasakhir(){
         return view('approval.tugasakhir');
     }
@@ -40,7 +40,7 @@ class ApprovalController extends Controller
         $detailuser = DetailMahasiswa::where('user_id','==',$id);
         return view('approval.detailuser', compact('user'));
     }
-    
+
     public function approve($id){
         $user = User::find($id);
         $user->active = true;

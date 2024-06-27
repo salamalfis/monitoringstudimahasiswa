@@ -1,3 +1,125 @@
 @extends('layouts.user_type.auth')
-
 @section('content')
+    <div class="row">
+        <div class="col-6">
+            <div class="card mb-4 mx-4">
+                <div class="card-header pb-0">
+                    <div class="d-flex flex-row justify-content-between">
+                        <h5 class="mb-4">Tambah Anggota Kelompok</h5>
+                    </div>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+
+                    <form action="" method="POST">
+                        @csrf
+                        <div class="mx-4 mb-3">
+                            <label for="iduser" class="form-label">Nim Anggota</label>
+                            <input type="text" name="iduser" class="form-control" id="iduser" placeholder="Nim Anggota" autocomplete="off">
+                            @error('iduser')
+                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        @foreach($kelompokan as $namakelompok)
+                        <input type="hidden" name="namakelompok" value="{{ $namakelompok->namakelompok  }}">
+                        @endforeach
+
+                        <div class="mx-3 d-flex justify-content-end">
+                            <button type="submit" class="btn bg-gradient-info mx-2 mt-3">Tambah Anggota</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 mx-4">
+                <div class="card-header pb-0">
+                    <div class="d-flex flex-row justify-content-between">
+                    </div>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        No
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Nim
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Nama Anggota
+                                    </th>
+
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @forelse ($usersInKelompok as $usersInKelompok)
+                                    <tr>
+
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $loop->iteration }}
+                                            </p>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <p class="text-xs font-weig t-bold mb-0">
+                                                {{ $usersInKelompok->iduser }}
+                                            </p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">
+                                                {{ $usersInKelompok->nama }}
+                                            </p>
+                                        </td>
+
+                                        <td class="text-center ">
+
+                                            @if ($usersInKelompok->iduser != Auth::user()->iduser)
+
+                                                <a href="/delete-anggota-tugas-akhir/{{ $usersInKelompok->id }}"
+                                                    class="fas fa-trash text-secondary" data-confirm-delete="true"></a>
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-center" colspan="8">
+                                            <p class="text-xs font-weight-bold mb-0">Data
+                                                {{ str_replace('-', ' ', Str::title(Request::path())) }} tidak ditemukan
+                                            </p>
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end">
+                    @if ($kelompokan->total() < 11)
+                        <p class="text-xs font-weight-bold mb-0 text-wrap">Showing
+                            {{ $kelompokan->firstItem() }} to {{ $kelompokan->lastItem() }} of
+                            {{ $kelompokan->total() }} results
+                        </p>
+                    @else
+                        {{ $kelompokan->links('pagination::bootstrap-5') }}
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

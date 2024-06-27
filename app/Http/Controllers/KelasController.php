@@ -28,7 +28,7 @@ class KelasController extends Controller
 
     public function tambahkelas()
     {
-        $angkatan = Angkatan::orderBy('tahun_angkatan')->get();
+        $angkatan = Angkatan::where('active', true)->orderBy('tahun_angkatan')->get();
 
         return view('kelas.tambah', compact('angkatan'));
     }
