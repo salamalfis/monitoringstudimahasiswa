@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use function Ramsey\Uuid\v1;
-use Illuminate\Http\Request;
+
 
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
